@@ -1,0 +1,1945 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no,viewport-fit=cover">
+<meta name="theme-color" content="#21427C">
+<title>BASE ARCADE</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+<style>
+@font-face{font-family:'LomoWebPixelLTStd-5';src:url(data:font/woff2;base64,d09GMgABAAAAABswAA8AAAAAdUQAABrUAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAP0ZGVE0cGnIbIByLJAZgAIZeEQgK/QzafAuDdgABNgIkA4doBCAFxgoHhDcbNmEV45gl4DxA0f+HHTMSIWwcMY+hTfb/x+TGEMF+SK1aEEwm0cxZQk2re+2C63Ti5lJV0eQ29T0NC/ejZSuyHFmOrHD93lh58kK4Cjr4SIOTJivQ+IUD0ykFR0HLrzkpz9xIciBSju3992WFgkjQ6IPGBUcv9DEaGkk2efhv7fW+2VkI8/4UhKkwqWWLGlCh6qnRqSVJsrXIkoVB+va0XzpvPxDtbQDQYRGE6tkKE3KtccBKpBGqaEPCJvXr1/Tt/gsJG5U5oeKIbAkUMrnW3VQDgERUkZ1TLXw9+31ZC0DCjJ7dHhmY40eYELz6dik+xxNNtwqw0Eh1ExaKhCMYXGsXOoTuodHKuxjmthvujWWqpTnLpDFO4eIrvY8HWDj8AfJTUn4Zv//B+UHz8O18P6hYA8nrurDBwEcytJ3Pt6XSPyFhE0kIbDw7rR6Pv/QShy1Dl3tgnWsUcaCB3OA5vuCi6oH0hXX1pYtV5guj236HWFg3sRAD60RGxP9vr5VnmWq0vSFre9ch9/p8R7QGbENECUAzA9T/Vr1X/lX6+mfU6jPu+ZY1IbaOnHpnQ6z6JakVelLqcYww5d5xCAGlALiPoTOgBjzRGSOjDJgBtAE0tAFFRrvz/X+tHerzk/QVLuES0tQVwqie0IQQqWa8x9fmx+b3cJ7+vlVZCCZSYhAu9n2ddX/1xm/XyEuFI4Rwne3EwA15wP6/PQJ4ea6mAbh+y9cB8Or++ylCoB8cBIlHoiE6HWPYRw40Ysc6kDc6sbeWkG+Wse/2kBMH2KlX5Mw7duFXuPZT8t8vQQYJBOhVa9HhL48dpScD3f8BAXpNew/Ven6LcZi9HzqDPKTLsK3KpwXHy9kWLldgD/c7Sg2v3/16JXyf4iP8XLEJYO7SJXA80hAh3o36InorQZMypayXta/X5GoNm7ZsV6hYCQpUaNBhwARZfky8qh+vX0ds04IyLuM/rU+hqQISiDRwTCxUFcz9JLWYLZxFAndRlAqVJxU0uUo69ebh2Qv6bOLAUrozNUqVyVO7/3aX6AKxRGrQvG2RKPRwcOvuSFOgzIAFik2Xfqj6KUz/3Hnw6N6TD5/y1dHpS6PzyplM36hfRhLfHzcCWOiKrq/XxSKdIg7ljiZfaEtaFhlJeQLwrVe7Ycy2ILBVPD0JZKnaoHEQoA8hEZLJF7wBu2MhVhLlCvrDmHLfZeOrI7tyyaiUKqGzQvSFsmvJvXX4dk3cnP5w5W0avtqwWevQwjNCIFgQEHZ0Pf1EfCvfmvjRUgROzAWmZYX4OUHPcvAmJJOzIRHpACz4DYnUUC77pM2UBqm6IhCxtAB1+U9y4urjaDk+vL9uJqY9yZFa+Sr0CbZhjzCV75wkFIney1dtmSk0dO6ASDYr4kocToYScYX2pusIMXEkKI/EHui0iL6V9cmIzs7tMCbG1TKGD/RyVuOrEsoN+QKsllMWFE9lJECiVgwk8hm4tMK0CYAtbdt20P5JGWBPzqCZFo1sBPE1vqIlgwIUYB4BaQcEAvPk5AS7eGmU4LT/HXX4KYqSqYoaaCR9kpbTeaHiseL14s3i3baal7zlgg/zWb7Ot9s2MNYTveHetGByJQ/JoyIRpWjFhLi1jFkmrlv5w7pA631cDB9FUhJVUT2NpI/TcjqiffIqnvOa8ytaEyOnF4Ig6A+edX+E7mP+Nsazezt/1b+L4LcPbAL9a+BsN+A0nIKTcAz2wlaYg03oS3QR7UTHtgM8gA1wDs7ANuJ/BhZAC/ADz2lj/kWgi9bX+2lNuV78H6HR6vQGownit1htdofTxdXN3cPTy9vH1w8MgcLgCCQKjcHi8AQiiUyh0ugMJovN4fL4mZSSlpGVk1dQVFJW0axFqzbtOnTq0q1Hrz79BgwaMmzEqDHjJkyaIvEGiYqCQKhpgXevoCKXVf2ExM9K/NbkgRUAESaUcSGVNtb5EFMutfUx1z73836yomq6YVq243p+EEZxkmZ5UVZ103b9ME7A+FCMYvpJnOZZUTV12w39OC3bup/H+3y+Py5hux5xhumvkPab+x+/f1rR9/J88OHkd3m40abU82H18ydT8R6nNUzszx8enZ0fnwz9vrt0e3d983eT5BRc6e0tfd0Dg0P9Y+MYPTs3s7O2w9nY3JLubq8jEF0S4DfEV+IqjM0Ck6cAtIBT9vBI3087IyOBJhmUpjBlCZZu1HbFxFC4zsvitabIAR5d0z1HwBAsTsGaia4OJ/hoQk67klovj7Wq1DaaORIQ1oONGVqxfhlmTS4oWFe/lHrrtQ/l7v79uPgdEffDkzG4XfQjlt4l3CDSZZ0cYemI0QBbX6T7Zn3cLQd+ovnbQvbiwV1f3j3Kw+JScFZ5sl81uKR0ORzRp/vHQ+ThU0H7JTlLCo4lWd+P0q+leC6P5WH0beyheYSJ/wEbpE/dkf3u3XgVZ1e8y9Gl7zjxCqd28eLepeRusVAtE90UMkBzwJMZ/m/pgGg+Yu935a48fipy9+nT3Z2BbUsvxVcxtKZrIJK44+Ah/vDlYeJmOnfnRXvv6dWjJbHQcfvDM0g3xsKYkrRSg0EpUOHpfTQy6Pe6WoG2T832Q3qi6UlZH+pU6aFsyST+CYIUU3MoAdMFlBnSY/4kxZdD9vVa0FsMI/1QmaCMul1vOVU6KXNldu/DfuBIP2u2X1HisgFarEP9okBSGpqkEFhFtzNsasq7fqlsfwe1mj0uPkvUNwZp1uijfZJDvlaysVPNimX7UsfOwPumThssdWxTcc5S3J2uNlS5ZxVzVigwb6XngY6GLtXtmr9DoelM0pZ2QHnAbJss94a9R4E/KagURK3Jz2ey7DgeU5Rtw+rofweDzaAmSzaFKxh19z4boEyuuX52xSHsIy6djSr1sjE5hmLK64YPOBKffVw2jo3RBSYJNysbKHXlao6OvTN70vXq1D+2NHJqQzmSXiw1tuKhThWb4FIVSjjP56BtCLGOG6qSQTa32gLVszo7kQ01bNWhkb4vD8suwLUO5U0ipbM8kPix9EJ7lLwzfGk4mQouR7XVaIxsqrNyM2BjtXRlGDDME9hoWp1kS/GhHly6u7sZNFw/3371WZ9Q6fS+XtswDcvntbH+r7xAtfq5c1eovpl/YOil0hDyUPa7yo+JNamLY/iBrVZI3xM04RdxZyX5mMk+Mn2moVuSt1cSLmY9ha+8Y935vFB4+FvQ9oWnZyXLy9yXOltSMTkX+546BWFOOoOkgKMCBQxZU7eT3hkw5Wr8TRYETd2++Ihfqf7CMfJzSccIHlG+LBVkRiLY01Nr6j20Z5J9Ee12j6rS+JjXy15m5AZHnbfL9KwaDYO/nC/9Nwy/KZdHA4X1WJ5OCM7igUWWxHVOu2QOCXLiHBylvtTH3tqU/yCwIj3VGJ5jaPoyeRlTAYO/rOPejp+l3obe8JV01GvefWrqb8+QIgPv+9m246FBOnXQ1Exf9Sh1jVo4ZdOanPSES5nHrOfwIEROUjWxen1EJuOp1/x3pPixJdux7lgztybjPbxBSOGXVSGEpBrnETUJ9pYjbqRMC8fpZhido5I6yHHp1ygjeWoBynjEikT0gdG7unOtypEu/zR4dLG+2Rm0Z6014+LZyHHrC6eav1Dssx1+DkOUCqM9PDHCj4EJEDMQD7yhM7hVs38P8Nwhm7RsHMKtS7kObRo/LUN70UTepFg89s8XCnsWN9MQ+0EvhAsmqvmJ1nCiOtu4V1H9C21DptZ4+ePt8ieyT4PaJyelu8edc0nA2dQawmHig8V10oucs47eRmxb2+wkyoveZJcfql/UEN6sRha5sds90GqwrcfJe7g20iTWE9Q4I4QneC+49vGp8fkMXgEVzif10+uF7qHrrP5ygEfCX0sJg3suzXhvOpnDIGatwU3LRfP+UBpzX3+j+X9tiGaarUq1vWcTGPcL5vQ/xo277ESsN5x9bvMcUvrL3vV/Nlze3Jn9Px+Gfp8JndHQ/X8Z9PwfLAwj0qSG08sO7TP2NKd83qUzq5Yo6qptAsM/KqrbXCVHr/0k2vJF132GRn2TcsPULadUKaRek53SS3Cjjiv9QqSrH8Bn9uKxUT+7ZNRyzauyLSn5YfBvzeriWXxedMSWLFExfQdbtYjQoMoP/vrNfHu9vClve96uolibxzW6cmRLdZLjRg6sBbmL5v3BCDuzr+6HnFWmU722tca+fKrYJ1TP3hvVtr5mRYC9WYWxPzVMRkbb6qZSL626ZFZse6F8Nz1sXkfT6chdHaKtrwGsattNqHw0ObNsV8xtV4M2FGLaCvkil4Jltz6o+I+hW14wLuh2rM8ffWm3emGFlgRU88MUdaraQRF5VCGx2bk4kK3s4gqDlnasaTJ/Sfz6Bfmq2K55+zGz2N4OQYg2ymfVNUJDTFHQRRWS9zWnPQJCDhbghjFzHghmXha+1ypVgQ7dxWjrWxPe20BmR2jMMF/OyBfomT0NIQSlemZ6yUq5XCCmVmIoR0QOlrXGO+YmZ1OLD9PWd8Wt06F54SUJcL5AgI9bGw1DqSYTwZwkyGzLWRFaUiEDhHHbGrArJJloGDY2/N/hm6mh4m7ex7GZrATjQQf0ZaVpMwnN0fgXVDdK/SyRh3qApaoeucaoLxEj5SMknXLsYJUCqTKyt0oI6sPHIqK1cALyVfRCIsn85Y3ymPZG0RBXq1XCbw087BhT3Q/1uM8DDE6ErzFM4j8lQkCSKvypr7SktWeaKLrluVHnDj6gHR8ErWXJBM1zPG0KIdWGlK7vinTAVEBjF1yUV6VKBbIba4Czrz4HWASpiDgpQCncEVahUl/+tr40JH1l5PeuRipNbmYy4MKme19p/earUliJ5lXrtA1qrxr0L9ee0fkUB2wZdRumS6ILL9ayFDzSHZFylbCy2J4pVrNJ2JXhaYZttv39Vm19r4Lk2QQ+aKoX7JpETtl+5PuVxNHmboBOiHy3gkAgcvhDSap1Vl4xGflu3fKYdkQjtzjjcEN1o6KlC7T++FW9oNOOjjRDwpyxEAOWXCuEZfK4pnSzGqxhPhUN7emZU4voG2CQSi6YDjsqJnKgXn0pbe6Y+n27fJtbnpMkclTqXv7COdl4XFKGGWDaJqN2DI+uHJrXBt+vRlBDBU2WJQAk37fS/e/Cfu8r4cm+FdmTGGPxlDtL1lIRzRde5o2Al1i7X8nYe+367POSX8TJ7RLDV9zl1x4YbU3IPlkSmN6bpfTWByUVca19vim81x4gywRC03MuY3PqRC5vJoYDNWMUkV+05AAPLG4PuxMxCrsUAciDgWL+xgiiFbTUBY0G3RXQ2wxjxjCtoX3KONxsac9YlNtWQ+jAFzvbFT/7hkBxh2sS8xirTbcYPmVjrpu2Rq3L1N+z837sw99riW7WpkXG8kAK3TNcPMeg9BCpYYrI0gc6GarrBbrw8jhDbKRH4qRoW1mrYf2PBhmpN+/4AKjg5h1zqg/4p3vAxTAQeC0lTsHaHP6obiuV0pNmOuJg2Bj6f8sc/mEQo+4ha/dV4tu/TnGWkPF2jMPfbbiM4bHmVzX+WgkpVX5mt0PHa3dJjhmr9lDxy7UBB2LDLnJc6GovE2KGeoLu7fy+sNozD2DDXQEtoXuE1ms9vT2dHi0lxu8vX+LkwG3W3kkmPDJ9e6cxHrNjZigCXJqutYX6C4QqnbH9imq7NneVY9X+05qjMfMUITfzMaiZ96VIvmdueUz57WhZekSqlFytWy1fUcGamYWsxpXvOwjcYNzjyZipSySQKOG3S3umRNqwl9l5ltDZ2+u05rV1iVBDen/DNmpZ8LvV9fQarOdXjD5K7jBISjnOKsvM6Nol47GVW4OJ18/jVbvN6mHUlBtcyl1pyEIQOI+wBoJWGJsg4amv6ZhJuXBSkiu196Dq8zX94nmMFHyBYJgvXwyjKppqbM02JwjTGaV1d0IstRQG6LJ9/Tj8TdJpxGlJ2jOnJR3+Hp20pOMR5drc6TSbJ7C23vdGnDxj5TvPu1Im19YPhXUcb+26XMYyRRMVu1OYxr9c7o35h77OxMksyzc4Izwte1tXd3jdf+J/OOceuevYDb82fY3/l/cbqv/6MXtG0n4lkbRDdot0+5mW/hejHcrfdP2l7hWStPMNaVdJOy12C/tK7GmxX9hrsdNiV+VzduvsnRaaYk9LVxlqadFOGUkynVWRToJULaRVcTxJTBb0zJvzYcprvVm7NRmheIGR9vaqx9iBnXNW8y5MeybT0xVYJW12eG3vhfsuavISIbF7qP+9yW987FZk9u6bKD+A5oHkPWL2vZKPUF/DnqxYiiHca3hqI/owNTyFvRtEhn4uCqJ7ec3vYSZ2svxHgMBvW+gBCQQCKwBYjgUEkPbK9RmFpE6NEq3ujgptfRVlSWOMSoNNTVSJmqOodtabjRpJ30rUw+l7i3pTRp+K+mRjL0X/xLtoIKc8VEeDsk4YDfM6mz7+CKWzl0DZAORH8CEi47UlYty6OpJs1sOJDE8EIsWtao5Uw81ipMV+cxrpxvvaIkPZdxiZ+bLvPbJMj40kdpp4HTnN4dhg5JpuzyJf2xn/xgTMDgZ4cIZ1liKrNZWhPq2Cajtfn3gErZpsX4PuUZWAO0sdut1RiaRoWSpXvL1usfOvywlu/XUKGvMEdMJxsL9Nl4QOQe0Z0qCSd6BstyfMpMk5OY882Zk6VJBSBCt1ItYoNElpFJ+nJ9vQ5R3XzJXc4+pyhkUJnXLrXRGLUJbeDhLDtxyR7mplU6wwwomtQhZKnk0YG1/Hy0iApI5ze0ZyPXadUV4Ie6+v4KkvRInnfIHIlIqZZJ40K0or+u3VvkZs1To186h9uwCdy2R/8VDETHkR986JKyOJ0EoUa02sOEt4wWocawhVINUU+/vqsXh7cNB4xttWIjRlO0CZI31rZrJU/ijAweApLbPg5rtOc0lMKmtVS9m7IFJmgSPcOcxq1i4LjIhzuUAi97DkMkGgGhkEkScgBgwXacv63pBlddK2pS/Zid1QWPgh8fm9unKqNrFlZNPYjaA9VKH+0KefD59jBP5LFbkYcz6iAkvcx0x1XXlrR7jmDfc2sOQGeeScv/LqeiQAnrrXsV5NtGXzSv6Sd1w3+7RwZMFjOIffRlBsHSGcfWbIV5THrj05CrV7nsFJlot8bbie4sJFX0HgPXvGL1LrV+Du6CUnJiryfHbXZBtyimJLEc9j0b9epiCnr0kBT67CArNnFpIADU/Q2apbJ2VDZ40jSHTM3xA2QGCnBGi/NU0Zs4ChucR4J3ym0hLn7Gozo2gyJPjS/ZXpcxH7+1BLqDW7aBJkDm/79eq0nmyNNsdR2sKal9+Qudgq5Pp483wfFZQav0at3HvP3+Qy2dwAeJR2Pv/7d3zLDW4AvCKtwpEiSOCmDVAT7WxlYq9949HTXVgVbuhm1djUW9CBf2wf2pvktB/7YrzIRRafNjZKZfaK2n72Bh+8N9BUyM6ZLnYU1mwDr3SquM94fsODuoeE7imvErG2DZSDU3oyt3w5mr/Emydem3QSta1EpckceIfNBdh2UijlwEd5F5u/F6cAjZsUPexTXbUI9SElLhsjSxk3RxqrR3SHSsB8GA+qlwqd9TDUgn+WF2x9fEffdVln14oVh1YKgrOFI8sTBAIjgu3vblzu8jMnD8lTRoLhYy+h++Qi0XxzYUnNvboA9uGNN/ZdDzg00HY59U/a2aWLb9m5DpvUDvhVC52iC+I5S6ygABuDM0tZFNvcaIRkSbe8hG20tIPx0rYAOfE/suxqADWhPSu6afDHgf5Hj6CpGHlkmL1pFPsZF6KkU7dR+o8UMwIA09nYLuFWxhzpTGQo1t8+R7MkuOpzvIbDrOuRcgqbZ5RNUTYlV0jTfk1NFwxj7aVReEi3WeLeZYc+SFu3KlB3CkOqTOOlQydNqORbIeO8ZyL0ANdAkqknZlCaqbETMdaViYc1KkjRwo1pyBE3bAy43XV+/OT0GV+TtQiaeotBFORqtpkZsEstP1UNy9T60ktc/r9krJrB7p3qepRMbmgYSK64t4UESJYxSFL9dVI/50PgzGb0Up9AW9SfA4+EiSut6rnvCl3d8cLKBzYvVplLDe+em7LA/LNRxixWRU2+Bx4JmfXQukL7UOwuht6d3tNUX1JZ84HOyuNwWWVt0QoUpFNChAwMUzUJDJtS7c4lAw2aXNeUyHyOzTJ6ExKw+V9Fu0SFVKZhYceooIFRkW0NClryruk0jXZlxmZzw+td9wxFFTulBt9bYkOXIbLEEqFPcxPWL4N3dThKsr/LDAXivUeVVuuAh8g+Zt3lNLPdhuA7SxxhFxpat6NvU23Lqgpat23d2LqJGjLRR8vmKAS7jnr26fKUltf7kWKfPVhwzJue36vzBwuq6TB+wNd3alNrcuS5Zfjqmlzgo4NZeBLgiO7BSwICn5wT+BWxMXFIJ/WIaTht8iTw4BVnd3+SP3sZW8QT09fTrDbQTYZA4MDasjDx/XAbmhVKyMO5npkbkuhB+gPw882RQIYz33o6KWQFbwxweJB1NHKMLaC/wN2k6MLo4YXXtcSpROcve5GL/ziSikrCntIc6mYZCa0raW05ld5G7bDf9tBcl2L1mFnI50rCqy2kkSLrzvru+AiduNIyC8Y9dKKYzKRKch9vwWHoBNLFV9UFzhFexeTuUdzBONsK1Di772/AEHuWDMsorE50IZxToXGlYtCpFC4C1JGFNzL1FD1RFIhixoRnu6SXysIvwcDHf8X5CoPKEyzKzVeUd3vwTk7s4nB9p79Zb61WuL69Pl6f1FiEbkZJfyI43Op+tUnxqpKhWKxGoYuZ5PdT/bcKnRv726f858VksTlcHl8gFPlp/s+VyRVKlVqj1eF6NhNCMIJiOEFSNMNyvCBKsqJqumFatuP2eKEwOAKJQmOwODyBSCJTqDQ6g8lic7g8vkAoEkukkbyedS/91V3IPRPX+0pqVmBzQh9Mffri/K/RYhbwIaXFj2+/ctotW9QBB8+DYBXRkhWb1qzb8IBk15ZtncjeeR3Ys4/iyQsrGio6JgaWDDYuDh4+IQERsUcSMlJySgpDstRUNLSevRpx6NKVLt2u3Rh1607JkQunzpyDjqEq0uJ69BowaE6ffvN0Zpi1WjBh0lhwZA9Fti0m6k2RT0KZW0DQsCnTdkpQMRQMWfePDyZKc11SHfu4YlAA) format("woff2");font-display:swap;}
+:root{
+  /* ---- palette (single source of truth) ---- */
+  /* every hex below is pulled literally from figma-refs/nav-1..6.svg + button.svg */
+  --bg-top:#21427C;
+  --bg-mid:#557EB7;
+  --bg-bot:#60A5FA;
+  --title-fill:#A5C5EF;     /* title letters — flat fill per nav SVGs        */
+  --title-outline:#0F172A;  /* title letter outline                          */
+  --title-shadow:#00233D;   /* hard 2px offset shadow                        */
+  --title-font:'LomoWebPixelLTStd-5','Press Start 2P',ui-monospace,monospace;
+  --stat:#60A5FA;           /* COINS / SCORE / TIME text                     */
+  --btn-face:#A5C5EF;       /* button.svg face                               */
+  --btn-edge:#1E3445;       /* button.svg outline + hard shadow              */
+  --btn-text:#1E3445;
+  --pill-face:#A5C5EF;      /* PAUSE / CONTINUE pill face                    */
+  --pill-outline:#203B51;   /* pill outline                                  */
+  --pill-shade:#62819B;     /* pill inner bottom shadow                      */
+  --gear:#CDCDCD;
+  --gear-edge:#00233D;
+  --opt-face:#D5E5FF;       /* settings option, resting (white)              */
+  --opt-face-sel:#2760C4;   /* settings option, chosen (blue)                */
+  --opt-shade-sel:#1B4488;  /* chosen option, inner shading                  */
+  --opt-text-sel:#EEEFF1;
+  --panel-bg:#1B2C4B;       /* settings popup panel                          */
+  --panel-edge:#0062CC;     /* settings popup pixel border                   */
+  --close-face:#FF4545;     /* red X close button                            */
+  --close-mark:#2E2626;
+  --label-band:#2E62B9;     /* game-name band inside the screen              */
+  --label-text:#A5C5EF;
+  --pix-frame:#D7E8FF;      /* white pixel border around the screen          */
+  --arrow-next:#EEEFF1;     /* carousel: white = next                        */
+  --arrow-prev:#2760C4;     /* carousel: blue = previous                     */
+  --board-bg:#0F172A;
+  --board-edge:#2760C4;
+  --grid:#2E4E82;
+  --block:#244B8B;      /* brick fill from the nav previews  */
+  --block-hi:#60A5FA;   /* brick outline                     */
+  --dim:#24406e;
+  --white:#ffffff;
+  --orange:#f5a623;
+  --yellow:#FBBF24;
+  --dpad-bg:#162655;        /* console controls disc                         */
+  --dpad-edge:#2760C4;
+  --dpad-arrow:#2760C4;
+
+  /* two-step pixel staircase corner, used by every button (matches the
+     provided button.svg exactly: two 1-step stairs per corner, not a
+     single diagonal notch) */
+  --n:3px;
+  --pc:polygon(
+    calc(var(--n)*2) 0, calc(100% - var(--n)*2) 0,
+    calc(100% - var(--n)*2) var(--n), calc(100% - var(--n)) var(--n),
+    calc(100% - var(--n)) calc(var(--n)*2), 100% calc(var(--n)*2),
+    100% calc(100% - var(--n)*2), calc(100% - var(--n)) calc(100% - var(--n)*2),
+    calc(100% - var(--n)) calc(100% - var(--n)), calc(100% - var(--n)*2) calc(100% - var(--n)),
+    calc(100% - var(--n)*2) 100%, calc(var(--n)*2) 100%,
+    calc(var(--n)*2) calc(100% - var(--n)), var(--n) calc(100% - var(--n)),
+    var(--n) calc(100% - var(--n)*2), 0 calc(100% - var(--n)*2),
+    0 calc(var(--n)*2), var(--n) calc(var(--n)*2),
+    var(--n) var(--n), calc(var(--n)*2) var(--n)
+  );
+
+  /* same staircase, larger step, used for the board frame — clip-path
+     clips the border too, so a plain border traces every step */
+  --fn:10px;
+  --frame-cut:polygon(
+    calc(var(--fn)*2) 0, calc(100% - var(--fn)*2) 0,
+    calc(100% - var(--fn)*2) var(--fn), calc(100% - var(--fn)) var(--fn),
+    calc(100% - var(--fn)) calc(var(--fn)*2), 100% calc(var(--fn)*2),
+    100% calc(100% - var(--fn)*2), calc(100% - var(--fn)) calc(100% - var(--fn)*2),
+    calc(100% - var(--fn)) calc(100% - var(--fn)), calc(100% - var(--fn)*2) calc(100% - var(--fn)),
+    calc(100% - var(--fn)*2) 100%, calc(var(--fn)*2) 100%,
+    calc(var(--fn)*2) calc(100% - var(--fn)), var(--fn) calc(100% - var(--fn)),
+    var(--fn) calc(100% - var(--fn)*2), 0 calc(100% - var(--fn)*2),
+    0 calc(var(--fn)*2), var(--fn) calc(var(--fn)*2),
+    var(--fn) var(--fn), calc(var(--fn)*2) var(--fn)
+  );
+}
+*{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent}
+html,body{height:100%}
+body{
+  background:var(--bg-top);
+  background:linear-gradient(180deg,var(--bg-top) 0%,var(--bg-mid) 39%,var(--bg-bot) 100%);
+  font-family:var(--title-font);
+  display:flex;justify-content:center;align-items:flex-start;
+  min-height:100%;overflow-x:hidden;
+}
+#phone{
+  width:100%;max-width:393px;min-height:100svh;
+  display:flex;flex-direction:column;align-items:center;
+  padding:26px 11px 18px;position:relative;
+  background:linear-gradient(180deg,var(--bg-top) 0%,var(--bg-mid) 39%,var(--bg-bot) 100%);
+}
+
+/* ---------- header (geometry + colours from nav 1-6.svg) ---------- */
+#title{
+  font-family:var(--title-font);
+  /* sized to the nav SVGs: the wordmark spans x65.7-327.7 (262px wide)
+     on the 393 canvas — it was rendering at 174px, about two-thirds size */
+  font-size:33px;letter-spacing:1.5px;font-weight:400;
+  color:var(--title-fill);
+  -webkit-text-stroke:0.9px var(--title-outline);
+  text-shadow:3px 3px 0 var(--title-shadow);
+  text-align:center;line-height:1.4;cursor:pointer;user-select:none;
+}
+/* HUD row — aligned to the same margins as the PAUSE→gear row (x29-365)
+   so the two bands stack flush, per the score mockup */
+#stats{
+  display:flex;justify-content:space-between;align-items:center;width:100%;
+  padding:0 25px 0 19px;margin-top:30px;box-sizing:border-box;   /* same as #buttons */
+  font-family:var(--title-font);
+  font-size:11px;color:var(--stat);letter-spacing:.5px;
+}
+.statCell{display:flex;align-items:center;gap:6px;line-height:1}
+.statCell b{font-weight:400;color:var(--stat)}
+.ico{
+  display:block;background-repeat:no-repeat;background-size:contain;
+  background-position:center;image-rendering:pixelated;flex:none;
+}
+#icoCoin{width:19px;height:17px}
+#icoStar{width:19px;height:17px}
+#icoTime{width:16px;height:17px}
+/* lives */
+#lives{gap:3px}
+#lives .heart{width:20px;height:16px;image-rendering:pixelated;display:block;flex:none}
+#lives.na{opacity:.4}          /* games where lives don't apply, like the disabled PAUSE */
+/* pause / continue pill row: pause x29.6, continue ends x313.9, gear x347-368 */
+#buttons{
+  display:flex;align-items:center;width:100%;
+  padding:0 25px 0 19px;margin-top:22px;gap:0;
+}
+#buttons .pill:nth-child(2){margin-left:27px}
+#btnSettings{margin-left:auto}
+
+/* pill button: #A5C5EF face, #203B51 outline, #62819B bottom shade,
+   white top highlight — SVG background injected by JS (pillSVG) */
+.pill{
+  position:relative;border:0;background:transparent;padding:0;cursor:pointer;
+  width:132px;height:29px;flex:none;
+}
+.pill svg{position:absolute;inset:0;width:100%;height:100%;display:block;pointer-events:none}
+.pill span{
+  position:relative;z-index:2;display:block;width:100%;text-align:center;
+  font-family:var(--title-font);font-size:11px;letter-spacing:1px;
+  color:var(--btn-edge);line-height:29px;
+}
+.pill:active{transform:translate(1px,1px)}
+.pill[disabled]{opacity:.5;cursor:default;transform:none}
+/* secondary pills (MENU, RESTART) — dimmed face, same shape */
+.pill.ghost svg path:nth-of-type(2){fill:var(--dim)}
+.pill.ghost span{color:var(--pix-frame)}
+/* Settings options: white is the resting state, the chosen one goes blue.
+   In pillSVG the rects run: 1-3 = white highlights, 4-5 = bottom shading,
+   so only the shading is recoloured and the highlights stay white. */
+.pill.opt svg path:nth-of-type(2){fill:var(--opt-face)}
+.pill.opt span{color:var(--btn-edge)}
+.pill.opt.sel svg path:nth-of-type(2){fill:var(--opt-face-sel)}
+.pill.opt.sel svg rect:nth-of-type(4),
+.pill.opt.sel svg rect:nth-of-type(5){fill:var(--opt-shade-sel)}
+.pill.opt.sel span{color:var(--opt-text-sel)}
+/* D-pad highlight — which option the physical controls are sitting on.
+   The white outline carries it everywhere; the vertical overlay lists
+   have room for pixel carets either side as well. */
+.pill.kbFocus svg path:nth-of-type(1){fill:var(--pix-frame)}
+#ovBtns .pill.kbFocus::before,#ovBtns .pill.kbFocus::after{
+  content:'';position:absolute;top:50%;width:7px;height:12px;
+  margin-top:-6px;background:var(--pix-frame);pointer-events:none;z-index:3;
+  animation:caretPulse 1s steps(2) infinite;
+}
+#ovBtns .pill.kbFocus::before{left:-13px;clip-path:polygon(0 50%,100% 0,100% 100%)}
+#ovBtns .pill.kbFocus::after {right:-13px;clip-path:polygon(100% 50%,0 0,0 100%)}
+@keyframes caretPulse{50%{opacity:.35}}
+/* selected (blue) and focused (white outline) are independent states —
+   the outline sits on top of whichever face the pill has */
+.settingsRow .pill.kbFocus{outline:2px solid var(--pix-frame);outline-offset:2px}
+
+/* ---------- pixel buttons (same stepped language as the d-pad) ---------- */
+.pix{
+  position:relative;font-family:var(--title-font);border:0;border-radius:0;padding:0;
+  background:var(--btn-face);clip-path:var(--pc);cursor:pointer;
+  filter:drop-shadow(3px 3px 0 var(--btn-edge));
+}
+.pix > span{
+  position:relative;z-index:2;display:block;padding:12px 16px;
+  color:var(--btn-text);font-size:11px;letter-spacing:.5px;
+}
+.pix:active{transform:translate(2px,2px);filter:drop-shadow(1px 1px 0 var(--btn-edge))}
+.pix[disabled]{opacity:.4;cursor:default;transform:none}
+.pix.ghost{background:var(--dim)}
+.pix.ghost > span{color:var(--block-hi)}
+.pix.wide > span{padding:11px 0;text-align:center}
+.pix.wide{width:190px}
+
+/* ---------- board — screen rect from nav SVGs:
+   371x471, rx 22.5, #0F172A fill, #2760C4 1px stroke,
+   #D7E8FF pixel border strip just inside the edge ---------- */
+#boardWrap{
+  position:relative;width:100%;margin-top:10px;
+  /* Height is set by fitCanvas() to exactly ROWS*CELL, so the grid always
+     divides the board with nothing left over. Relying on CSS aspect-ratio
+     left a fractional remainder and the last row read as an open box. */
+  box-sizing:border-box;
+  background:var(--board-bg);border:1px solid var(--board-edge);border-radius:22.5px;
+  overflow:hidden;
+}
+#board{display:block;position:absolute}
+#pixFrame{position:absolute;inset:0;width:100%;height:100%;pointer-events:none;z-index:3}
+/* game-name band inside the screen (menu only): y596-626 of the 471-tall screen */
+#gameLabel{
+  position:absolute;left:1px;right:1px;bottom:2px;height:30px;z-index:2;
+  display:none;align-items:center;justify-content:center;
+  background:var(--label-band);
+  font-family:var(--title-font);font-size:17px;letter-spacing:2px;
+  color:var(--label-text);
+  -webkit-text-stroke:0.5px var(--title-outline);
+  text-shadow:1px 1px 0 var(--title-outline);
+  user-select:none;pointer-events:none;
+}
+#gameLabel.show{display:flex}
+
+#overlay{
+  position:absolute;inset:0;display:none;
+  flex-direction:column;justify-content:center;align-items:center;gap:14px;
+  background:rgba(7,13,26,.93);padding:20px;text-align:center;
+}
+#overlay.show{display:flex}
+#ovTitle{font-size:13px;color:var(--block-hi);letter-spacing:1px;line-height:1.6}
+#ovSub{font-size:8px;color:var(--stat);line-height:1.9}
+#ovBtns{display:flex;flex-direction:column;gap:10px;align-items:center;margin-top:4px}
+
+/* ---------- console controls ----------
+   Three layouts, taken literally from "default nav buttons.svg",
+   "left style nav buttons.svg" and "right side nav button style.svg":
+     default — D-pad centred, no round button
+     left    — round button LEFT,  D-pad RIGHT
+     right   — D-pad LEFT,         round button RIGHT
+   The round button (r42.5, #162655, 4px #2760C4 ring) is the same
+   control in every layout; only its side changes. */
+#controlsRow{
+  margin-top:31px;width:100%;display:flex;align-items:center;flex:none;
+  padding:0 30px;min-height:158px;
+}
+#dpad{width:158px;height:158px;position:relative;flex:none;touch-action:none}
+#dpad svg{width:100%;height:100%;display:block;pointer-events:none}
+.dpadHit{position:absolute;cursor:pointer;z-index:2}
+.dpadHit.pressed{background:rgba(165,197,239,.22);border-radius:8px}
+
+.selectBtn{
+  width:89px;height:89px;border-radius:50%;flex:none;
+  background:var(--dpad-bg);border:4px solid var(--dpad-edge);cursor:pointer;padding:0;
+}
+.selectBtn:active{background:#1d3270}
+
+/* default: D-pad alone, centred */
+#controlsRow.hand-default{justify-content:center}
+#controlsRow.hand-default .selectBtn{display:none}
+/* left: round button left, D-pad right */
+#controlsRow.hand-left{justify-content:space-between}
+#controlsRow.hand-left .selectBtn{order:1}
+#controlsRow.hand-left #dpad{order:2}
+/* right: D-pad left, round button right */
+#controlsRow.hand-right{justify-content:space-between}
+#controlsRow.hand-right #dpad{order:1}
+#controlsRow.hand-right .selectBtn{order:2}
+
+/* ---------- settings ---------- */
+.gearBtn{
+  width:22px;height:26px;background:transparent;border:0;cursor:pointer;padding:0;flex:none;
+}
+.gearBtn svg{width:100%;height:100%;display:block}
+.gearBtn:active{transform:translate(1px,1px)}
+.gearBtn.kbFocus{outline:2px solid var(--pix-frame);outline-offset:3px}
+
+/* ---------- splash loader — pixel clouds, recreated in-palette ---------- */
+#splash{
+  position:absolute;inset:0;z-index:30;overflow:hidden;
+  background:linear-gradient(180deg,var(--bg-top) 0%,var(--bg-mid) 39%,var(--bg-bot) 100%);
+  display:flex;flex-direction:column;align-items:center;justify-content:center;
+  transition:opacity .5s;cursor:pointer;
+}
+#splash.hide{opacity:0;pointer-events:none}
+.cloud{position:absolute;width:8px;height:8px;background:transparent;animation:drift linear infinite}
+@keyframes drift{from{transform:translateX(-140px)}to{transform:translateX(533px)}}
+#splashPresenting{
+  font-family:var(--title-font);font-size:13px;letter-spacing:3px;
+  color:var(--pix-frame);text-shadow:1px 1px 0 var(--title-shadow);
+  margin-bottom:18px;position:relative;z-index:2;
+}
+#splashTitle{
+  font-family:var(--title-font);font-size:34px;letter-spacing:2px;text-align:center;line-height:1.5;
+  color:var(--title-fill);
+  -webkit-text-stroke:0.8px var(--title-outline);
+  text-shadow:3px 3px 0 var(--title-shadow);
+  position:relative;z-index:2;
+}
+#splashLoading{
+  font-family:var(--title-font);font-size:9px;letter-spacing:2px;
+  color:var(--pix-frame);opacity:.8;margin-top:26px;position:relative;z-index:2;
+  animation:blink 1.1s steps(2) infinite;
+}
+@keyframes blink{50%{opacity:.15}}
+/* ---------- settings popup ----------
+   Panel + border + red X close taken from "default style.svg",
+   "left hand style.svg" and "right hand style.svg". */
+.settingsOverlay{
+  position:absolute;inset:0;display:none;z-index:40;
+  align-items:center;justify-content:center;
+  background:rgba(7,13,26,.86);padding:16px;
+}
+.settingsOverlay.show{display:flex}
+/* Panel is a single 5px stepped pixel border with a title bar across the
+   top, exactly as drawn in the popup SVGs — the frame itself is an SVG
+   sized on open (#panelFrame), so the staircase corners stay square. */
+.settingsPanel{
+  position:relative;width:334px;max-width:100%;
+  box-sizing:border-box;background:var(--panel-bg);
+}
+#panelFrame{position:absolute;inset:0;width:100%;height:100%;pointer-events:none;z-index:4}
+.panelBar{
+  position:relative;height:30px;display:flex;align-items:center;
+  justify-content:center;z-index:2;
+}
+.settingsTitle{
+  font-family:var(--title-font);font-size:10px;letter-spacing:1.5px;
+  color:var(--pix-frame);text-align:center;
+}
+.panelBody{padding:18px 17px 17px;position:relative;z-index:2}
+/* red pixel X close button, inside the title bar at the right */
+/* fills the slot the title-bar divider carves out for it */
+.closeBtn{
+  position:absolute;top:6px;right:7px;width:33px;height:24px;
+  background:transparent;border:0;padding:0;cursor:pointer;z-index:5;
+}
+.closeBtn svg{width:100%;height:100%;display:block}
+.closeBtn:active{transform:translate(1px,1px)}
+.settingsRow{display:flex;gap:7px;margin-bottom:18px;justify-content:center}
+.settingsRow .pill{flex:1;height:30px;min-width:0}
+.settingsRow .pill span{font-size:8px;letter-spacing:.5px;line-height:30px}
+/* live preview of the chosen control layout */
+#handPreview{
+  height:104px;margin:0 auto 18px;display:flex;align-items:center;
+  padding:0 14px;background:rgba(15,23,42,.55);
+  border:2px solid var(--board-edge);
+}
+#handPreview .pvDpad{width:62px;height:62px;flex:none}
+#handPreview .pvRound{
+  width:36px;height:36px;border-radius:50%;flex:none;
+  background:var(--dpad-bg);border:3px solid var(--dpad-edge);
+}
+#handPreview.pv-default{justify-content:center}
+#handPreview.pv-left,#handPreview.pv-right{justify-content:space-between}
+.settingsPanel .pill.wide{width:100%;height:34px;display:block}
+.settingsPanel .pill.wide span{line-height:34px}
+#btnSound{margin-bottom:9px}
+</style>
+</head>
+<body>
+<div id="phone">
+  <h1 id="title">BASE ARCADE</h1>
+
+  <!-- HUD: coin / star+score / hourglass+time / lives.
+       Icons are the artwork lifted straight out of "new score display.svg".
+       Row spans x29-365 to match the PAUSE-to-gear margins below it. -->
+  <div id="stats">
+    <span class="statCell"><i class="ico" id="icoCoin"></i><b id="sCoins">0</b></span>
+    <span class="statCell"><i class="ico" id="icoStar"></i><b id="sScore">000</b></span>
+    <span class="statCell"><i class="ico" id="icoTime"></i><b id="sTime">0:00</b></span>
+    <span class="statCell" id="lives"></span>
+  </div>
+
+  <div id="buttons">
+    <button class="pill" id="btnPause"><span>PAUSE</span></button>
+    <button class="pill" id="btnContinue"><span>CONTINUE</span></button>
+    <button id="btnSettings" class="gearBtn" aria-label="Settings">
+      <!-- gear from the nav SVG header: #CDCDCD teeth, #00233D shading -->
+      <svg viewBox="0 0 16 18" xmlns="http://www.w3.org/2000/svg" shape-rendering="crispEdges">
+        <rect x="6" y="0" width="4" height="18" fill="var(--gear)"/>
+        <rect x="0" y="7" width="16" height="4" fill="var(--gear)"/>
+        <rect x="2" y="3" width="12" height="12" fill="var(--gear)"/>
+        <rect x="5" y="6" width="6" height="6" fill="var(--gear-edge)"/>
+        <rect x="6" y="7" width="4" height="4" fill="var(--gear)"/>
+        <rect x="6" y="17" width="4" height="1" fill="var(--gear-edge)"/>
+        <rect x="13" y="13" width="2" height="2" fill="var(--gear-edge)"/>
+      </svg>
+    </button>
+  </div>
+
+  <div id="boardWrap">
+    <canvas id="board"></canvas>
+    <svg id="pixFrame" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none"></svg>
+    <div id="gameLabel"></div>
+    <div id="overlay">
+      <div id="ovTitle"></div>
+      <div id="ovSub"></div>
+      <div id="ovBtns"></div>
+    </div>
+  </div>
+
+  <div id="controlsRow" class="mode-menu hand-default">
+    <button id="selectBtn" class="selectBtn" aria-label="Select game"></button>
+    <div id="dpad">
+<svg id="dpadArt" viewBox="205 661 160 160" xmlns="http://www.w3.org/2000/svg">
+<path d="M315.193 667.543C355.668 684.304 374.87 730.715 358.108 771.19C341.346 811.665 294.945 830.89 254.469 814.128C213.994 797.366 194.764 750.981 211.532 710.49C228.301 669.998 274.702 650.775 315.193 667.543ZM295.549 714.979C281.268 709.065 264.906 715.844 258.991 730.125C253.077 744.405 259.856 760.767 274.137 766.682C288.418 772.596 304.78 765.817 310.694 751.536C316.608 737.255 309.829 720.893 295.549 714.979Z" fill="#162655" stroke="#A5C5EF"/>
+<path d="M315.385 667.081C274.638 650.207 227.945 669.552 211.07 710.299C194.196 751.045 213.548 797.722 254.279 814.59C295.009 831.457 341.702 812.112 358.57 771.382C375.437 730.651 356.115 683.948 315.385 667.081ZM274.329 766.22C260.303 760.412 253.645 744.342 259.454 730.316C265.262 716.29 281.332 709.633 295.357 715.441C309.383 721.25 316.041 737.319 310.232 751.345C304.424 765.371 288.355 772.029 274.329 766.22Z" fill="none" stroke="#A5C5EF" stroke-width="0.73" stroke-miterlimit="10"/>
+<mask id="path-60-inside-1_37_3074" fill="white">
+<path d="M310.067 672.456L315.838 674.845L313.448 680.616L319.219 683.006L316.829 688.777L322.6 691.167L320.21 696.937L325.981 699.327L323.591 705.098L329.362 707.488L326.972 713.259L275.035 691.75L277.425 685.979L283.195 688.369L285.585 682.598L291.356 684.988L293.746 679.217L299.517 681.607L301.907 675.836L307.677 678.226L310.067 672.456Z"/>
+</mask>
+<path d="M310.067 672.456L310.52 671.363L309.427 670.911L308.975 672.003L310.067 672.456ZM315.838 674.845L316.931 675.298L317.383 674.205L316.291 673.753L315.838 674.845ZM313.448 680.616L312.356 680.164L311.903 681.256L312.996 681.709L313.448 680.616ZM319.219 683.006L320.312 683.458L320.764 682.366L319.672 681.913L319.219 683.006ZM316.829 688.777L315.737 688.324L315.284 689.417L316.377 689.869L316.829 688.777ZM322.6 691.167L323.693 691.619L324.145 690.527L323.052 690.074L322.6 691.167ZM320.21 696.937L319.118 696.485L318.665 697.578L319.758 698.03L320.21 696.937ZM325.981 699.327L327.074 699.78L327.526 698.687L326.433 698.235L325.981 699.327ZM323.591 705.098L322.499 704.646L322.046 705.738L323.139 706.191L323.591 705.098ZM329.362 707.488L330.455 707.94L330.907 706.848L329.814 706.395L329.362 707.488ZM326.972 713.259L326.52 714.351L327.612 714.804L328.065 713.711L326.972 713.259ZM275.035 691.75L273.942 691.298L273.49 692.39L274.582 692.843L275.035 691.75ZM277.425 685.979L277.877 684.887L276.785 684.434L276.332 685.527L277.425 685.979ZM283.195 688.369L282.743 689.462L283.836 689.914L284.288 688.822L283.195 688.369ZM285.585 682.598L286.038 681.506L284.945 681.053L284.493 682.146L285.585 682.598ZM291.356 684.988L290.904 686.081L291.996 686.533L292.449 685.441L291.356 684.988ZM293.746 679.217L294.198 678.125L293.106 677.672L292.653 678.765L293.746 679.217ZM299.517 681.607L299.064 682.7L300.157 683.152L300.609 682.06L299.517 681.607ZM301.907 675.836L302.359 674.744L301.267 674.291L300.814 675.384L301.907 675.836ZM307.677 678.226L307.225 679.319L308.318 679.771L308.77 678.679L307.677 678.226ZM310.067 672.456L309.615 673.548L315.386 675.938L315.838 674.845L316.291 673.753L310.52 671.363L310.067 672.456ZM315.838 674.845L314.746 674.393L312.356 680.164L313.448 680.616L314.541 681.069L316.931 675.298L315.838 674.845ZM313.448 680.616L312.996 681.709L318.767 684.099L319.219 683.006L319.672 681.913L313.901 679.524L313.448 680.616ZM319.219 683.006L318.127 682.554L315.737 688.324L316.829 688.777L317.922 689.229L320.312 683.458L319.219 683.006ZM316.829 688.777L316.377 689.869L322.148 692.259L322.6 691.167L323.052 690.074L317.282 687.684L316.829 688.777ZM322.6 691.167L321.508 690.714L319.118 696.485L320.21 696.937L321.303 697.39L323.693 691.619L322.6 691.167ZM320.21 696.937L319.758 698.03L325.529 700.42L325.981 699.327L326.433 698.235L320.663 695.845L320.21 696.937ZM325.981 699.327L324.888 698.875L322.499 704.646L323.591 705.098L324.684 705.551L327.074 699.78L325.981 699.327ZM323.591 705.098L323.139 706.191L328.91 708.581L329.362 707.488L329.814 706.395L324.044 704.006L323.591 705.098ZM329.362 707.488L328.269 707.036L325.88 712.806L326.972 713.259L328.065 713.711L330.455 707.94L329.362 707.488ZM326.972 713.259L327.425 712.166L275.487 690.658L275.035 691.75L274.582 692.843L326.52 714.351L326.972 713.259ZM275.035 691.75L276.127 692.203L278.517 686.432L277.425 685.979L276.332 685.527L273.942 691.298L275.035 691.75ZM277.425 685.979L276.972 687.072L282.743 689.462L283.195 688.369L283.648 687.277L277.877 684.887L277.425 685.979ZM283.195 688.369L284.288 688.822L286.678 683.051L285.585 682.598L284.493 682.146L282.103 687.917L283.195 688.369ZM285.585 682.598L285.133 683.691L290.904 686.081L291.356 684.988L291.809 683.896L286.038 681.506L285.585 682.598ZM291.356 684.988L292.449 685.441L294.838 679.67L293.746 679.217L292.653 678.765L290.264 684.536L291.356 684.988ZM293.746 679.217L293.293 680.31L299.064 682.7L299.517 681.607L299.969 680.515L294.198 678.125L293.746 679.217ZM299.517 681.607L300.609 682.06L302.999 676.289L301.907 675.836L300.814 675.384L298.424 681.155L299.517 681.607ZM301.907 675.836L301.454 676.929L307.225 679.319L307.677 678.226L308.13 677.134L302.359 674.744L301.907 675.836ZM307.677 678.226L308.77 678.679L311.16 672.908L310.067 672.456L308.975 672.003L306.585 677.774L307.677 678.226Z" fill="#2760C4" mask="url(#path-60-inside-1_37_3074)"/>
+<mask id="path-62-inside-2_37_3074" fill="white">
+<path d="M260.653 808.101L254.883 805.711L257.272 799.94L251.502 797.551L253.891 791.78L248.121 789.39L250.511 783.619L244.74 781.229L247.13 775.459L241.359 773.069L243.749 767.298L295.686 788.806L293.296 794.577L287.525 792.187L285.135 797.958L279.365 795.568L276.975 801.339L271.204 798.949L268.814 804.72L263.043 802.33L260.653 808.101Z"/>
+</mask>
+<path d="M260.653 808.101L260.201 809.194L261.294 809.646L261.746 808.554L260.653 808.101ZM254.883 805.711L253.79 805.259L253.338 806.351L254.43 806.804L254.883 805.711ZM257.272 799.94L258.365 800.393L258.817 799.3L257.725 798.848L257.272 799.94ZM251.502 797.551L250.409 797.098L249.957 798.191L251.049 798.643L251.502 797.551ZM253.891 791.78L254.984 792.232L255.436 791.14L254.344 790.687L253.891 791.78ZM248.121 789.39L247.028 788.938L246.576 790.03L247.668 790.483L248.121 789.39ZM250.511 783.619L251.603 784.072L252.055 782.979L250.963 782.527L250.511 783.619ZM244.74 781.229L243.647 780.777L243.195 781.869L244.287 782.322L244.74 781.229ZM247.13 775.459L248.222 775.911L248.675 774.818L247.582 774.366L247.13 775.459ZM241.359 773.069L240.266 772.616L239.814 773.709L240.906 774.161L241.359 773.069ZM243.749 767.298L244.201 766.205L243.108 765.753L242.656 766.845L243.749 767.298ZM295.686 788.806L296.778 789.259L297.231 788.166L296.138 787.714L295.686 788.806ZM293.296 794.577L292.844 795.67L293.936 796.122L294.389 795.03L293.296 794.577ZM287.525 792.187L287.978 791.095L286.885 790.642L286.433 791.735L287.525 792.187ZM285.135 797.958L284.683 799.051L285.776 799.503L286.228 798.411L285.135 797.958ZM279.365 795.568L279.817 794.476L278.725 794.023L278.272 795.116L279.365 795.568ZM276.975 801.339L276.522 802.432L277.615 802.884L278.067 801.792L276.975 801.339ZM271.204 798.949L271.656 797.857L270.564 797.404L270.111 798.497L271.204 798.949ZM268.814 804.72L268.362 805.813L269.454 806.265L269.907 805.173L268.814 804.72ZM263.043 802.33L263.496 801.238L262.403 800.785L261.951 801.878L263.043 802.33ZM260.653 808.101L261.106 807.009L255.335 804.619L254.883 805.711L254.43 806.804L260.201 809.194L260.653 808.101ZM254.883 805.711L255.975 806.164L258.365 800.393L257.272 799.94L256.18 799.488L253.79 805.259L254.883 805.711ZM257.272 799.94L257.725 798.848L251.954 796.458L251.502 797.551L251.049 798.643L256.82 801.033L257.272 799.94ZM251.502 797.551L252.594 798.003L254.984 792.232L253.891 791.78L252.799 791.327L250.409 797.098L251.502 797.551ZM253.891 791.78L254.344 790.687L248.573 788.297L248.121 789.39L247.668 790.483L253.439 792.872L253.891 791.78ZM248.121 789.39L249.213 789.842L251.603 784.072L250.511 783.619L249.418 783.167L247.028 788.938L248.121 789.39ZM250.511 783.619L250.963 782.527L245.192 780.137L244.74 781.229L244.287 782.322L250.058 784.712L250.511 783.619ZM244.74 781.229L245.832 781.682L248.222 775.911L247.13 775.459L246.037 775.006L243.647 780.777L244.74 781.229ZM247.13 775.459L247.582 774.366L241.811 771.976L241.359 773.069L240.906 774.161L246.677 776.551L247.13 775.459ZM241.359 773.069L242.451 773.521L244.841 767.75L243.749 767.298L242.656 766.845L240.266 772.616L241.359 773.069ZM243.749 767.298L243.296 768.39L295.233 789.899L295.686 788.806L296.138 787.714L244.201 766.205L243.749 767.298ZM295.686 788.806L294.593 788.354L292.204 794.125L293.296 794.577L294.389 795.03L296.778 789.259L295.686 788.806ZM293.296 794.577L293.749 793.485L287.978 791.095L287.525 792.187L287.073 793.28L292.844 795.67L293.296 794.577ZM287.525 792.187L286.433 791.735L284.043 797.506L285.135 797.958L286.228 798.411L288.618 792.64L287.525 792.187ZM285.135 797.958L285.588 796.866L279.817 794.476L279.365 795.568L278.912 796.661L284.683 799.051L285.135 797.958ZM279.365 795.568L278.272 795.116L275.882 800.887L276.975 801.339L278.067 801.792L280.457 796.021L279.365 795.568ZM276.975 801.339L277.427 800.247L271.656 797.857L271.204 798.949L270.751 800.042L276.522 802.432L276.975 801.339ZM271.204 798.949L270.111 798.497L267.722 804.268L268.814 804.72L269.907 805.173L272.296 799.402L271.204 798.949ZM268.814 804.72L269.267 803.628L263.496 801.238L263.043 802.33L262.591 803.423L268.362 805.813L268.814 804.72ZM263.043 802.33L261.951 801.878L259.561 807.649L260.653 808.101L261.746 808.554L264.136 802.783L263.043 802.33Z" fill="#2760C4" mask="url(#path-62-inside-2_37_3074)"/>
+<mask id="path-64-inside-3_37_3074" fill="white">
+<path d="M217.158 716.488L219.547 710.717L225.318 713.107L227.708 707.336L233.479 709.726L235.869 703.955L241.64 706.345L244.029 700.574L249.8 702.964L252.19 697.193L257.961 699.583L236.452 751.52L230.682 749.131L233.071 743.36L227.301 740.97L229.69 735.199L223.92 732.809L226.309 727.038L220.539 724.649L222.928 718.878L217.158 716.488Z"/>
+</mask>
+<path d="M217.158 716.488L216.065 716.035L215.613 717.128L216.705 717.58L217.158 716.488ZM219.547 710.717L220 709.625L218.907 709.172L218.455 710.265L219.547 710.717ZM225.318 713.107L224.866 714.199L225.958 714.652L226.411 713.559L225.318 713.107ZM227.708 707.336L228.161 706.244L227.068 705.791L226.616 706.884L227.708 707.336ZM233.479 709.726L233.027 710.818L234.119 711.271L234.572 710.178L233.479 709.726ZM235.869 703.955L236.321 702.863L235.229 702.41L234.776 703.503L235.869 703.955ZM241.64 706.345L241.187 707.438L242.28 707.89L242.732 706.797L241.64 706.345ZM244.029 700.574L244.482 699.482L243.389 699.029L242.937 700.122L244.029 700.574ZM249.8 702.964L249.348 704.057L250.44 704.509L250.893 703.416L249.8 702.964ZM252.19 697.193L252.643 696.101L251.55 695.648L251.098 696.741L252.19 697.193ZM257.961 699.583L259.053 700.035L259.506 698.943L258.413 698.49L257.961 699.583ZM236.452 751.52L236 752.613L237.092 753.065L237.545 751.973L236.452 751.52ZM230.682 749.131L229.589 748.678L229.137 749.771L230.229 750.223L230.682 749.131ZM233.071 743.36L234.164 743.812L234.616 742.72L233.524 742.267L233.071 743.36ZM227.301 740.97L226.208 740.517L225.756 741.61L226.848 742.062L227.301 740.97ZM229.69 735.199L230.783 735.652L231.235 734.559L230.143 734.107L229.69 735.199ZM223.92 732.809L222.827 732.357L222.375 733.449L223.467 733.902L223.92 732.809ZM226.309 727.038L227.402 727.491L227.854 726.398L226.762 725.946L226.309 727.038ZM220.539 724.649L219.446 724.196L218.994 725.289L220.086 725.741L220.539 724.649ZM222.928 718.878L224.021 719.33L224.473 718.238L223.381 717.785L222.928 718.878ZM217.158 716.488L218.25 716.94L220.64 711.17L219.547 710.717L218.455 710.265L216.065 716.035L217.158 716.488ZM219.547 710.717L219.095 711.81L224.866 714.199L225.318 713.107L225.771 712.014L220 709.625L219.547 710.717ZM225.318 713.107L226.411 713.559L228.801 707.789L227.708 707.336L226.616 706.884L224.226 712.654L225.318 713.107ZM227.708 707.336L227.256 708.429L233.027 710.818L233.479 709.726L233.931 708.633L228.161 706.244L227.708 707.336ZM233.479 709.726L234.572 710.178L236.961 704.408L235.869 703.955L234.776 703.503L232.386 709.274L233.479 709.726ZM235.869 703.955L235.416 705.048L241.187 707.438L241.64 706.345L242.092 705.252L236.321 702.863L235.869 703.955ZM241.64 706.345L242.732 706.797L245.122 701.027L244.029 700.574L242.937 700.122L240.547 705.893L241.64 706.345ZM244.029 700.574L243.577 701.667L249.348 704.057L249.8 702.964L250.253 701.871L244.482 699.482L244.029 700.574ZM249.8 702.964L250.893 703.416L253.283 697.646L252.19 697.193L251.098 696.741L248.708 702.512L249.8 702.964ZM252.19 697.193L251.738 698.286L257.508 700.676L257.961 699.583L258.413 698.49L252.643 696.101L252.19 697.193ZM257.961 699.583L256.868 699.131L235.36 751.068L236.452 751.52L237.545 751.973L259.053 700.035L257.961 699.583ZM236.452 751.52L236.905 750.428L231.134 748.038L230.682 749.131L230.229 750.223L236 752.613L236.452 751.52ZM230.682 749.131L231.774 749.583L234.164 743.812L233.071 743.36L231.979 742.907L229.589 748.678L230.682 749.131ZM233.071 743.36L233.524 742.267L227.753 739.877L227.301 740.97L226.848 742.062L232.619 744.452L233.071 743.36ZM227.301 740.97L228.393 741.422L230.783 735.652L229.69 735.199L228.598 734.747L226.208 740.517L227.301 740.97ZM229.69 735.199L230.143 734.107L224.372 731.717L223.92 732.809L223.467 733.902L229.238 736.292L229.69 735.199ZM223.92 732.809L225.012 733.262L227.402 727.491L226.309 727.038L225.217 726.586L222.827 732.357L223.92 732.809ZM226.309 727.038L226.762 725.946L220.991 723.556L220.539 724.649L220.086 725.741L225.857 728.131L226.309 727.038ZM220.539 724.649L221.631 725.101L224.021 719.33L222.928 718.878L221.836 718.425L219.446 724.196L220.539 724.649ZM222.928 718.878L223.381 717.785L217.61 715.395L217.158 716.488L216.705 717.58L222.476 719.97L222.928 718.878Z" fill="#2760C4" mask="url(#path-64-inside-3_37_3074)"/>
+<mask id="path-66-inside-4_37_3074" fill="white">
+<path d="M352.886 765.704L350.496 771.475L344.725 769.085L342.335 774.856L336.564 772.466L334.175 778.237L328.404 775.847L326.014 781.618L320.243 779.228L317.853 784.999L312.083 782.609L333.591 730.672L339.362 733.062L336.972 738.832L342.743 741.222L340.353 746.993L346.124 749.383L343.734 755.154L349.505 757.544L347.115 763.314L352.886 765.704Z"/>
+</mask>
+<path d="M352.886 765.704L368.592 772.209L375.097 756.502L359.39 749.998L352.886 765.704ZM350.496 771.475L343.992 787.181L359.698 793.686L366.202 777.979L350.496 771.475ZM344.725 769.085L351.23 753.379L335.523 746.874L329.019 762.581L344.725 769.085ZM342.335 774.856L335.831 790.562L351.537 797.067L358.042 781.36L342.335 774.856ZM336.564 772.466L343.069 756.76L327.362 750.255L320.858 765.962L336.564 772.466ZM334.175 778.237L327.67 793.943L343.377 800.448L349.881 784.741L334.175 778.237ZM328.404 775.847L334.908 760.141L319.202 753.636L312.697 769.343L328.404 775.847ZM326.014 781.618L319.51 797.324L335.216 803.829L341.72 788.122L326.014 781.618ZM320.243 779.228L326.748 763.522L311.041 757.017L304.537 772.724L320.243 779.228ZM317.853 784.999L311.349 800.705L327.055 807.21L333.56 791.503L317.853 784.999ZM312.083 782.609L296.376 776.105L289.872 791.811L305.578 798.316L312.083 782.609ZM333.591 730.672L340.095 714.965L324.389 708.461L317.885 724.167L333.591 730.672ZM339.362 733.062L355.068 739.566L361.573 723.86L345.866 717.355L339.362 733.062ZM336.972 738.832L321.266 732.328L314.761 748.034L330.468 754.539L336.972 738.832ZM342.743 741.222L358.449 747.727L364.954 732.02L349.247 725.516L342.743 741.222ZM340.353 746.993L324.647 740.489L318.142 756.195L333.849 762.7L340.353 746.993ZM346.124 749.383L361.83 755.887L368.335 740.181L352.628 733.676L346.124 749.383ZM343.734 755.154L328.028 748.649L321.523 764.356L337.23 770.86L343.734 755.154ZM349.505 757.544L365.211 764.048L371.716 748.342L356.009 741.837L349.505 757.544ZM347.115 763.314L331.409 756.81L324.904 772.516L340.611 779.021L347.115 763.314ZM352.886 765.704L337.179 759.2L334.79 764.971L350.496 771.475L366.202 777.979L368.592 772.209L352.886 765.704ZM350.496 771.475L357 755.769L351.23 753.379L344.725 769.085L338.221 784.792L343.992 787.181L350.496 771.475ZM344.725 769.085L329.019 762.581L326.629 768.352L342.335 774.856L358.042 781.36L360.432 775.59L344.725 769.085ZM342.335 774.856L348.84 759.15L343.069 756.76L336.564 772.466L330.06 788.173L335.831 790.562L342.335 774.856ZM336.564 772.466L320.858 765.962L318.468 771.733L334.175 778.237L349.881 784.741L352.271 778.971L336.564 772.466ZM334.175 778.237L340.679 762.531L334.908 760.141L328.404 775.847L321.899 791.554L327.67 793.943L334.175 778.237ZM328.404 775.847L312.697 769.343L310.308 775.114L326.014 781.618L341.72 788.122L344.11 782.352L328.404 775.847ZM326.014 781.618L332.518 765.912L326.748 763.522L320.243 779.228L313.739 794.935L319.51 797.324L326.014 781.618ZM320.243 779.228L304.537 772.724L302.147 778.495L317.853 784.999L333.56 791.503L335.95 785.733L320.243 779.228ZM317.853 784.999L324.358 769.293L318.587 766.903L312.083 782.609L305.578 798.316L311.349 800.705L317.853 784.999ZM312.083 782.609L327.789 789.114L349.297 737.176L333.591 730.672L317.885 724.167L296.376 776.105L312.083 782.609ZM333.591 730.672L327.087 746.378L332.857 748.768L339.362 733.062L345.866 717.355L340.095 714.965L333.591 730.672ZM339.362 733.062L323.655 726.557L321.266 732.328L336.972 738.832L352.678 745.337L355.068 739.566L339.362 733.062ZM336.972 738.832L330.468 754.539L336.238 756.929L342.743 741.222L349.247 725.516L343.476 723.126L336.972 738.832ZM342.743 741.222L327.036 734.718L324.647 740.489L340.353 746.993L356.059 753.497L358.449 747.727L342.743 741.222ZM340.353 746.993L333.849 762.7L339.619 765.089L346.124 749.383L352.628 733.676L346.857 731.287L340.353 746.993ZM346.124 749.383L330.417 742.878L328.028 748.649L343.734 755.154L359.44 761.658L361.83 755.887L346.124 749.383ZM343.734 755.154L337.23 770.86L343 773.25L349.505 757.544L356.009 741.837L350.238 739.447L343.734 755.154ZM349.505 757.544L333.798 751.039L331.409 756.81L347.115 763.314L362.821 769.819L365.211 764.048L349.505 757.544ZM347.115 763.314L340.611 779.021L346.381 781.411L352.886 765.704L359.39 749.998L353.619 747.608L347.115 763.314Z" fill="#2760C4" mask="url(#path-66-inside-4_37_3074)"/>
+<mask id="path-68-inside-5_37_3074" fill="white">
+<path d="M310.656 672.924L316.389 675.405L313.908 681.137L319.64 683.618L317.159 689.35L322.891 691.831L320.41 697.563L326.143 700.044L323.662 705.776L329.394 708.257L326.913 713.99L275.323 691.661L277.804 685.929L283.536 688.41L286.017 682.678L291.749 685.159L294.23 679.426L299.962 681.907L302.443 676.175L308.175 678.656L310.656 672.924Z"/>
+</mask>
+<path d="M310.656 672.924L317.409 657.322L301.807 650.57L295.055 666.171L310.656 672.924ZM316.389 675.405L331.99 682.157L338.742 666.555L323.141 659.803L316.389 675.405ZM313.908 681.137L298.306 674.385L291.554 689.986L307.155 696.738L313.908 681.137ZM319.64 683.618L335.241 690.37L341.994 674.769L326.392 668.016L319.64 683.618ZM317.159 689.35L301.558 682.598L294.805 698.199L310.407 704.951L317.159 689.35ZM322.891 691.831L338.493 698.583L345.245 682.982L329.644 676.229L322.891 691.831ZM320.41 697.563L304.809 690.811L298.057 706.412L313.658 713.165L320.41 697.563ZM326.143 700.044L341.744 706.796L348.496 691.195L332.895 684.443L326.143 700.044ZM323.662 705.776L308.06 699.024L301.308 714.625L316.909 721.378L323.662 705.776ZM329.394 708.257L344.995 715.01L351.748 699.408L336.146 692.656L329.394 708.257ZM326.913 713.99L320.161 729.591L335.762 736.343L342.515 720.742L326.913 713.99ZM275.323 691.661L259.721 684.909L252.969 700.51L268.57 707.263L275.323 691.661ZM277.804 685.929L284.556 670.328L268.955 663.575L262.202 679.177L277.804 685.929ZM283.536 688.41L276.784 704.011L292.385 710.764L299.137 695.162L283.536 688.41ZM286.017 682.678L292.769 667.076L277.168 660.324L270.415 675.925L286.017 682.678ZM291.749 685.159L284.997 700.76L300.598 707.512L307.351 691.911L291.749 685.159ZM294.23 679.426L300.982 663.825L285.381 657.073L278.629 672.674L294.23 679.426ZM299.962 681.907L293.21 697.509L308.811 704.261L315.564 688.66L299.962 681.907ZM302.443 676.175L309.196 660.574L293.594 653.821L286.842 669.423L302.443 676.175ZM308.175 678.656L301.423 694.257L317.025 701.01L323.777 685.408L308.175 678.656ZM310.656 672.924L303.904 688.525L309.636 691.006L316.389 675.405L323.141 659.803L317.409 657.322L310.656 672.924ZM316.389 675.405L300.787 668.652L298.306 674.385L313.908 681.137L329.509 687.889L331.99 682.157L316.389 675.405ZM313.908 681.137L307.155 696.738L312.888 699.219L319.64 683.618L326.392 668.016L320.66 665.535L313.908 681.137ZM319.64 683.618L304.039 676.865L301.558 682.598L317.159 689.35L332.761 696.102L335.241 690.37L319.64 683.618ZM317.159 689.35L310.407 704.951L316.139 707.432L322.891 691.831L329.644 676.229L323.911 673.749L317.159 689.35ZM322.891 691.831L307.29 685.079L304.809 690.811L320.41 697.563L336.012 704.315L338.493 698.583L322.891 691.831ZM320.41 697.563L313.658 713.165L319.39 715.646L326.143 700.044L332.895 684.443L327.163 681.962L320.41 697.563ZM326.143 700.044L310.541 693.292L308.06 699.024L323.662 705.776L339.263 712.529L341.744 706.796L326.143 700.044ZM323.662 705.776L316.909 721.378L322.642 723.859L329.394 708.257L336.146 692.656L330.414 690.175L323.662 705.776ZM329.394 708.257L313.793 701.505L311.312 707.237L326.913 713.99L342.515 720.742L344.995 715.01L329.394 708.257ZM326.913 713.99L333.665 698.388L282.075 676.06L275.323 691.661L268.57 707.263L320.161 729.591L326.913 713.99ZM275.323 691.661L290.924 698.414L293.405 692.681L277.804 685.929L262.202 679.177L259.721 684.909L275.323 691.661ZM277.804 685.929L271.051 701.53L276.784 704.011L283.536 688.41L290.288 672.808L284.556 670.328L277.804 685.929ZM283.536 688.41L299.137 695.162L301.618 689.43L286.017 682.678L270.415 675.925L267.934 681.658L283.536 688.41ZM286.017 682.678L279.265 698.279L284.997 700.76L291.749 685.159L298.501 669.557L292.769 667.076L286.017 682.678ZM291.749 685.159L307.351 691.911L309.832 686.179L294.23 679.426L278.629 672.674L276.148 678.406L291.749 685.159ZM294.23 679.426L287.478 695.028L293.21 697.509L299.962 681.907L306.715 666.306L300.982 663.825L294.23 679.426ZM299.962 681.907L315.564 688.66L318.045 682.927L302.443 676.175L286.842 669.423L284.361 675.155L299.962 681.907ZM302.443 676.175L295.691 691.776L301.423 694.257L308.175 678.656L314.928 663.054L309.196 660.574L302.443 676.175ZM308.175 678.656L323.777 685.408L326.258 679.676L310.656 672.924L295.055 666.171L292.574 671.904L308.175 678.656Z" fill="#2760C4" mask="url(#path-68-inside-5_37_3074)"/>
+<mask id="path-70-inside-6_37_3074" fill="white">
+<path d="M216.797 716.728L219.246 710.982L224.992 713.431L227.442 707.685L233.187 710.135L235.637 704.389L241.383 706.838L243.832 701.093L249.578 703.542L252.027 697.796L257.773 700.246L235.728 751.958L229.983 749.508L232.432 743.763L226.686 741.313L229.136 735.567L223.39 733.118L225.839 727.372L220.093 724.923L222.543 719.177L216.797 716.728Z"/>
+</mask>
+<path d="M216.797 716.728L201.159 710.061L194.492 725.7L210.131 732.366L216.797 716.728ZM219.246 710.982L225.913 695.344L210.275 688.677L203.608 704.315L219.246 710.982ZM224.992 713.431L218.326 729.07L233.964 735.736L240.631 720.098L224.992 713.431ZM227.442 707.685L234.108 692.047L218.47 685.381L211.803 701.019L227.442 707.685ZM233.187 710.135L226.521 725.773L242.159 732.44L248.826 716.801L233.187 710.135ZM235.637 704.389L242.303 688.751L226.665 682.084L219.998 697.723L235.637 704.389ZM241.383 706.838L234.716 722.477L250.354 729.143L257.021 713.505L241.383 706.838ZM243.832 701.093L250.498 685.454L234.86 678.788L228.194 694.426L243.832 701.093ZM249.578 703.542L242.911 719.18L258.55 725.847L265.216 710.209L249.578 703.542ZM252.027 697.796L258.694 682.158L243.055 675.491L236.389 691.13L252.027 697.796ZM257.773 700.246L273.411 706.912L280.078 691.274L264.439 684.607L257.773 700.246ZM235.728 751.958L229.062 767.596L244.7 774.263L251.367 758.624L235.728 751.958ZM229.983 749.508L214.344 742.842L207.678 758.48L223.316 765.147L229.983 749.508ZM232.432 743.763L248.07 750.429L254.737 734.791L239.099 728.124L232.432 743.763ZM226.686 741.313L211.048 734.647L204.381 750.285L220.02 756.952L226.686 741.313ZM229.136 735.567L244.774 742.234L251.44 726.596L235.802 719.929L229.136 735.567ZM223.39 733.118L207.752 726.452L201.085 742.09L216.723 748.756L223.39 733.118ZM225.839 727.372L241.478 734.039L248.144 718.4L232.506 711.734L225.839 727.372ZM220.093 724.923L204.455 718.256L197.789 733.895L213.427 740.561L220.093 724.923ZM222.543 719.177L238.181 725.844L244.848 710.205L229.209 703.539L222.543 719.177ZM216.797 716.728L232.435 723.394L234.885 717.648L219.246 710.982L203.608 704.315L201.159 710.061L216.797 716.728ZM219.246 710.982L212.58 726.62L218.326 729.07L224.992 713.431L231.659 697.793L225.913 695.344L219.246 710.982ZM224.992 713.431L240.631 720.098L243.08 714.352L227.442 707.685L211.803 701.019L209.354 706.765L224.992 713.431ZM227.442 707.685L220.775 723.324L226.521 725.773L233.187 710.135L239.854 694.496L234.108 692.047L227.442 707.685ZM233.187 710.135L248.826 716.801L251.275 711.056L235.637 704.389L219.998 697.723L217.549 703.468L233.187 710.135ZM235.637 704.389L228.97 720.027L234.716 722.477L241.383 706.838L248.049 691.2L242.303 688.751L235.637 704.389ZM241.383 706.838L257.021 713.505L259.47 707.759L243.832 701.093L228.194 694.426L225.744 700.172L241.383 706.838ZM243.832 701.093L237.165 716.731L242.911 719.18L249.578 703.542L256.244 687.904L250.498 685.454L243.832 701.093ZM249.578 703.542L265.216 710.209L267.665 704.463L252.027 697.796L236.389 691.13L233.939 696.876L249.578 703.542ZM252.027 697.796L245.361 713.435L251.106 715.884L257.773 700.246L264.439 684.607L258.694 682.158L252.027 697.796ZM257.773 700.246L242.135 693.579L220.09 745.291L235.728 751.958L251.367 758.624L273.411 706.912L257.773 700.246ZM235.728 751.958L242.395 736.319L236.649 733.87L229.983 749.508L223.316 765.147L229.062 767.596L235.728 751.958ZM229.983 749.508L245.621 756.175L248.07 750.429L232.432 743.763L216.794 737.096L214.344 742.842L229.983 749.508ZM232.432 743.763L239.099 728.124L233.353 725.675L226.686 741.313L220.02 756.952L225.766 759.401L232.432 743.763ZM226.686 741.313L242.325 747.98L244.774 742.234L229.136 735.567L213.497 728.901L211.048 734.647L226.686 741.313ZM229.136 735.567L235.802 719.929L230.056 717.48L223.39 733.118L216.723 748.756L222.469 751.206L229.136 735.567ZM223.39 733.118L239.028 739.785L241.478 734.039L225.839 727.372L210.201 720.706L207.752 726.452L223.39 733.118ZM225.839 727.372L232.506 711.734L226.76 709.285L220.093 724.923L213.427 740.561L219.173 743.011L225.839 727.372ZM220.093 724.923L235.732 731.589L238.181 725.844L222.543 719.177L206.904 712.511L204.455 718.256L220.093 724.923ZM222.543 719.177L229.209 703.539L223.464 701.089L216.797 716.728L210.131 732.366L215.876 734.815L222.543 719.177Z" fill="#2760C4" mask="url(#path-70-inside-6_37_3074)"/>
+<mask id="path-72-inside-7_37_3074" fill="white">
+<path d="M259.531 808.219L253.825 805.679L256.365 799.973L250.659 797.433L253.199 791.727L247.493 789.187L250.033 783.48L244.326 780.94L246.866 775.234L241.16 772.694L243.7 766.988L295.057 789.848L292.517 795.554L286.81 793.014L284.27 798.721L278.564 796.181L276.024 801.887L270.318 799.347L267.778 805.053L262.071 802.513L259.531 808.219Z"/>
+</mask>
+<path d="M259.531 808.219L252.618 823.75L268.149 830.663L275.062 815.133L259.531 808.219ZM253.825 805.679L238.294 798.766L231.381 814.297L246.912 821.21L253.825 805.679ZM256.365 799.973L271.896 806.886L278.809 791.355L263.278 784.442L256.365 799.973ZM250.659 797.433L235.128 790.52L228.215 806.05L243.746 812.964L250.659 797.433ZM253.199 791.727L268.73 798.64L275.643 783.109L260.112 776.196L253.199 791.727ZM247.493 789.187L231.962 782.273L225.048 797.804L240.579 804.717L247.493 789.187ZM250.033 783.48L265.563 790.394L272.477 774.863L256.946 767.949L250.033 783.48ZM244.326 780.94L228.796 774.027L221.882 789.558L237.413 796.471L244.326 780.94ZM246.866 775.234L262.397 782.147L269.311 766.616L253.78 759.703L246.866 775.234ZM241.16 772.694L225.629 765.781L218.716 781.311L234.247 788.225L241.16 772.694ZM243.7 766.988L250.613 751.457L235.083 744.543L228.169 760.074L243.7 766.988ZM295.057 789.848L310.588 796.761L317.501 781.231L301.97 774.317L295.057 789.848ZM292.517 795.554L285.603 811.085L301.134 817.999L308.048 802.468L292.517 795.554ZM286.81 793.014L293.724 777.484L278.193 770.57L271.28 786.101L286.81 793.014ZM284.27 798.721L277.357 814.251L292.888 821.165L299.801 805.634L284.27 798.721ZM278.564 796.181L285.477 780.65L269.947 773.736L263.033 789.267L278.564 796.181ZM276.024 801.887L269.111 817.418L284.642 824.331L291.555 808.8L276.024 801.887ZM270.318 799.347L277.231 783.816L261.7 776.903L254.787 792.434L270.318 799.347ZM267.778 805.053L260.864 820.584L276.395 827.497L283.309 811.966L267.778 805.053ZM262.071 802.513L268.985 786.982L253.454 780.069L246.541 795.6L262.071 802.513ZM259.531 808.219L266.445 792.688L260.738 790.148L253.825 805.679L246.912 821.21L252.618 823.75L259.531 808.219ZM253.825 805.679L269.356 812.593L271.896 806.886L256.365 799.973L240.834 793.06L238.294 798.766L253.825 805.679ZM256.365 799.973L263.278 784.442L257.572 781.902L250.659 797.433L243.746 812.964L249.452 815.504L256.365 799.973ZM250.659 797.433L266.19 804.346L268.73 798.64L253.199 791.727L237.668 784.813L235.128 790.52L250.659 797.433ZM253.199 791.727L260.112 776.196L254.406 773.656L247.493 789.187L240.579 804.717L246.286 807.257L253.199 791.727ZM247.493 789.187L263.023 796.1L265.563 790.394L250.033 783.48L234.502 776.567L231.962 782.273L247.493 789.187ZM250.033 783.48L256.946 767.949L251.24 765.409L244.326 780.94L237.413 796.471L243.119 799.011L250.033 783.48ZM244.326 780.94L259.857 787.853L262.397 782.147L246.866 775.234L231.336 768.321L228.796 774.027L244.326 780.94ZM246.866 775.234L253.78 759.703L248.073 757.163L241.16 772.694L234.247 788.225L239.953 790.765L246.866 775.234ZM241.16 772.694L256.691 779.607L259.231 773.901L243.7 766.988L228.169 760.074L225.629 765.781L241.16 772.694ZM243.7 766.988L236.787 782.518L288.144 805.379L295.057 789.848L301.97 774.317L250.613 751.457L243.7 766.988ZM295.057 789.848L279.526 782.935L276.986 788.641L292.517 795.554L308.048 802.468L310.588 796.761L295.057 789.848ZM292.517 795.554L299.43 780.024L293.724 777.484L286.81 793.014L279.897 808.545L285.603 811.085L292.517 795.554ZM286.81 793.014L271.28 786.101L268.74 791.807L284.27 798.721L299.801 805.634L302.341 799.928L286.81 793.014ZM284.27 798.721L291.184 783.19L285.477 780.65L278.564 796.181L271.651 811.711L277.357 814.251L284.27 798.721ZM278.564 796.181L263.033 789.267L260.493 794.974L276.024 801.887L291.555 808.8L294.095 803.094L278.564 796.181ZM276.024 801.887L282.937 786.356L277.231 783.816L270.318 799.347L263.404 814.878L269.111 817.418L276.024 801.887ZM270.318 799.347L254.787 792.434L252.247 798.14L267.778 805.053L283.309 811.966L285.849 806.26L270.318 799.347ZM267.778 805.053L274.691 789.522L268.985 786.982L262.071 802.513L255.158 818.044L260.864 820.584L267.778 805.053ZM262.071 802.513L246.541 795.6L244.001 801.306L259.531 808.219L275.062 815.133L277.602 809.426L262.071 802.513Z" fill="#2760C4" mask="url(#path-72-inside-7_37_3074)"/>
+</svg>
+</div>
+  </div>
+
+  <div id="splash">
+    <div id="splashPresenting">PRESENTING</div>
+    <div id="splashTitle">BASE<br>ARCADE</div>
+    <div id="splashLoading">LOADING...</div>
+  </div>
+
+  <div id="settingsOverlay" class="settingsOverlay">
+    <div class="settingsPanel">
+      <button class="closeBtn" id="btnCloseX" aria-label="Close" data-nofocus>
+        <!-- red pixel X from the popup SVGs: #FF4545 face, #2E2626 cross -->
+        <svg viewBox="0 0 7 5" xmlns="http://www.w3.org/2000/svg" shape-rendering="crispEdges">
+          <rect x="0" y="0" width="7" height="5" fill="var(--close-face)"/>
+          <rect x="2" y="1" width="1" height="1" fill="var(--close-mark)"/>
+          <rect x="4" y="1" width="1" height="1" fill="var(--close-mark)"/>
+          <rect x="3" y="2" width="1" height="1" fill="var(--close-mark)"/>
+          <rect x="2" y="3" width="1" height="1" fill="var(--close-mark)"/>
+          <rect x="4" y="3" width="1" height="1" fill="var(--close-mark)"/>
+        </svg>
+      </button>
+      <svg id="panelFrame" xmlns="http://www.w3.org/2000/svg"></svg>
+      <div class="panelBar"><div class="settingsTitle">NAVIGATION STYLE</div></div>
+      <div class="panelBody">
+        <div class="settingsRow">
+          <button class="pill opt" data-hand="left"><span>LEFT</span></button>
+          <button class="pill opt" data-hand="default"><span>DEFAULT</span></button>
+          <button class="pill opt" data-hand="right"><span>RIGHT</span></button>
+        </div>
+        <div id="handPreview" class="pv-default"></div>
+        <button class="pill wide opt" id="btnSound"><span>SOUND OFF</span></button>
+        <button class="pill wide" id="btnCloseSettings"><span>DONE</span></button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+'use strict';
+
+/* =========================================================
+   CORE
+   ========================================================= */
+const COLS = 17, ROWS = 20;   // 17 so the BASE wordmark (15 cols) gets 1 cell each side
+
+const cv  = document.getElementById('board');
+const ctx = cv.getContext('2d');
+let CELL = 0, W = 0, H = 0;
+
+const css = getComputedStyle(document.documentElement);
+const c = n => css.getPropertyValue(n).trim();
+const COL = {
+  board:c('--board-bg'), grid:c('--grid'), block:c('--block'), hi:c('--block-hi'),
+  white:c('--white'), orange:c('--orange'), yellow:c('--yellow'), dim:c('--dim'),
+  stat:c('--stat'), btnFace:c('--btn-face'), btnText:c('--btn-text')
+};
+
+// The pixel bezel is BEZEL px thick and sits on top of the board, so the
+// canvas has to live INSIDE it — filling the whole wrapper meant the frame
+// painted over the outer 7px of the play area and the first/last rows lost
+// a third of their height.
+const BEZEL = 7;
+function fitCanvas(){
+  const wrap = document.getElementById('boardWrap');
+  const bw = wrap.clientWidth;
+  if(!bw) return;
+  W    = bw - BEZEL*2;
+  CELL = W / COLS;
+  H    = Math.round(ROWS * CELL);
+  wrap.style.height = (H + BEZEL*2 + 2) + 'px';   // +2 for the 1px border each side
+  cv.style.left   = BEZEL + 'px';
+  cv.style.top    = BEZEL + 'px';
+  cv.style.width  = W + 'px';
+  cv.style.height = H + 'px';
+  const dpr = Math.min(window.devicePixelRatio || 1, 3);
+  cv.width  = Math.round(W * dpr);
+  cv.height = Math.round(H * dpr);
+  ctx.setTransform(dpr,0,0,dpr,0,0);
+  buildPixFrame(bw, H + BEZEL*2);
+}
+window.addEventListener('resize', fitCanvas);
+
+/* ---- draw helpers ---- */
+function clearBoard(){ ctx.fillStyle = COL.board; ctx.fillRect(0,0,W,H); }
+
+function drawGrid(){
+  ctx.strokeStyle = COL.grid; ctx.lineWidth = 1;
+  ctx.beginPath();
+  for(let i=1;i<COLS;i++){ const x=Math.round(i*CELL)+.5; ctx.moveTo(x,0); ctx.lineTo(x,H); }
+  // Rule every row boundary INCLUDING the last one at the bottom edge.
+  // Without that closing line the final row has no blue rule under it and
+  // reads as an open rectangle — the bezel is a frame, not a grid line.
+  for(let j=1; j<=ROWS; j++){
+    const y = Math.min(Math.round(j*CELL)+.5, H-0.5);
+    ctx.moveTo(0,y); ctx.lineTo(W,y);
+  }
+  ctx.stroke();
+}
+function cellBlock(col,row,fill,edge){
+  const x=Math.round(col*CELL), y=Math.round(row*CELL), s=Math.round(CELL);
+  ctx.fillStyle = fill || COL.block; ctx.fillRect(x,y,s,s);
+  ctx.strokeStyle = edge || COL.hi; ctx.lineWidth = 2;
+  ctx.strokeRect(x+1,y+1,s-2,s-2);
+}
+function pxRect(x,y,w,h,fill,edge){
+  ctx.fillStyle = fill; ctx.fillRect(Math.round(x),Math.round(y),Math.round(w),Math.round(h));
+  if(edge){ ctx.strokeStyle=edge; ctx.lineWidth=2;
+    ctx.strokeRect(Math.round(x)+1,Math.round(y)+1,Math.round(w)-2,Math.round(h)-2); }
+}
+function dot(cx,cy,r,fill){ ctx.fillStyle=fill; ctx.beginPath(); ctx.arc(cx,cy,r,0,Math.PI*2); ctx.fill(); }
+// pixel-staircase chevron — same construction as the D-pad's stepped arrows (buildDpad),
+// just drawn on canvas and rotated into place instead of built as an SVG polygon.
+// len = tip-to-base run (along the pointing axis), spread = base width, dir: -1 left, +1 right.
+function stepArrow(cx,cy,len,spread,dir,fill){
+  const n=4, stepX=spread/(2*n), stepY=len/n;
+  const pts=[[stepX,0]];
+  for(let i=0;i<n;i++){ pts.push([(i+1)*stepX, i*stepY]); pts.push([(i+1)*stepX,(i+1)*stepY]); }
+  pts.push([-n*stepX, n*stepY]);
+  for(let i=n-1;i>=0;i--){ pts.push([-(i+1)*stepX,(i+1)*stepY]); pts.push([-(i+1)*stepX, i*stepY]); }
+  pts.push([-stepX,0]);
+  const yShift = n*stepY/2;
+  ctx.save();
+  ctx.translate(cx,cy);
+  ctx.rotate(dir>0 ? Math.PI/2 : -Math.PI/2);
+  ctx.fillStyle=fill;
+  ctx.beginPath();
+  ctx.moveTo(pts[0][0], pts[0][1]-yShift);
+  for(let i=1;i<pts.length;i++) ctx.lineTo(pts[i][0], pts[i][1]-yShift);
+  ctx.closePath();
+  ctx.fill();
+  ctx.restore();
+}
+function label(text,x,y,size,col,align){
+  ctx.font = `${Math.max(6,Math.round(size))}px "LomoWebPixelLTStd-5", "Press Start 2P", monospace`;
+  ctx.fillStyle = col; ctx.textAlign = align||'center'; ctx.textBaseline='middle';
+  ctx.fillText(text,x,y);
+}
+
+/* =========================================================
+   "BASE" WORDMARK — the brick wall in Breakout / Brick Shooter
+   ========================================================= */
+const GLYPH = {
+  B:['110','101','110','101','110'],
+  A:['010','101','111','101','101'],
+  S:['111','100','111','001','111'],
+  E:['111','100','110','100','111']
+};
+function baseBricks(top){
+  const out=[]; let col=1;
+  for(const ch of 'BASE'){
+    const g=GLYPH[ch];
+    for(let r=0;r<g.length;r++)
+      for(let k=0;k<g[r].length;k++)
+        if(g[r][k]==='1') out.push({c:col+k, r:top+r, alive:true});
+    col += 4;
+  }
+  return out;
+}
+
+/* level 1..5 wall patterns shared by Breakout & Brick Shooter — each
+   denser/taller than the last so both games get harder the same way */
+// row the wall starts on. Kept at 1 — the position in the original mock.
+const WALL_TOP = 1;
+function wallPattern(level){
+  const lvl = Math.max(1, Math.min(level, 5));
+  const T = WALL_TOP;
+  if(lvl===1) return baseBricks(T);
+  const out=[];
+  if(lvl===2){                          // pyramid, widening downward
+    const widths=[4,6,8,10,12];
+    widths.forEach((w,i)=>{
+      const r=T+i, startC=Math.floor((COLS-w)/2);
+      for(let k=0;k<w;k++) out.push({c:startC+k, r, alive:true});
+    });
+  } else if(lvl===3){                   // solid block, 4 rows, full width
+    for(let r=T;r<=T+3;r++) for(let c=0;c<COLS;c++) out.push({c,r,alive:true});
+  } else if(lvl===4){                   // checkerboard, 6 rows
+    for(let r=T;r<=T+5;r++) for(let c=0;c<COLS;c++) if((c+r)%2===0) out.push({c,r,alive:true});
+  } else {                              // fortress: two solid bands, gap row between
+    for(let r=T;r<=T+1;r++)   for(let c=0;c<COLS;c++) out.push({c,r,alive:true});
+    for(let r=T+3;r<=T+4;r++) for(let c=0;c<COLS;c++) out.push({c,r,alive:true});
+  }
+  return out;
+}
+
+/* =========================================================
+   STATE + HUD
+   ========================================================= */
+const S = { screen:'menu', key:null, paused:false, over:false, coins:0, score:0, time:0, level:1,
+            lives:3, livesApply:false };
+let G = null;
+
+const el = {
+  title:document.getElementById('title'),
+  coins:document.getElementById('sCoins'),
+  score:document.getElementById('sScore'),
+  time:document.getElementById('sTime'),
+  pause:document.getElementById('btnPause'),
+  cont:document.getElementById('btnContinue'),
+  ov:document.getElementById('overlay'),
+  ovT:document.getElementById('ovTitle'),
+  ovS:document.getElementById('ovSub'),
+  ovB:document.getElementById('ovBtns'),
+  header:document.getElementById('buttons')
+};
+/* ---------------------------------------------------------
+   Artwork lifted from the score/leaderboard SVGs and baked to
+   PNGs so the file stays self-contained. ~24KB total.
+   --------------------------------------------------------- */
+const ICON = {
+  coin: 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAFgAAABQCAYAAACdxrJZAAACiElEQVR4nOydMVLDMBREFcYpKKDhCtBBTwkXgbPBRaCkhw6uQAMFBZkJsYk830GypS+tIg/7GjxgbGezWn3LttyYcqxNHSxMQQ4MgUKBwSCaizMKvh9ODYrl9duf333cnTvXPb59MR4g0UEHg8n1rfWuRTo1Bulqn5slO87O5mY6GAwFBpPSFKqLBR+JcWFRaUUHg6HAYGJtP5tY8BEbFxZtlUEHgwn9JjrnprjWdbaVC+1xyWNar8PHohaLgWyjGtLBYCgwmGbkb8kdmi8WcnSQctt2OXa7cn3Z7G1cfN5fmFToYDAUGMxYD6iKCNl0S9fKufbdXL12P0MiYqo+poPB7Co+O9f6SDkm+7/yTO/o5tm57lRNTAeDocBgGqMEeeqbAxkL2rjwxUIMdDAYCgxmEBHaCmCuY8M+XJ/HVxPLSmNTE8shua6ioIPBtA4OHgitvWMLIabDkzVuzNUPCR0MhgKDUdfB8hLL6vHM1IyvJi4BHQyGAoNRR8TX+1O/vDTEBx0MRu3gw5PLfnlliA86GAwFBkOBwVBgMBQYDAUGQ4HBUGAwFBgMBQajPlV23U/bUuPY8D4vddHBYCgwmDYi5B2Bo1eY93npJRel7+Ggg8EMOjntTXI1dnilWhjvcN8zFBiMug4O6fDswyQtJeJC7k+21hyPEGihg8FQYDC7EdG3q00zCX7iaOqR1G5Hg+b7S0psuLYn942sd2PmjqCDwag7OR8+N0uss10uDMW17Rrns6CDwVBgMJxSZstUzctJkSqFAoPhvGkj5JiRlQ4Gk+Vh8DlNDupDujXHII+FDgZDgcFwivEtnGJ8plBgMP/uPRoSVCxI6GAwJV+cxJdFkfxQYDA/AAAA//8c8U6yAAAABklEQVQDANjj2fVjC+wkAAAAAElFTkSuQmCC',
+  star: 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAFgAAABQCAYAAACdxrJZAAACSElEQVR4nOydMU7DMBiFDSoSLJlYEBITbExwAbgHUs+GBOcoJ2DqBhMSgoGpC0hFKmUg/DFO6jb+Ege9b2oSWtqn15dnu2lHbhgsvO0tNxC2nUCRwDASGEYCw0hgmJzPxmVzmE+OKwd2Lh/tZtaNQg6GkcAwEhhGAsNIYBgJDJNbxVmEdvo1zeJVtm+yek1yMIwEhhm5TGmKhSEhB8NIYJi+I6LSGl5uzszWrPZOo4uH8vZ8clI5tmwV9jF7bxRyMIwEhpHAMBIYRgLDSGCYrmpMcBKnWsuc2z+sr2YWW9N8Pu9+a1tgIsjSyWuXg2EkMMzP22ThQPwoqCM2Iix+XNiIaGJFfLSljB85GEYCw4TOpJW4mF2fuhj2jj5cHzQ1ihS83p4H9x9c3fu7gq1EDoaRwDCh+eCK1YvxtIyM2LjIkdh28ZeivOXFQtRARQ6GkcAw647Ho+Kir0aRgrfnorK9SSxY5GAYCQwjgWHazIlGj/hyz2Sbu7EjtFjkYBgJDJNy2STrCufXL0vbKtaEHAwjgWGoldXahpFLRJCxYJGDYSQwTLaXEKRmkxXrFMjBMBIYRgLDSGAYCQwjgWEGUdPen3Zrj+U+1ywHw0hgmKwioikKYu+TW2TIwTASGKbzJaNYivE06u9SLE+R3yQoB8NIYJheW8SKGIh6q9rPL/vYq5s0H/xPkcAwnUeEFwspzti1j7FcOS7jY9ProtsiB8NIYBgJDIOM5Dr8n+vQy/OTg2EkMAxV03L86YWm54R9X4YcDCOBYb4AAAD//9fMUNQAAAAGSURBVAMAig1wT/UCi5UAAAAASUVORK5CYII=',
+  hourglass: 'data:image/png;base64,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',
+  heart: 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGQAAABQCAYAAADvCdDvAAABuUlEQVR4nOzcsU3DQBhH8QNlgLAOjEEHu1CwC3SMATuwAR1sYGiQkvhzdPGd7Xf2+5URBdbT+a8osnepXJfqukrzw1zDdRKKQWAMAnPpva53r315/041Pd7dRB/X3JWq1/D5te999nwf/rtZ1+AJgTEIjEFgzt3Xsu61D7f7NNbrx0/W3wW7krspk29epGRXPCEwBoExCMz/PQyzFzkGvqv0zLEXkWhDItGueEJgDAJjEJjBDem68T8R1NyLFrkhK2IQGIPA7FKhre9FbZ4QGIPAGARmcEPchmV4QmAMAmMQGIPAGATGIDAGgTEIjEFgDAJjEJji30O2Lvf381yeEBiDwBgEpvj5kC0p2QufD2mUQWAMAoN7Tp1ijr2IeEJgDAJjEJga7xBZ5a6UPOORfF/WehgExiAwU73fsKldWWovIp4QGIPAGARmznfkInaFtBcRTwiMQWAMArPEe9YPTbor9L2IeEJgDAJjEJilNyQyalda3IuIJwTGIDAGgSFuSORoV57e8t4HSd+LiCcExiAwBoFpZUNO9UYk2pW/DWnu+jwhMAaBMQhMqxsSib6cuCEqYxAYg8D8AgAA//99xrobAAAABklEQVQDANL5aCL4bvJoAAAAAElFTkSuQmCC',
+  heartEmpty: 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGQAAABQCAYAAADvCdDvAAABv0lEQVR4nOzdMTIEQRhH8abmCCQOIJTLncMZHMUZnEMuFzqAhJKpkiFRhflGte2e7tc77xeygq1XPf/aYsaUyr2nug5Se5j3cJiEYhAYg8D891o3u9aeXVylmu5vr6Mv19yVqu/h7fVl9rWHu5vopVnvwRMCYxAYg8D8dV3LutYeHZ+kXT0/PWa9LtiV3E1ZffMiJbviCYExCIxBYL6uYZi9yLHwWWWmxV5Eog2JRLviCYExCIxBYKalb1D2ItJrG1rwhMAYBMYgMFMqtPZebI0nBMYgMAaBWdwQt6EPTwiMQWAMAmMQGIPAGATGIDAGgTEIjEFgDAJT/PuQrcv9G6xcnhAYg8AYBKb4/pAtKdkL7w8ZlEFgDAKDu0+dosVeRDwhMAaBMQhMjWeI7OWulNwnmHxe1v4wCIxBYNZ6vuFQu9JrLyKeEBiDwBgEpuUzchG7QtqLiCcExiAwBoHp8Zz171bdFfpeRDwhMAaBMQhM7w2J7LQrI+5FxBMCYxAYg8AQNyTyY1dOzy+zfoi+FxFPCIxBYAwCM8qG/Db7rBLtyueGDPf+PCEwBoExCMyoGxKJ/p+tG6IyBoExCMwHAAAA//8dD67BAAAABklEQVQDAK0PbtR4/71vAAAAAElFTkSuQmCC',
+  banner: 'data:image/png;base64,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',
+};
+
+/* =========================================================
+   SOUND — synthesised, not sampled. Square and triangle waves
+   through the browser's own oscillators, which is how the chips
+   in these machines actually worked. No audio files, so the
+   single-file constraint holds.
+   Off by default: browsers block audio until the first user
+   gesture, so an on-by-default toggle would read "ON" while
+   silent and look broken.
+   ========================================================= */
+let audioCtx = null, soundOn = false;
+try { soundOn = localStorage.getItem('baseArcadeSound') === 'on'; } catch(e){}
+
+function setSound(on){
+  soundOn = on;
+  try { localStorage.setItem('baseArcadeSound', on?'on':'off'); } catch(e){}
+  const b = document.getElementById('btnSound');
+  if(b){ b.classList.toggle('sel', on); b.querySelector('span').textContent = on ? 'SOUND ON' : 'SOUND OFF'; }
+  if(on) blip(660, 0.06, 'square', 0.16);   // confirmation chirp
+}
+function ac(){
+  if(!audioCtx){
+    const AC = window.AudioContext || window.webkitAudioContext;
+    if(!AC) return null;
+    audioCtx = new AC();
+  }
+  if(audioCtx.state === 'suspended') audioCtx.resume();
+  return audioCtx;
+}
+// one note: freq (or [from,to] to sweep), length in seconds
+function blip(freq, dur, type, gain, delay){
+  if(!soundOn) return;
+  const c = ac(); if(!c) return;
+  const t0 = c.currentTime + (delay||0);
+  const osc = c.createOscillator(), g = c.createGain();
+  osc.type = type || 'square';
+  if(Array.isArray(freq)){
+    osc.frequency.setValueAtTime(freq[0], t0);
+    osc.frequency.exponentialRampToValueAtTime(Math.max(1,freq[1]), t0+dur);
+  } else osc.frequency.setValueAtTime(freq, t0);
+  g.gain.setValueAtTime(0.0001, t0);
+  g.gain.exponentialRampToValueAtTime(gain||0.2, t0+0.008);   // fast attack
+  g.gain.exponentialRampToValueAtTime(0.0001, t0+dur);        // decay to silence
+  osc.connect(g); g.connect(c.destination);
+  osc.start(t0); osc.stop(t0+dur+0.02);
+}
+// per-game base pitch so each machine has its own voice
+const GAME_PITCH = { breakout:0, snake:2, brickshooter:-2, pacman:3, tetris:-4, frogger:5 };
+const semitone = n => Math.pow(2, n/12);
+function sfx(name){
+  if(!soundOn) return;
+  const k = semitone(GAME_PITCH[S.key] || 0);
+  switch(name){
+    case 'hit':    blip(420*k, 0.05, 'square',   0.16); break;   // paddle / wall
+    case 'brick':  blip(720*k, 0.05, 'square',   0.15); break;   // brick broken
+    case 'eat':    blip(560*k, 0.06, 'triangle', 0.2);
+                   blip(840*k, 0.07, 'triangle', 0.18, 0.05); break;
+    case 'shoot':  blip([900*k, 300*k], 0.09, 'square', 0.12); break;
+    case 'rotate': blip(300*k, 0.04, 'square',   0.1);  break;
+    case 'line':   [0,4,7,12].forEach((n,i)=> blip(440*semitone(n), 0.09, 'square', 0.16, i*0.045)); break;
+    case 'level':  [0,5,9,14].forEach((n,i)=> blip(392*semitone(n), 0.11, 'triangle', 0.2, i*0.07)); break;
+    case 'life':   blip([500, 180], 0.28, 'triangle', 0.22); break;
+    case 'over':   [0,-3,-7,-12].forEach((n,i)=> blip(392*semitone(n), 0.16, 'square', 0.2, i*0.12)); break;
+  }
+}
+
+/* =========================================================
+   LEADERBOARD
+   Your own runs are real and persist in localStorage. The other
+   entries are placeholders — with no server there is no way for
+   two players' scores to ever meet. If this ever runs inside the
+   Base app, replace fetchBoard() with a call to the host SDK and
+   nothing else here has to change.
+   ========================================================= */
+const BOARD_SIZE = 5;
+const SEED_BOARD = [
+  { name:'UNOVERSE',  score:580 },
+  { name:'VARISH P.', score:480 },
+  { name:'PLAYER 4',  score:80  },
+  { name:'PLAYER 5',  score:50  }
+];
+let bestScore = 0;
+try { bestScore = parseInt(localStorage.getItem('baseArcadeBest')||'0',10) || 0; } catch(e){}
+
+// returns the player's rank if this run made the board, else 0
+function submitScore(key, score){
+  if(!score) return 0;
+  const improved = score > bestScore;
+  if(improved){
+    bestScore = score;
+    try { localStorage.setItem('baseArcadeBest', String(score)); } catch(e){}
+  }
+  const rank = fetchBoard().findIndex(r=>r.you) + 1;
+  return improved && rank ? rank : 0;
+}
+// merges your best run into the placeholder board, sorted
+function fetchBoard(){
+  const rows = SEED_BOARD.map(r=>({...r, you:false}));
+  if(bestScore > 0) rows.push({ name:'YOU', score:bestScore, you:true });
+  rows.sort((a,b)=> b.score - a.score);
+  return rows.slice(0, BOARD_SIZE);
+}
+
+/* how many lives each game gets; 0 = the concept doesn't apply and the
+   hearts show dimmed, the way the PAUSE button does on the menu */
+const MAX_LIVES = 3;
+const LIVES_GAMES = { breakout:1, brickshooter:1, pacman:1, frogger:1, snake:1, tetris:0 };
+
+function paintIcons(){
+  document.getElementById('icoCoin').style.backgroundImage = `url(${ICON.coin})`;
+  document.getElementById('icoStar').style.backgroundImage = `url(${ICON.star})`;
+  document.getElementById('icoTime').style.backgroundImage = `url(${ICON.hourglass})`;
+}
+function drawLives(){
+  const box = document.getElementById('lives');
+  const applies = S.livesApply;
+  box.classList.toggle('na', !applies);
+  const shown = applies ? S.lives : 0;
+  let html = '';
+  for(let i=0;i<MAX_LIVES;i++){
+    html += `<img class="heart" alt="" src="${i<shown ? ICON.heart : ICON.heartEmpty}">`;
+  }
+  box.innerHTML = html;
+}
+function fmtTime(t){
+  const s = Math.max(0, Math.floor(t));
+  return Math.floor(s/60) + ':' + String(s%60).padStart(2,'0');
+}
+function hud(){
+  el.coins.textContent = S.coins;
+  el.score.textContent = String(S.score).padStart(3,'0');
+  el.time.textContent  = fmtTime(S.time);
+  drawLives();
+}
+function showOverlay(title, sub, buttons){
+  el.ovT.textContent = title;
+  el.ovS.innerHTML  = sub || '';
+  el.ovB.innerHTML  = '';
+  (buttons||[]).forEach(b=>{
+    const n = makePill(b.label, b.ghost?'ghost':'', 200, 34);
+    n.onclick = b.onClick;
+    n.addEventListener('pointerenter', ()=>focusIn(el.ovB, [...el.ovB.children].indexOf(n)));
+    el.ovB.appendChild(n);
+  });
+  el.ov.classList.add('show');
+  focusIn(el.ovB, 0);                 // D-pad starts on the first option
+}
+const hideOverlay = () => { el.ov.classList.remove('show'); clearFocus(); };
+
+/* =========================================================
+   MENU FOCUS — lets the physical controls drive every panel.
+   Whichever container is "active" (an overlay or the settings
+   panel) owns a highlighted button; up/down (and left/right)
+   move the highlight, the centre button activates it.
+   ========================================================= */
+const Focus = { host:null, idx:0 };
+
+function focusables(host){
+  return host ? [...host.querySelectorAll('button')]
+    .filter(b=>!b.disabled && !b.hasAttribute('data-nofocus')) : [];
+}
+function paintFocus(){
+  document.querySelectorAll('.kbFocus').forEach(n=>n.classList.remove('kbFocus'));
+  const list = focusables(Focus.host);
+  if(list[Focus.idx]) list[Focus.idx].classList.add('kbFocus');
+}
+function focusIn(host, idx){
+  Focus.host = host;
+  const list = focusables(host);
+  if(!list.length){ Focus.host=null; return; }
+  Focus.idx = Math.max(0, Math.min(idx||0, list.length-1));
+  paintFocus();
+}
+function clearFocus(){
+  Focus.host = null;
+  document.querySelectorAll('.kbFocus').forEach(n=>n.classList.remove('kbFocus'));
+}
+function moveFocus(step){
+  const list = focusables(Focus.host);
+  if(!list.length) return;
+  Focus.idx = (Focus.idx + step + list.length) % list.length;
+  paintFocus();
+}
+function activateFocus(){
+  const list = focusables(Focus.host);
+  const btn = list[Focus.idx];
+  if(btn) btn.click();
+}
+/* true when a panel is up and should be consuming the controls */
+function focusActive(){ return !!Focus.host && Focus.host.isConnected; }
+
+/* =========================================================
+   INPUT
+   ========================================================= */
+const held = { left:false, right:false, up:false, down:false };
+
+function press(dir){
+  if(dir in held) held[dir]=true;
+
+  // splash: any button skips it
+  if(S.screen==='splash'){ if(dir==='action') finishSplash(); return; }
+
+  // a panel is open (pause / game over / level up / settings): the
+  // controls drive that panel instead of the game
+  if(focusActive()){
+    // in the header row left/right walk the buttons and down drops back
+    // to the board; everywhere else it's a plain vertical list
+    if(Focus.host === el.header){
+      if(dir==='right') return moveFocus(1);
+      if(dir==='left')  return moveFocus(-1);
+      if(dir==='down' || dir==='up'){ clearFocus(); return; }
+      if(dir==='action') return activateFocus();
+      return;
+    }
+    if(dir==='down'  || dir==='right') return moveFocus(1);
+    if(dir==='up'    || dir==='left')  return moveFocus(-1);
+    if(dir==='action')                 return activateFocus();
+    return;
+  }
+
+  // on the carousel the up/down axis is free (the carousel only uses
+  // left/right): up reaches the header row, down opens the scores
+  if(S.screen==='menu' && dir==='up'){ focusIn(el.header, 0); return; }
+  if(S.screen==='menu' && dir==='down'){ openLeaderboard(); return; }
+
+  if(S.paused || S.over) return;
+  if(G && G.press) G.press(dir);
+}
+const release = dir => { if(dir in held) held[dir]=false; };
+
+/* The D-pad artwork itself is the verbatim vector slice from the nav
+   SVGs, already present inside #dpad in the markup. Here we only lay
+   transparent hit zones over it (4 directions + centre = action). */
+function buildDpad(){
+  const dpad = document.getElementById('dpad');
+  const zones = [
+    {d:'up',    x:39, y:0,   w:80, h:48},
+    {d:'down',  x:39, y:110, w:80, h:48},
+    {d:'left',  x:0,  y:39,  w:48, h:80},
+    {d:'right', x:110,y:39,  w:48, h:80},
+    {d:'action',x:50, y:50,  w:58, h:58}
+  ];
+  for(const z of zones){
+    const n=document.createElement('div');
+    n.className='dpadHit'; n.dataset.dir=z.d;
+    n.style.cssText=`left:${z.x/158*100}%;top:${z.y/158*100}%;width:${z.w/158*100}%;height:${z.h/158*100}%`;
+    const on = e => { e.preventDefault(); n.classList.add('pressed'); press(z.d); };
+    const off= e => { e.preventDefault(); n.classList.remove('pressed'); release(z.d); };
+    n.addEventListener('pointerdown',on);
+    n.addEventListener('pointerup',off);
+    n.addEventListener('pointerleave',off);
+    n.addEventListener('pointercancel',off);
+    dpad.appendChild(n);
+  }
+}
+
+/* PAUSE / CONTINUE pill background — exact construction from the nav
+   SVG header buttons: 2.6px pixel unit, #203B51 outline, #A5C5EF face,
+   two-segment bevelled ends, #62819B inner bottom shadow, white top
+   highlight row at 29% + solid white shine streak top-left. */
+/* settings panel frame: one 5px pixel border with a two-step staircase
+   corner, plus the title-bar divider and the close-button divider —
+   the structure read straight out of the popup SVGs */
+function buildPanelFrame(){
+  const panel = document.querySelector('.settingsPanel');
+  const svg   = document.getElementById('panelFrame');
+  if(!panel || !svg) return;
+  const w = Math.round(panel.getBoundingClientRect().width);
+  const h = Math.round(panel.getBoundingClientRect().height);
+  if(!w || !h) return;
+  const u = 5, BAR = 30;               // border unit, title-bar height
+  const r = [];
+  const R = (x,y,ww,hh)=>r.push(`<rect x="${x}" y="${y}" width="${ww}" height="${hh}" fill="var(--panel-edge)"/>`);
+  R(2*u, 0,      w-4*u, u);            // top edge, inset two blocks
+  R(2*u, h-u,    w-4*u, u);            // bottom edge
+  R(0,   2*u,    u,     h-4*u);        // left edge
+  R(w-u, 2*u,    u,     h-4*u);        // right edge
+  R(u,     u,     u, u); R(w-2*u,     u, u, u);   // staircase corner steps
+  R(u, h-2*u,     u, u); R(w-2*u, h-2*u, u, u);
+  R(0,   BAR,    w,     u);            // divider under the title bar
+  R(w-9*u, u,    u,     BAR-u);        // divider before the close button
+  svg.setAttribute('viewBox', `0 0 ${w} ${h}`);
+  svg.innerHTML = r.join('');
+}
+
+function pillSVG(w, h){
+  w = w || 132; h = h || 29;
+  const u = 2.6;                       // the SVG's pixel unit
+  // face octagon: bevels (u*2,0)->(u*1,u*1)->(0,u*3) pattern from the SVG
+  const face=`M${u*3+2.6} ${u}L${w-u*3-2.6} ${u}L${w-u-2.6} ${u*2}L${w-2.6} ${u*3+1.4}L${w-2.6} ${h-u*3-1.4}L${w-u-2.6} ${h-u*2}L${w-u*3-2.6} ${h-u}L${u*3+2.6} ${h-u}L${u+2.6} ${h-u*2}L${2.6} ${h-u*3-1.4}L${2.6} ${u*3+1.4}L${u+2.6} ${u*2}Z`;
+  const outline=`M${u*3+2.6} 0L${w-u*3-2.6} 0L${w-u} ${u*1.2}L${w} ${u*3}L${w} ${h-u*3}L${w-u} ${h-u*1.2}L${w-u*3-2.6} ${h}L${u*3+2.6} ${h}L${u} ${h-u*1.2}L0 ${h-u*3}L0 ${u*3}L${u} ${u*1.2}Z`;
+  return `<svg viewBox="0 0 ${w} ${h}" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
+    <path d="${outline}" fill="var(--pill-outline)"/>
+    <path d="${face}" fill="var(--pill-face)"/>
+    <rect x="${u*4}" y="${u}" width="${w-u*8}" height="${u}" fill="#ffffff" opacity="0.29"/>
+    <rect x="${u*4}" y="${u*2}" width="${u*5}" height="${u}" fill="#ffffff"/>
+    <rect x="${u*3}" y="${u*2}" width="${u}" height="${u*2}" fill="#ffffff"/>
+    <rect x="${u*4}" y="${h-u*2}" width="${w-u*8}" height="${u}" fill="var(--pill-shade)"/>
+    <rect x="${w-u*4}" y="${h-u*3}" width="${u}" height="${u}" fill="var(--pill-shade)"/>
+  </svg>`;
+}
+function buildPills(){
+  document.querySelectorAll('.pill').forEach(b=>{
+    const r = b.getBoundingClientRect();
+    b.insertAdjacentHTML('afterbegin', pillSVG(Math.round(r.width)||132, Math.round(r.height)||29));
+  });
+}
+/* build a pill <button> on the fly — used by every overlay (game over,
+   pause, level up) and the settings panel, so they all share one look */
+function makePill(labelText, cls, w, h){
+  const b=document.createElement('button');
+  b.className='pill '+(cls||'');
+  if(w) b.style.width=w+'px';
+  if(h) b.style.height=h+'px';
+  b.innerHTML = pillSVG(w||190, h||34);
+  const s=document.createElement('span');
+  s.textContent=labelText;
+  if(h) s.style.lineHeight=h+'px';
+  b.appendChild(s);
+  return b;
+}
+
+/* white pixel border strip just inside the screen edge (#D7E8FF in the
+   SVGs) — straight runs with stepped corners, drawn at exact mock
+   proportions on the 371x471 screen */
+function buildPixFrame(fw, fh){
+  const svg=document.getElementById('pixFrame');
+  if(!fw || !fh) return;
+  const W=fw, H=fh, t=BEZEL, inset=0.5, c=16;   // c = corner cut span
+  svg.setAttribute('viewBox',`0 0 ${W} ${H}`);
+  svg.setAttribute('preserveAspectRatio','none');
+  const strips=[
+    // top, bottom, left, right straight runs (inset by corner span)
+    `M${c} ${inset}H${W-c}V${inset+t}H${c}Z`,
+    `M${c} ${H-inset-t}H${W-c}V${H-inset}H${c}Z`,
+    `M${inset} ${c}V${H-c}H${inset+t}V${c}Z`,
+    `M${W-inset-t} ${c}V${H-c}H${W-inset}V${c}Z`,
+    // stepped corner blocks
+    `M${c-7} ${inset+3}h7v7h-7Z`, `M${inset+3} ${c-7}h7v7h-7Z`,
+    `M${W-c} ${inset+3}h7v7h-7Z`, `M${W-inset-10} ${c-7}h7v7h-7Z`,
+    `M${c-7} ${H-inset-10}h7v7h-7Z`, `M${inset+3} ${H-c}h7v7h-7Z`,
+    `M${W-c} ${H-inset-10}h7v7h-7Z`, `M${W-inset-10} ${H-c}h7v7h-7Z`
+  ];
+  svg.innerHTML = strips.map(d=>`<path d="${d}" fill="var(--pix-frame)"/>`).join('');
+}
+const KEYS = { ArrowLeft:'left', ArrowRight:'right', ArrowUp:'up', ArrowDown:'down',
+               a:'left', d:'right', w:'up', s:'down', ' ':'action', Enter:'action' };
+addEventListener('keydown', e=>{ const d=KEYS[e.key]; if(d){ e.preventDefault(); if(!e.repeat) press(d); } });
+addEventListener('keyup',   e=>{ const d=KEYS[e.key]; if(d) release(d); });
+
+// round select button (nav screens only) — starts the highlighted game
+const selectBtn = document.getElementById('selectBtn');
+selectBtn.addEventListener('pointerdown', e=>{ e.preventDefault(); press('action'); });
+
+/* =========================================================
+   SETTINGS — hand preference: which side the D-pad sits on.
+   The center dot in the D-pad itself still fires 'action' too
+   (harmless — both controls call the same press('action')), so
+   the split power button is purely additive, no rewiring needed.
+   ========================================================= */
+const controlsRow = document.getElementById('controlsRow');
+const settingsOv = document.getElementById('settingsOverlay');
+let settingsAutoPaused = false;
+
+function applyHand(mode){
+  S.hand = mode;
+  controlsRow.className = 'hand-' + mode;
+  try { localStorage.setItem('baseArcadeHand', mode); } catch(e){}
+  document.querySelectorAll('[data-hand]').forEach(b=>{
+    b.classList.toggle('sel', b.dataset.hand === mode);
+  });
+  drawHandPreview(mode);
+}
+function openSettings(){
+  if(S.screen==='play' && !S.paused && !S.over){ S.paused = true; settingsAutoPaused = true; }
+  settingsOv.classList.add('show');
+  // panel pills are laid out by flex, so their SVGs can only be sized
+  // once the panel is actually on screen
+  settingsOv.querySelectorAll('.pill').forEach(b=>{
+    const r=b.getBoundingClientRect();
+    const svg=b.querySelector('svg');
+    if(svg) svg.outerHTML = pillSVG(Math.round(r.width), Math.round(r.height));
+    else b.insertAdjacentHTML('afterbegin', pillSVG(Math.round(r.width), Math.round(r.height)));
+  });
+  buildPanelFrame();
+  // controls now drive the panel; start on the currently-selected style
+  const opts = focusables(settingsOv);
+  const at = opts.findIndex(b => b.dataset.hand === S.hand);
+  focusIn(settingsOv, at < 0 ? 0 : at);
+}
+function closeSettings(){
+  settingsOv.classList.remove('show');
+  clearFocus();
+  if(settingsAutoPaused){ S.paused = false; settingsAutoPaused = false; }
+  // hand the controls back to whatever panel is still open underneath
+  if(el.ov.classList.contains('show')) focusIn(el.ovB, 0);
+}
+/* miniature of the chosen layout, mirroring the preview drawn in the
+   three "* hand style.svg" popups */
+function drawHandPreview(mode){
+  const pv = document.getElementById('handPreview');
+  if(!pv) return;
+  pv.className = 'pv-' + mode;
+  const dpad = `<svg class="pvDpad" viewBox="0 0 62 62" xmlns="http://www.w3.org/2000/svg">
+      <circle cx="31" cy="31" r="29" fill="var(--dpad-bg)" stroke="var(--dpad-edge)" stroke-width="2"/>
+      <circle cx="31" cy="31" r="10" fill="var(--pix-frame)"/>
+      <path d="M31 8l6 8h-12z" fill="var(--dpad-arrow)"/>
+      <path d="M31 54l6-8h-12z" fill="var(--dpad-arrow)"/>
+      <path d="M8 31l8-6v12z"  fill="var(--dpad-arrow)"/>
+      <path d="M54 31l-8-6v12z" fill="var(--dpad-arrow)"/>
+    </svg>`;
+  const round = `<div class="pvRound"></div>`;
+  if(mode === 'default')    pv.innerHTML = dpad;
+  else if(mode === 'left')  pv.innerHTML = round + dpad;   // round left, d-pad right
+  else                      pv.innerHTML = dpad + round;   // d-pad left, round right
+}
+
+document.getElementById('btnSettings').onclick = openSettings;
+document.getElementById('btnCloseSettings').onclick = closeSettings;
+document.getElementById('btnCloseX').onclick = closeSettings;
+document.getElementById('btnSound').onclick = () => setSound(!soundOn);
+settingsOv.addEventListener('pointerdown', e=>{ if(e.target===settingsOv) closeSettings(); });
+document.querySelectorAll('[data-hand]').forEach(b=>{ b.onclick = () => applyHand(b.dataset.hand); });
+
+let savedHand = 'default';
+try { savedHand = localStorage.getItem('baseArcadeHand') || 'default'; } catch(e){}
+applyHand(savedHand);
+
+/* =========================================================
+   SPLASH — full-screen cloud loader ("Presenting BASE ARCADE"),
+   recreated in code per the TV mockup: pixel clouds drift across
+   the sky until the app "loads", then it fades into the carousel
+   ========================================================= */
+const splashEl = document.getElementById('splash');
+
+/* five hand-drawn pixel cloud silhouettes, so no two clouds drifting
+   past look like the same stamp */
+const CLOUD_SHAPES = [
+  [ '..XXX....',                       // classic puffy
+    '.XXXXX.X.',
+    'XXXXXXXXX',
+    '.XXXXXXX.' ],
+  [ '...XX...',                        // tall, single peak
+    '..XXXX..',
+    '.XXXXXX.',
+    'XXXXXXXX',
+    '.XXXXXX.' ],
+  [ '..XX..XXX..',                     // long, twin-humped
+    '.XXXXXXXXX.',
+    'XXXXXXXXXXX',
+    '..XXXXXXX..' ],
+  [ '.XX..',                           // small wisp
+    'XXXXX',
+    '.XXX.' ],
+  [ '....XXX..',                       // lopsided, heavy right
+    '..XXXXXXX',
+    '.XXXXXXXX',
+    'XXXXXXXX.',
+    '..XXXX...' ]
+];
+
+// pixel-art cloud built from box-shadow blocks
+function makeCloud(shape, y, scale, dur, delay, opacity){
+  const n=document.createElement('div');
+  n.className='cloud';
+  const p=Math.round(8*scale);
+  n.style.width=n.style.height=p+'px';
+  const sh=[];
+  shape.forEach((row,ry)=>{ [...row].forEach((ch,rx)=>{
+    if(ch==='X') sh.push(`${rx*p}px ${ry*p}px 0 #D7E8FF`);
+  }); });
+  n.style.boxShadow=sh.join(',');
+  n.style.top=y+'px';
+  n.style.left='-90px';
+  n.style.opacity=opacity;
+  n.style.animationDuration=dur+'s';
+  n.style.animationDelay=delay+'s';
+  splashEl.appendChild(n);
+}
+function initSplash(){
+  const C=CLOUD_SHAPES;
+  //        shape   y   scale  dur  delay  opacity
+  makeCloud(C[0],   70,  1.4,  16,   -6,   .95);
+  makeCloud(C[3],  165,  0.9,  11,  -13,   .65);
+  makeCloud(C[2],  250,  1.1,  23,   -3,   .85);
+  makeCloud(C[1],  360,  1.7,  27,  -18,   .9 );
+  makeCloud(C[4],  505,  1.0,  14,   -9,   .75);
+  makeCloud(C[3],  600,  1.3,  20,  -21,   .8 );
+  makeCloud(C[2],  700,  0.8,  17,  -12,   .6 );
+  setTimeout(finishSplash, 2800);
+  splashEl.addEventListener('pointerdown', finishSplash);
+}
+function finishSplash(){
+  if(S.screen!=='splash') return;
+  splashEl.classList.add('hide');
+  openMenu();
+}
+
+/* =========================================================
+   MENU — a carousel: one game's live board preview at a time,
+   left/right cycles through all 6 in a loop, action starts it
+   ========================================================= */
+const Menu = {
+  title:'BASE ARCADE',
+  sel:0,
+  init(){
+    this.show(this.sel||0);
+  },
+  update(){},
+  show(i){
+    const n = CATALOG.length;
+    this.sel = (i+n)%n;
+    CATALOG[this.sel].game.init();
+    document.getElementById('gameLabel').textContent = CATALOG[this.sel].short;
+  },
+  press(d){
+    if(d==='left')  this.show(this.sel-1);
+    if(d==='right') this.show(this.sel+1);
+    if(d==='action') start(CATALOG[this.sel].key);
+  },
+  // tap on an arrow cycles; tapping anywhere else on the screen starts the game
+  hit(px,py){
+    const zone = W*0.22, y0 = H*0.28, y1 = H*0.62;
+    if(py>y0 && py<y1 && px < zone)   return this.press('left');
+    if(py>y0 && py<y1 && px > W-zone) return this.press('right');
+    this.press('action');
+  },
+  draw(){
+    const g = CATALOG[this.sel].game;
+    if(g && g.draw) g.draw();
+
+    // arrow geometry straight from the nav SVGs: stepped chevrons
+    // 31.2 x 56.2 on the 371-wide screen, centre-line at 44.3% height,
+    // tips 17.5px in from each edge. White = next, blue = previous;
+    // colours flip on the last tile (loop-back to nav 1 cue).
+    const sc = W/371;
+    const ay = H*0.4428, len = 31.2*sc, spread = 56.2*sc;
+    const lcx = 33.1*sc, rcx = W - 32.65*sc;
+    const isLast = this.sel === CATALOG.length-1;
+    stepArrow(lcx, ay, len, spread, -1, isLast ? '#EEEFF1' : '#2760C4');
+    stepArrow(rcx, ay, len, spread,  1, isLast ? '#2760C4' : '#EEEFF1');
+  }
+};
+
+/* ---------- leaderboard screen (drawn on the board, like the menu) ---------- */
+const bannerImg = new Image(); bannerImg.src = ICON.banner;
+const starImg   = new Image(); starImg.src   = ICON.star;
+
+const Leaderboard = {
+  title:'SCORES',
+  rows:[],
+  init(){ this.rows = fetchBoard(); },
+  update(){},
+  press(d){ if(d==='action') openMenu(); },
+  hit(){ openMenu(); },
+  draw(){
+    clearBoard(); drawGrid();
+    const sc = W/371;
+
+    // banner across the top — 285 of the 371-wide board, as in the mock
+    const bw = 285*sc, bh = bw*124/406, bx = (W-bw)/2, by = 16*sc;
+    if(bannerImg.complete) ctx.drawImage(bannerImg, bx, by, bw, bh);
+
+    // three gold stars tucked under it
+    const ss = 27*sc, gap = 13*sc, sy = by + bh - 15*sc;
+    const totalS = ss*3 + gap*2;
+    if(starImg.complete)
+      for(let i=0;i<3;i++) ctx.drawImage(starImg, (W-totalS)/2 + i*(ss+gap), sy, ss, ss*20/22);
+
+    // five rows: rank / name / score. Your own row is gold.
+    const top = sy + 46*sc, rowH = 40*sc;
+    ctx.textBaseline = 'middle';
+    this.rows.forEach((r,i)=>{
+      const y = top + i*rowH;
+      const col = r.you ? COL.yellow : COL.hi;
+      label(`${i+1}.`,  46*sc,  y, 15*sc, col, 'left');
+      label(r.name,     84*sc,  y, 15*sc, col, 'left');
+      label(String(r.score), W-46*sc, y, 15*sc, col, 'right');
+    });
+    if(!this.rows.length)
+      label('NO SCORES YET', W/2, top + rowH, 13*sc, COL.dim, 'center');
+  }
+};
+function openLeaderboard(){
+  G = Leaderboard;
+  S.screen='board'; S.paused=false; S.over=false;
+  el.title.textContent = Leaderboard.title;
+  el.pause.disabled=true; el.cont.disabled=false;
+  document.getElementById('gameLabel').classList.remove('show');
+  S.livesApply=true; S.lives=MAX_LIVES;          // ditto on the scores screen
+  fitCanvas(); Leaderboard.init(); hud(); hideOverlay();
+}
+
+/* =========================================================
+   GAME 1 — BREAKOUT   (ball pace reduced ~40%)
+   ========================================================= */
+const Breakout = {
+  title:'BREAKOUT',
+  init(){
+    this.initLevel();
+  },
+  initLevel(){
+    const lvl = Math.min(S.level,5);
+    this.bricks = wallPattern(lvl);
+    this.speedMul = 1 + (lvl-1)*0.08;                 // +8% ball pace per level
+    this.padW = Math.max(2, 3-(lvl-1)*0.25)*CELL;      // paddle shrinks a bit each level
+    this.padH = CELL*0.6;
+    this.padX = W/2 - this.padW/2;
+    this.reset();
+  },
+  reset(){
+    this.bx = W/2; this.by = H - CELL*3;
+    const a = -Math.PI/2 + (Math.random()*0.6-0.3);
+    this.speed = CELL*5.4*this.speedMul;   // was 9
+    this.vx = Math.cos(a)*this.speed; this.vy = Math.sin(a)*this.speed;
+    this.trail = [];
+  },
+  // losing a life gives you a fresh ball but keeps the wall you've broken
+  respawn(){ this.padX = W/2 - this.padW/2; this.reset(); },
+  press(){},
+  update(dt){
+    const sp = CELL*9;
+    if(held.left)  this.padX -= sp*dt;
+    if(held.right) this.padX += sp*dt;
+    this.padX = Math.max(0, Math.min(W-this.padW, this.padX));
+
+    this.bx += this.vx*dt; this.by += this.vy*dt;
+    const r = CELL*0.22;
+
+    if(this.bx<r){ this.bx=r; this.vx=Math.abs(this.vx); }
+    if(this.bx>W-r){ this.bx=W-r; this.vx=-Math.abs(this.vx); }
+    if(this.by<r){ this.by=r; this.vy=Math.abs(this.vy); }
+
+    const padY = H - CELL*1.6;
+    if(this.vy>0 && this.by+r>=padY && this.by-r<=padY+this.padH &&
+       this.bx>=this.padX-r && this.bx<=this.padX+this.padW+r){
+      this.by = padY-r;
+      const hit = (this.bx-(this.padX+this.padW/2))/(this.padW/2);
+      const a = -Math.PI/2 + hit*0.9;
+      this.vx = Math.cos(a)*this.speed; this.vy = Math.sin(a)*this.speed;
+      this.speed = Math.min(this.speed*1.004, CELL*8.5*this.speedMul);   // gentler ramp, lower ceiling
+    }
+
+    for(const b of this.bricks){
+      if(!b.alive) continue;
+      const x=b.c*CELL, y=b.r*CELL;
+      if(this.bx+r>x && this.bx-r<x+CELL && this.by+r>y && this.by-r<y+CELL){
+        b.alive=false; S.score+=10; S.coins+=1; sfx('brick');
+        const ox = Math.min(this.bx+r-x, x+CELL-(this.bx-r));
+        const oy = Math.min(this.by+r-y, y+CELL-(this.by-r));
+        if(ox<oy) this.vx=-this.vx; else this.vy=-this.vy;
+        break;
+      }
+    }
+
+    this.trail.unshift({x:this.bx,y:this.by});
+    if(this.trail.length>14) this.trail.pop();
+
+    if(this.bricks.every(b=>!b.alive)){
+      S.level++; this.initLevel();
+      return levelUp('WALL CLEARED');
+    }
+    if(this.by-r>H) return gameOver('BALL LOST');
+  },
+  draw(){
+    for(const b of this.bricks) if(b.alive) cellBlock(b.c,b.r);
+    for(let i=4;i<this.trail.length;i+=4)
+      dot(this.trail[i].x,this.trail[i].y,CELL*0.16,'rgba(251,191,36,.4)');
+    // glowing yellow pixel ball, straight from the nav-1 mock (#FBBF24 + soft glow)
+    ctx.save();
+    ctx.shadowColor='rgba(251,191,36,.76)'; ctx.shadowBlur=CELL*0.5;
+    pxRect(this.bx-CELL*0.32, this.by-CELL*0.32, CELL*0.64, CELL*0.64, COL.yellow);
+    ctx.restore();
+    pxRect(this.padX, H-CELL*1.6, this.padW, this.padH, '#3778E2', COL.hi);
+  }
+};
+
+/* =========================================================
+   GAME 2 — BRICK SHOOTER
+   Turret is grid-locked: it steps whole columns, so its muzzle can
+   address every column of the BASE wordmark including the outer ones.
+   ========================================================= */
+const BrickShooter = {
+  title:'BRICK SHOOTER',
+  init(){
+    this.initLevel();
+  },
+  initLevel(){
+    const lvl = Math.min(S.level,5);
+    this.bricks = wallPattern(lvl);
+    this.creepInterval = Math.max(3, 7-(lvl-1));   // wall creeps down faster each level
+    this.col   = COLS >> 1;      // muzzle column, 0..COLS-1 — every column reachable
+    this.moveT = 0;
+    this.shots = []; this.cool = 0; this.drop = 0; this.offset = 0;
+  },
+  // Keep the bricks you've cleared, but put the wall back somewhere you can
+  // actually survive. Nudging the offset by a fixed amount was not enough —
+  // the wall stayed past the breach line and the next frame killed you again,
+  // burning all three lives in three frames.
+  respawn(){
+    const alive = this.bricks.filter(b=>b.alive);
+    const lowest = alive.length ? Math.max(...alive.map(b=>b.r)) : 0;
+    this.offset = Math.max(0, (ROWS-9) - lowest);   // ~5 rows clear of the breach line
+    this.col = COLS >> 1; this.moveT = 0; this.shots = []; this.cool = 0; this.drop = 0;
+  },
+  stepCol(d){
+    this.col = Math.max(0, Math.min(COLS-1, this.col + d));
+    this.moveT = 0.14;                       // repeat delay when the pad is held
+  },
+  fire(){
+    if(this.cool>0) return;
+    this.cool = 0.3; sfx('shoot');
+    this.shots.push({ col:this.col, x:(this.col+0.5)*CELL, y:(ROWS-2.4)*CELL });
+  },
+  press(d){
+    if(d==='left')  this.stepCol(-1);
+    if(d==='right') this.stepCol(1);
+    if(d==='up' || d==='action') this.fire();
+  },
+  update(dt){
+    this.moveT -= dt; this.cool -= dt;
+    if(this.moveT<=0){
+      if(held.left)       this.stepCol(-1);
+      else if(held.right) this.stepCol(1);
+    }
+    if(held.up) this.fire();
+
+    this.drop += dt;
+    if(this.drop > this.creepInterval){ this.drop = 0; this.offset += 1; }
+
+    for(const s of this.shots) s.y -= CELL*15*dt;
+    this.shots = this.shots.filter(s=>s.y > -CELL);
+
+    // resolve on grid indices, never float overlap: a shot carries the column
+    // it was fired from, so it can never slip between two adjacent bricks
+    for(const s of this.shots){
+      const sr = Math.floor(s.y / CELL) - this.offset;
+      for(const b of this.bricks){
+        if(b.alive && b.c===s.col && b.r===sr){
+          b.alive=false; S.score+=15; S.coins+=1; s.dead=true; break;
+        }
+      }
+    }
+    this.shots = this.shots.filter(s=>!s.dead);
+
+    if(this.bricks.every(b=>!b.alive)){
+      S.level++; this.initLevel();
+      return levelUp('WALL CLEARED');
+    }
+    const low = Math.max(...this.bricks.filter(b=>b.alive).map(b=>b.r+this.offset));
+    if(low >= ROWS-4) return gameOver('WALL BREACHED');
+  },
+  draw(){
+    for(const b of this.bricks) if(b.alive) cellBlock(b.c, b.r+this.offset);
+    for(const s of this.shots)
+      pxRect(s.x-CELL*0.3, s.y-CELL*0.3, CELL*0.6, CELL*0.6, COL.orange, '#ffd77a');
+    // turret: three blocks along the floor, one muzzle block on top
+    for(const d of [-1,0,1]){
+      const cc = this.col + d;
+      if(cc>=0 && cc<COLS) cellBlock(cc, ROWS-1, COL.block, COL.hi);
+    }
+    cellBlock(this.col, ROWS-2, COL.orange, '#ffd77a');
+  }
+};
+
+/* =========================================================
+   GAME 3 — PAC MAN   (step time raised 0.16 -> 0.27, ~40% slower)
+   ========================================================= */
+const PAC_MAPS = [
+  [ // level 1
+    '.................','##...............','.#...............','.................',
+    '...##............','.................','.......##........','........#........',
+    '.................','.................','..###............','.................',
+    '.................','.................','.####............','.................',
+    '..............#..','..............#..','............###..','.................'
+  ],
+  [ // level 2 — horizontal mirror of level 1
+    '.................','..............##.','..............#..','.................',
+    '...........##....','.................','.......##........','.......#.........',
+    '.................','.................','...........###...','.................',
+    '.................','.................','...........####..','.................',
+    '.#...............','.#...............','.###.............','.................'
+  ],
+  [ // level 3 — vertical mirror of level 1
+    '.................','............###..','..............#..','..............#..',
+    '.................','.####............','.................','.................',
+    '.................','..###............','.................','.................',
+    '........#........','.......##........','.................','...##............',
+    '.................','.#...............','##...............','.................'
+  ],
+  [ // level 4 — 180° rotation of level 1
+    '.................','.###.............','.#...............','.#...............',
+    '.................','...........####..','.................','.................',
+    '.................','...........###...','.................','.................',
+    '.......#.........','.......##........','.................','...........##....',
+    '.................','..............#..','..............##.','.................'
+  ],
+  [ // level 5 — denser four-room maze, hardest
+    '.................','.####......####..','.#............#..','.#.##....##...#..',
+    '.#.#......#...#..','.#............#..','.##############..','.................',
+    '......##.#.......','......#..#.......','......#..#.......','......####.......',
+    '.................','.##############..','.#............#..','.#.#......#...#..',
+    '.#.##....##...#..','.#............#..','.####......####..','.................'
+  ]
+];
+const PacMan = {
+  title:'PAC MAN',
+  init(){
+    this.initLevel();
+  },
+  initLevel(){
+    const lvl = Math.min(S.level,5);
+    const map = PAC_MAPS[lvl-1];
+    this.wall = map.map(r=>r.split('').map(ch=>ch==='#'));
+    this.dots = map.map(r=>r.split('').map(ch=>ch==='.'));
+    this.p = {c:8, r:9, dir:'left', next:null, t:0};
+    this.dots[9][8]=false;
+    const ghostCount = Math.min(2+(lvl-1), 6);        // 2 -> 6 ghosts across levels 1-5
+    const ghostColors = ['#e8657a','#7ae0d8','#c98af0','#f0a868'];
+    const ghostStarts = [{c:2,r:2},{c:13,r:17},{c:13,r:2},{c:2,r:17}];
+    this.ghosts = [];
+    for(let i=0;i<ghostCount;i++){
+      const st = ghostStarts[i%ghostStarts.length];
+      this.ghosts.push({c:st.c, r:st.r, dir:'right', t:0, col:ghostColors[i%ghostColors.length]});
+    }
+    this.step = Math.max(0.16, 0.27-(lvl-1)*0.02);    // slightly faster pac each level
+    this.left = this.dots.flat().filter(Boolean).length;
+  },
+  // dots you've eaten stay eaten; pac and the ghosts go back to their corners
+  respawn(){
+    this.p = {c:8, r:9, dir:'left', next:null, t:0};
+    const starts = [{c:2,r:2},{c:13,r:17},{c:13,r:2},{c:2,r:17}];
+    this.ghosts.forEach((g,i)=>{ const st=starts[i%starts.length]; g.c=st.c; g.r=st.r; g.t=0; });
+  },
+  free(c,r){ return c>=0 && c<COLS && r>=0 && r<ROWS && !this.wall[r][c]; },
+  press(d){ if(['up','down','left','right'].includes(d)) this.p.next = d; },
+  move(e,d){
+    const dc = d==='left'?-1:d==='right'?1:0;
+    const dr = d==='up'?-1:d==='down'?1:0;
+    return {c:e.c+dc, r:e.r+dr};
+  },
+  update(dt){
+    const p=this.p;
+    p.t += dt;
+    if(p.t >= this.step){
+      p.t -= this.step;
+      if(p.next){ const t=this.move(p,p.next); if(this.free(t.c,t.r)){ p.dir=p.next; p.next=null; } }
+      const t=this.move(p,p.dir);
+      if(this.free(t.c,t.r)){ p.c=t.c; p.r=t.r; }
+      if(this.dots[p.r][p.c]){ this.dots[p.r][p.c]=false; S.coins+=1; S.score+=10; this.left--; sfx('eat'); }
+      if(this.left<=0){
+        S.level++; this.initLevel();
+        return levelUp('ALL DOTS EATEN');
+      }
+    }
+    for(const g of this.ghosts){
+      g.t += dt;
+      if(g.t >= this.step*1.5){
+        g.t = 0;
+        const opts=['up','down','left','right'].filter(d=>{
+          const t=this.move(g,d); return this.free(t.c,t.r);
+        });
+        if(opts.length){
+          opts.sort((a,b)=>{
+            const A=this.move(g,a), B=this.move(g,b);
+            return (Math.abs(A.c-p.c)+Math.abs(A.r-p.r)) - (Math.abs(B.c-p.c)+Math.abs(B.r-p.r));
+          });
+          g.dir = Math.random()<0.7 ? opts[0] : opts[Math.floor(Math.random()*opts.length)];
+          const t=this.move(g,g.dir); g.c=t.c; g.r=t.r;
+        }
+      }
+      if(g.c===p.c && g.r===p.r) return gameOver('CAUGHT BY GHOST');
+    }
+  },
+  draw(){
+    for(let r=0;r<ROWS;r++) for(let k=0;k<COLS;k++){
+      if(this.wall[r][k]) cellBlock(k,r);
+      else if(this.dots[r][k]) dot((k+.5)*CELL,(r+.5)*CELL,CELL*0.13,'#8fc0f5');
+    }
+    const px=(this.p.c+.5)*CELL, py=(this.p.r+.5)*CELL;
+    const base={left:Math.PI,right:0,up:-Math.PI/2,down:Math.PI/2}[this.p.dir];
+    const mouth = 0.30*Math.abs(Math.sin(S.time*7));
+    ctx.fillStyle=COL.yellow; ctx.beginPath(); ctx.moveTo(px,py);
+    ctx.arc(px,py,CELL*0.42, base+mouth, base-mouth+Math.PI*2);
+    ctx.closePath(); ctx.fill();
+    for(const g of this.ghosts){
+      const gx=g.c*CELL, gy=g.r*CELL;
+      ctx.fillStyle=g.col; ctx.beginPath();
+      ctx.arc(gx+CELL/2, gy+CELL*0.45, CELL*0.36, Math.PI, 0);
+      ctx.lineTo(gx+CELL*0.86, gy+CELL*0.86);
+      ctx.lineTo(gx+CELL*0.14, gy+CELL*0.86);
+      ctx.closePath(); ctx.fill();
+    }
+  }
+};
+
+/* =========================================================
+   GAME 4 — SNAKE CLASH
+   ========================================================= */
+const Snake = {
+  title:'SNAKE & BALL',
+  levelThresholds:[80,200,360,560],   // score needed to advance out of levels 1-4
+  init(){
+    this.body=[{c:8,r:8},{c:7,r:8},{c:6,r:8},{c:5,r:8}];
+    this.dir='right'; this.next='right'; this.t=0; this.step=0.2;
+    this.obstacles=[];
+    this.food=this.spawn();
+  },
+  // a life gives you a fresh short snake back in the middle; your score,
+  // your obstacles and the food on the board all carry over
+  respawn(){
+    this.body=[{c:8,r:8},{c:7,r:8},{c:6,r:8},{c:5,r:8}];
+    this.dir='right'; this.next='right'; this.t=0;
+    this.grow=0;
+    // if the restart spot is buried under obstacles, clear just enough room
+    this.obstacles = this.obstacles.filter(o => !this.body.some(b=>b.c===o.c&&b.r===o.r));
+    if(this.body.some(b=>b.c===this.food.c&&b.r===this.food.r)) this.food=this.spawn();
+  },
+  spawn(){
+    let f;
+    do{ f={c:(Math.random()*COLS)|0, r:(Math.random()*ROWS)|0}; }
+    while(this.body.some(b=>b.c===f.c&&b.r===f.r) || this.obstacles.some(o=>o.c===f.c&&o.r===f.r));
+    return f;
+  },
+  spawnObstacles(count){
+    const obs=[];
+    while(obs.length<count){
+      const o={c:(Math.random()*COLS)|0, r:(Math.random()*ROWS)|0};
+      const clash = this.body.some(b=>b.c===o.c&&b.r===o.r) ||
+                    (this.food.c===o.c && this.food.r===o.r) ||
+                    obs.some(x=>x.c===o.c&&x.r===o.r);
+      if(!clash) obs.push(o);
+    }
+    this.obstacles = obs;
+  },
+  press(d){
+    const opp={left:'right',right:'left',up:'down',down:'up'};
+    if(['up','down','left','right'].includes(d) && opp[d]!==this.dir) this.next=d;
+  },
+  update(dt){
+    this.t+=dt;
+    if(this.t<this.step) return;
+    this.t=0; this.dir=this.next;
+    const h=this.body[0];
+    const dc=this.dir==='left'?-1:this.dir==='right'?1:0;
+    const dr=this.dir==='up'?-1:this.dir==='down'?1:0;
+    const nh={c:h.c+dc, r:h.r+dr};
+    if(nh.c<0||nh.c>=COLS||nh.r<0||nh.r>=ROWS) return gameOver('HIT THE WALL');
+    if(this.body.some(b=>b.c===nh.c&&b.r===nh.r)) return gameOver('BIT YOURSELF');
+    if(this.obstacles.some(o=>o.c===nh.c&&o.r===nh.r)) return gameOver('HIT AN OBSTACLE');
+    this.body.unshift(nh);
+    if(nh.c===this.food.c && nh.r===this.food.r){
+      S.coins+=1; S.score+=20; this.food=this.spawn(); sfx('eat');
+      this.step=Math.max(0.09, this.step*0.98);
+      const idx = S.level-1;
+      if(idx < this.levelThresholds.length && S.score >= this.levelThresholds[idx]){
+        S.level++;
+        this.spawnObstacles((S.level-1)*4);
+        return levelUp('LEVEL UP');
+      }
+    } else this.body.pop();
+  },
+  draw(){
+    for(const o of this.obstacles) cellBlock(o.c, o.r, COL.dim, COL.grid);
+    cellBlock(this.food.c, this.food.r, COL.orange, '#ffd77a');
+    this.body.forEach((b,i)=>
+      cellBlock(b.c,b.r, i===0?COL.hi:COL.block, i===0?COL.white:COL.hi));
+  }
+};
+
+/* =========================================================
+   GAME 5 — TETRIS
+   ========================================================= */
+const SHAPES = {
+  I:[[0,1],[1,1],[2,1],[3,1]], O:[[0,0],[1,0],[0,1],[1,1]],
+  T:[[0,1],[1,1],[2,1],[1,0]], S:[[1,0],[2,0],[0,1],[1,1]],
+  Z:[[0,0],[1,0],[1,1],[2,1]], J:[[0,0],[0,1],[1,1],[2,1]],
+  L:[[2,0],[0,1],[1,1],[2,1]]
+};
+const Tetris = {
+  title:'TETRIS',
+  init(){
+    this.grid = Array.from({length:ROWS},()=>Array(COLS).fill(null));
+    this.fall = 0.6; this.t = 0;
+    this.levelLines = 0;              // total line clears toward the next level-up
+    this.spawnPiece();
+  },
+  addGarbageRow(){
+    this.grid.shift();
+    const gap = (Math.random()*COLS)|0;
+    this.grid.push(Array.from({length:COLS},(_,c)=>c===gap?null:COL.dim));
+  },
+  spawnPiece(){
+    const keys=Object.keys(SHAPES);
+    const k=keys[(Math.random()*keys.length)|0];
+    this.piece = { cells:SHAPES[k].map(p=>[...p]), c:(COLS/2|0)-2, r:0 };
+    if(this.hits(this.piece.cells, this.piece.c, this.piece.r)) gameOver('STACK OVERFLOW');
+  },
+  hits(cells,oc,or){
+    return cells.some(([x,y])=>{
+      const cc=oc+x, rr=or+y;
+      return cc<0 || cc>=COLS || rr>=ROWS || (rr>=0 && this.grid[rr][cc]);
+    });
+  },
+  rotate(){
+    sfx('rotate');
+    const p=this.piece;
+    const rot=p.cells.map(([x,y])=>[-y,x]);
+    const minX=Math.min(...rot.map(q=>q[0])), minY=Math.min(...rot.map(q=>q[1]));
+    const norm=rot.map(([x,y])=>[x-minX,y-minY]);
+    for(const kick of [0,-1,1,-2,2])
+      if(!this.hits(norm, p.c+kick, p.r)){ p.cells=norm; p.c+=kick; return; }
+  },
+  press(d){
+    const p=this.piece;
+    if(d==='left'  && !this.hits(p.cells,p.c-1,p.r)) p.c--;
+    if(d==='right' && !this.hits(p.cells,p.c+1,p.r)) p.c++;
+    if(d==='up'||d==='action') this.rotate();
+    if(d==='down') this.dropOne();
+  },
+  dropOne(){
+    const p=this.piece;
+    if(!this.hits(p.cells,p.c,p.r+1)){ p.r++; S.score+=1; }
+    else this.lock();
+  },
+  lock(){
+    const p=this.piece;
+    p.cells.forEach(([x,y])=>{ const rr=p.r+y, cc=p.c+x; if(rr>=0) this.grid[rr][cc]=COL.block; });
+    let cleared=0;
+    for(let r=ROWS-1;r>=0;r--){
+      if(this.grid[r].every(v=>v)){
+        this.grid.splice(r,1); this.grid.unshift(Array(COLS).fill(null));
+        cleared++; r++;
+      }
+    }
+    let leveledUp = false;
+    if(cleared){
+      S.score += [0,100,300,600,1000][cleared];
+      S.coins += cleared;
+      sfx('line');
+      this.fall = Math.max(0.16, this.fall*0.97);
+      this.levelLines += cleared;
+      if(this.levelLines >= 5){
+        this.levelLines -= 5;
+        S.level++;
+        this.fall = Math.max(0.12, this.fall*0.85);
+        this.addGarbageRow();
+        leveledUp = true;
+      }
+    }
+    this.spawnPiece();
+    if(leveledUp) levelUp('LEVEL UP — GARBAGE ROW ADDED');
+  },
+  update(dt){
+    this.t += dt;
+    const speed = held.down ? this.fall/8 : this.fall;
+    if(this.t >= speed){ this.t = 0; this.dropOne(); }
+  },
+  draw(){
+    for(let r=0;r<ROWS;r++) for(let k=0;k<COLS;k++)
+      if(this.grid[r][k]) cellBlock(k,r,this.grid[r][k]);
+    const p=this.piece;
+    p.cells.forEach(([x,y])=>{ if(p.r+y>=0) cellBlock(p.c+x, p.r+y, COL.hi, COL.white); });
+  }
+};
+
+/* =========================================================
+   GAME 6 — FROGGER
+   Frog hops one grid cell per press (grid-locked, like the turret
+   model above). Traffic lanes are chains of moving blocks tracked in
+   continuous cell units; collision is a plain AABB overlap against the
+   frog's integer cell — same "resolve on grid indices" spirit as the
+   Brick Shooter fix.
+   ========================================================= */
+const Frogger = {
+  title:'FROGGER',
+  init(){
+    this.startRow = ROWS-1;
+    this.homeRow = 0;
+    this.frog = { c: COLS>>1, r: this.startRow };
+    this.bestRow = this.startRow;
+    this.lanes = this.buildLanes();
+  },
+  // traffic keeps flowing; only the frog goes back to the kerb
+  respawn(){
+    this.frog = { c: COLS>>1, r: this.startRow };
+    this.bestRow = this.startRow;
+  },
+  buildLanes(){
+    const lvl = Math.min(S.level,5);
+    const laneRows = [2,3,4,6,7,8,10,11,12,14,15,16];
+    return laneRows.map((row,i)=>{
+      const dir = (i%2===0) ? 1 : -1;
+      const speed = (1.6 + (i%4)*0.35) * (1+(lvl-1)*0.18);   // faster traffic each level
+      const spacing = Math.max(2.5, (4+(i%3)) - (lvl-1)*0.4); // denser traffic each level
+      const count = Math.ceil(COLS/spacing)+1;
+      const cars = [];
+      for(let k=0;k<count;k++) cars.push(k*spacing + (i*1.3)%spacing);
+      return { row, dir, speed, spacing, count, cars };
+    });
+  },
+  press(d){
+    const f=this.frog;
+    let c=f.c, r=f.r;
+    if(d==='left')  c--;
+    if(d==='right') c++;
+    if(d==='up')    r--;
+    if(d==='down')  r++;
+    if(c<0||c>=COLS||r<0||r>=ROWS) return;
+    f.c=c; f.r=r;
+    if(r<this.bestRow){ S.score += (this.bestRow-r)*10; S.coins += 1; this.bestRow=r; }
+    if(r===this.homeRow){
+      S.level++;
+      this.frog = { c: COLS>>1, r: this.startRow };
+      this.bestRow = this.startRow;
+      this.lanes = this.buildLanes();
+      return levelUp('REACHED HOME');
+    }
+  },
+  update(dt){
+    for(const lane of this.lanes){
+      const span = lane.spacing*lane.count;
+      for(let i=0;i<lane.cars.length;i++){
+        lane.cars[i] += lane.dir*lane.speed*dt;
+        if(lane.dir>0 && lane.cars[i] > COLS+1)        lane.cars[i] -= span;
+        if(lane.dir<0 && lane.cars[i] < -lane.spacing-1) lane.cars[i] += span;
+      }
+    }
+    const f=this.frog;
+    for(const lane of this.lanes){
+      if(lane.row!==f.r) continue;
+      for(const x of lane.cars)
+        if(x < f.c+1 && x+1 > f.c) return gameOver('HIT BY TRAFFIC');
+    }
+  },
+  draw(){
+    // yellow reads as "you" across the whole arcade (the Breakout ball,
+    // Snake's food), so the frog is yellow and the traffic uses the
+    // standard blue block + light outline every other game uses
+    pxRect(0, this.homeRow*CELL, W, CELL, 'rgba(251,191,36,.15)');
+    for(const lane of this.lanes){
+      pxRect(0, lane.row*CELL, W, CELL, 'rgba(255,255,255,.03)');
+      for(const x of lane.cars)
+        if(x > -1.5 && x < COLS+1.5) cellBlock(x, lane.row, COL.block, COL.hi);
+    }
+    ctx.save();
+    ctx.shadowColor='rgba(251,191,36,.7)'; ctx.shadowBlur=CELL*0.45;
+    cellBlock(this.frog.c, this.frog.r, COL.yellow, '#FDE08A');
+    ctx.restore();
+  }
+};
+
+/* =========================================================
+   FLOW
+   ========================================================= */
+const CATALOG = [
+  {key:'breakout',    game:Breakout,    short:'BREAKOUT'},
+  {key:'snake',       game:Snake,       short:'SNAKE & BALL'},
+  {key:'brickshooter',game:BrickShooter,short:'BRICK SHOOTER'},
+  {key:'pacman',      game:PacMan,      short:'PAC MAN'},
+  {key:'tetris',      game:Tetris,      short:'TETRIS'},
+  {key:'frogger',     game:Frogger,     short:'FROGGER'}
+];
+
+function openMenu(){
+  S.screen='menu'; S.paused=false; S.over=false;
+  S.coins=0; S.score=0; S.time=0; S.level=1;
+  S.livesApply=true; S.lives=MAX_LIVES; hud();   // decorative on the menu, per the mock
+  G = Menu; Menu.init();
+  el.title.textContent='BASE ARCADE';
+  el.pause.disabled=true; el.cont.disabled=false;   // CONTINUE starts the game
+  document.getElementById('gameLabel').classList.add('show');
+  hideOverlay();
+}
+function start(key){
+  const entry = CATALOG.find(g=>g.key===key);
+  G = entry.game;
+  S.screen='play'; S.key=key; S.paused=false; S.over=false;
+  S.coins=0; S.score=0; S.time=0; S.level=1;
+  S.livesApply = !!LIVES_GAMES[key];
+  S.lives = S.livesApply ? MAX_LIVES : 0;
+  el.title.textContent = G.title;
+  el.pause.disabled=false; el.cont.disabled=false;
+  document.getElementById('gameLabel').classList.remove('show');
+  fitCanvas(); G.init(); hud(); hideOverlay();
+}
+function gameOver(reason){
+  if(S.over) return;
+  // in the four games that use lives, a death costs a heart and drops you
+  // back into the same level with your score intact
+  if(S.livesApply && S.lives > 1){
+    S.lives--;
+    S.paused = true;
+    hud();
+    sfx('life');
+    showOverlay('LIFE LOST', `${reason}<br><br>${S.lives} ${S.lives===1?'LIFE':'LIVES'} LEFT`, [
+      {label:'CONTINUE', onClick:()=>{
+        if(G && G.respawn) G.respawn(); else if(G && G.initLevel) G.initLevel(); else G.init();
+        S.paused = false; hideOverlay();
+      }}
+    ]);
+    return;
+  }
+  if(S.livesApply) S.lives = 0;
+  S.over = true;
+  hud();
+  sfx('over');
+  const rank = submitScore(S.key, S.score);
+  showOverlay('GAME OVER',
+    `${reason}<br><br>LEVEL ${S.level}<br>SCORE ${S.score}<br>COINS ${S.coins}<br>TIME ${fmtTime(S.time)}` +
+    (rank ? `<br><br>NEW BEST — RANK ${rank}` : ''),
+    [{label:'PLAY AGAIN', onClick:()=>start(S.key)},
+     {label:'SCORES', ghost:true, onClick:openLeaderboard},
+     {label:'MENU', ghost:true, onClick:openMenu}]);
+}
+// called by a game once its level objective is cleared — pauses briefly on a
+// "LEVEL UP" card (score/coins carry over) then resumes with harder params
+// already rebuilt by the caller. Levels are uncapped; each game clamps its own
+// difficulty lookup at level 5 so play continues at max difficulty forever.
+function levelUp(reason){
+  if(S.over) return;
+  S.paused = true;
+  sfx('level');
+  showOverlay(`LEVEL ${S.level}`, reason, [
+    {label:'CONTINUE', onClick:()=>{ S.paused=false; hideOverlay(); }}
+  ]);
+}
+function pause(){
+  if(S.screen!=='play' || S.over) return;
+  S.paused = true;
+  showOverlay('PAUSED', `LEVEL ${S.level}`, [
+    {label:'RESUME',  onClick:resume},
+    {label:'RESTART', ghost:true, onClick:()=>start(S.key)},
+    {label:'MENU',    ghost:true, onClick:openMenu}
+  ]);
+}
+function resume(){
+  if(S.screen!=='play' || S.over) return;
+  S.paused=false; hideOverlay();
+}
+el.pause.onclick = pause;
+el.cont.onclick  = () => {                       // CONTINUE: starts on menu, resumes in play
+  if(S.screen==='menu') start(CATALOG[Menu.sel].key);
+  else resume();
+};
+el.title.onclick = openMenu;
+
+cv.addEventListener('pointerdown', e=>{
+  if(S.screen!=='menu') return;
+  const r = cv.getBoundingClientRect();
+  Menu.hit(e.clientX-r.left, e.clientY-r.top);
+});
+
+/* =========================================================
+   LOOP
+   ========================================================= */
+let last = 0;
+function frame(t){
+  const dt = Math.min((t-last)/1000, 0.05);
+  last = t;
+  if(S.screen==='play' && !S.paused && !S.over && G){
+    S.time += dt; G.update(dt); hud();
+  }
+  clearBoard();
+  if(S.screen==='play' || S.screen==='menu') drawGrid();
+  if(G && G.draw) G.draw();   // the leaderboard clears + grids itself
+  requestAnimationFrame(frame);
+}
+
+buildDpad();
+buildPills();
+paintIcons();
+setSound(soundOn);   // restores the saved preference and labels the toggle
+hud();
+fitCanvas();
+if(document.fonts && document.fonts.ready) document.fonts.ready.then(fitCanvas);
+S.screen='splash'; G=null;
+initSplash();
+requestAnimationFrame(t=>{ last=t; frame(t); });
+</script>
+</body>
+</html>
