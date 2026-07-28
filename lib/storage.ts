@@ -6,19 +6,16 @@ export interface LeaderboardEntry {
   you?: boolean;
 }
 
+// Restored once, as soon as this module loads on the client — mirrors the
+// original's top-level `let bestScore = ...` read, so the leaderboard shows
+// your best run immediately rather than only after a game finishes.
 let bestScore = 0;
-
-export function initStorage() {
-  if (typeof window === 'undefined') return;
+if (typeof window !== 'undefined') {
   try {
     bestScore = parseInt(localStorage.getItem('baseArcadeBest') || '0', 10) || 0;
   } catch (e) {
     // localStorage not available
   }
-}
-
-export function getBestScore(): number {
-  return bestScore;
 }
 
 export function submitScore(key: string, score: number): number {

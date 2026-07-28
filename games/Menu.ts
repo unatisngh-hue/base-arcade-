@@ -12,20 +12,22 @@ export function createMenu(
   catalog: { key: string; game: Game; short: string }[],
   onStart: (key: string) => void
 ): MenuGame {
-  let sel = 0;
-
+  // `sel` lives on the returned object itself (mirroring `this.sel` in the
+  // original's Menu singleton) so callers reading `menu.sel` — including the
+  // gameLabel text in ArcadeGame — see the real, current selection instead
+  // of a value frozen at construction time.
   function show(i: number) {
     const n = catalog.length;
-    sel = (i + n) % n;
-    catalog[sel].game.init();
+    menu.sel = (i + n) % n;
+    catalog[menu.sel].game.init();
   }
 
-  return {
+  const menu: MenuGame = {
     title: 'BASE ARCADE',
     sel: 0,
 
     init() {
-      show(sel || 0);
+      show(menu.sel || 0);
     },
 
     update() {
@@ -35,9 +37,9 @@ export function createMenu(
     show,
 
     press(d: Direction) {
-      if (d === 'left') show(sel - 1);
-      if (d === 'right') show(sel + 1);
-      if (d === 'action') onStart(catalog[sel].key);
+      if (d === 'left') show(menu.sel - 1);
+      if (d === 'right') show(menu.sel + 1);
+      if (d === 'action') onStart(catalog[menu.sel].key);
     },
 
     hit(px: number, py: number) {
@@ -47,19 +49,19 @@ export function createMenu(
       const y1 = H * 0.62;
 
       if (py > y0 && py < y1 && px < zone) {
-        show(sel - 1);
+        show(menu.sel - 1);
         return;
       }
       if (py > y0 && py < y1 && px > W - zone) {
-        show(sel + 1);
+        show(menu.sel + 1);
         return;
       }
-      onStart(catalog[sel].key);
+      onStart(catalog[menu.sel].key);
     },
 
     draw() {
       const { ctx, W, H } = getContext();
-      const g = catalog[sel].game;
+      const g = catalog[menu.sel].game;
       if (g && g.draw) g.draw();
 
       const sc = W / 371;
@@ -68,10 +70,12 @@ export function createMenu(
       const spread = 56.2 * sc;
       const lcx = 33.1 * sc;
       const rcx = W - 32.65 * sc;
-      const isLast = sel === catalog.length - 1;
+      const isLast = menu.sel === catalog.length - 1;
 
       stepArrow(ctx, lcx, ay, len, spread, -1, isLast ? '#EEEFF1' : '#2760C4');
       stepArrow(ctx, rcx, ay, len, spread, 1, isLast ? '#2760C4' : '#EEEFF1');
     },
   };
+
+  return menu;
 }

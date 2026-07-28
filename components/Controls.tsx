@@ -1,5 +1,6 @@
 'use client';
 
+import { forwardRef } from 'react';
 import { pillSVG } from '@/lib/canvas';
 
 interface ControlsProps {
@@ -10,15 +11,14 @@ interface ControlsProps {
   continueDisabled: boolean;
 }
 
-export function Controls({
-  onPause,
-  onContinue,
-  onSettings,
-  pauseDisabled,
-  continueDisabled,
-}: ControlsProps) {
+/* The header row (#buttons in the original) — a focus host, so the d-pad can
+   walk PAUSE / CONTINUE / SETTINGS with left+right. */
+export const Controls = forwardRef<HTMLDivElement, ControlsProps>(function Controls(
+  { onPause, onContinue, onSettings, pauseDisabled, continueDisabled },
+  ref
+) {
   return (
-    <div className="flex items-center w-full px-[19px] pr-[25px] mt-[22px] gap-0">
+    <div ref={ref} className="flex items-center w-full px-[19px] pr-[25px] mt-[22px] gap-0">
       <button
         className="pill"
         onClick={onPause}
@@ -33,7 +33,7 @@ export function Controls({
       />
       <button
         onClick={onSettings}
-        className="gearBtn ml-auto"
+        className="gearBtn ml-[16px]"
         aria-label="Settings"
       >
         <svg viewBox="0 0 16 18" xmlns="http://www.w3.org/2000/svg" shapeRendering="crispEdges">
@@ -48,4 +48,4 @@ export function Controls({
       </button>
     </div>
   );
-}
+});

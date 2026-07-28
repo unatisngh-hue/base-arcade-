@@ -1,6 +1,6 @@
 'use client';
 
-import { useRef, useEffect } from 'react';
+import { useRef, useEffect, forwardRef } from 'react';
 import { pillSVG } from '@/lib/canvas';
 
 interface SettingsPanelProps {
@@ -35,14 +35,14 @@ function buildPanelFrame(svg: SVGSVGElement, w: number, h: number) {
   svg.innerHTML = r.join('');
 }
 
-export function SettingsPanel({
-  show,
-  hand,
-  soundOn,
-  onClose,
-  onHandChange,
-  onSoundToggle,
-}: SettingsPanelProps) {
+/* The ref is the overlay root — the focus host, matching `settingsOv` in the
+   original. Its focusables are the 3 hand pills + sound + done; the close
+   cross carries data-nofocus and is skipped. */
+export const SettingsPanel = forwardRef<HTMLDivElement, SettingsPanelProps>(
+  function SettingsPanel(
+    { show, hand, soundOn, onClose, onHandChange, onSoundToggle },
+    ref
+  ) {
   const panelRef = useRef<HTMLDivElement>(null);
   const frameRef = useRef<SVGSVGElement>(null);
 
@@ -59,6 +59,7 @@ export function SettingsPanel({
 
   return (
     <div
+      ref={ref}
       className="settingsOverlay show"
       onClick={(e) => {
         if (e.target === e.currentTarget) onClose();
@@ -88,6 +89,7 @@ export function SettingsPanel({
             {handOptions.map((h) => (
               <button
                 key={h}
+                data-hand={h}
                 className={`pill opt ${hand === h ? 'sel' : ''}`}
                 onClick={() => onHandChange(h)}
                 dangerouslySetInnerHTML={{
@@ -126,4 +128,4 @@ export function SettingsPanel({
       </div>
     </div>
   );
-}
+});
