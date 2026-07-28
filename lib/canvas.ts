@@ -1,13 +1,5 @@
 import { COLS, ROWS, BEZEL } from './constants';
 
-export interface CanvasContext {
-  ctx: CanvasRenderingContext2D;
-  CELL: number;
-  W: number;
-  H: number;
-  COL: Record<string, string>;
-}
-
 export function getColors(css: CSSStyleDeclaration) {
   const c = (n: string) => css.getPropertyValue(n).trim();
   return {

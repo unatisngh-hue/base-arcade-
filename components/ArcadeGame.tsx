@@ -10,8 +10,8 @@ import { Overlay } from './Overlay';
 import { SettingsPanel } from './SettingsPanel';
 import { Splash } from './Splash';
 
-import { COLS, ROWS, BEZEL, Direction } from '@/lib/constants';
-import { GameState, HeldKeys } from '@/lib/state';
+import { COLS, ROWS, BEZEL, MAX_LIVES, LIVES_GAMES, Direction } from '@/lib/constants';
+import { HeldKeys } from '@/lib/state';
 import {
   clearBoard,
   drawGrid,
@@ -25,7 +25,6 @@ import {
   getSavedSound,
   saveSound,
   submitScore,
-  fetchBoard,
 } from '@/lib/storage';
 
 import { Game, GameContext } from '@/games/types';
@@ -39,19 +38,31 @@ import { createTetris } from '@/games/Tetris';
 import { createFrogger } from '@/games/Frogger';
 
 import { useSound } from '@/hooks/useSound';
-
-const MAX_LIVES = 3;
-const LIVES_GAMES: Record<string, boolean> = {
-  breakout: true,
-  pacman: true,
-  snake: true,
-  frogger: true,
-};
+import { useFocus } from '@/hooks/useFocus';
 
 interface CatalogEntry {
   key: string;
   game: Game;
   short: string;
+}
+
+/* The single mutable game-state object, mirroring `const S` in the original.
+   Every game mutates this exact object by reference; React renders a copy. */
+type GameS = GameContext['S'];
+
+function createS(): GameS {
+  return {
+    screen: 'splash',
+    key: null,
+    paused: false,
+    over: false,
+    coins: 0,
+    score: 0,
+    time: 0,
+    level: 1,
+    lives: MAX_LIVES,
+    livesApply: true,
+  };
 }
 
 function fmtTime(s: number): string {
@@ -67,26 +78,28 @@ export function ArcadeGame() {
   const animRef = useRef<number>(0);
   const heldRef = useRef<HeldKeys>({ left: false, right: false, up: false, down: false });
 
-  // Canvas dimensions
   const canvasDims = useRef({ CELL: 0, W: 0, H: 0 });
   const colorsRef = useRef<Record<string, string>>({});
 
-  const [state, setState] = useState<GameState>({
-    screen: 'splash',
-    key: null,
-    paused: false,
-    over: false,
-    coins: 0,
-    score: 0,
-    time: 0,
-    level: 1,
-    lives: MAX_LIVES,
-    livesApply: true,
-    hand: 'default',
-  });
+  // Authoritative gameplay state, shared by reference with every game.
+  const sRef = useRef<GameS>(createS());
+
+  // Render mirror of sRef — updated only when a displayed value changes.
+  const [view, setView] = useState<GameS>(() => createS());
+  // The carousel's current selection lives on the Menu game instance (`sel`),
+  // mutated imperatively by Menu.press()/hit() — same as `Menu.sel` in the
+  // original. Mirrored into state so the gameLabel text actually re-renders
+  // when you cycle left/right instead of staying stuck on the first game.
+  const [menuSel, setMenuSel] = useState(0);
+  const menuSelRef = useRef(0);
+  const [hand, setHand] = useState('default');
+  const handRef = useRef(hand);
+  handRef.current = hand;
 
   const [showSettings, setShowSettings] = useState(false);
-  const [soundOn, setSoundOn] = useState(true);
+  // Off by default, exactly as the original: browsers block audio until the
+  // first gesture, so an on-by-default toggle reads "ON" while silent.
+  const [soundOn, setSoundOn] = useState(false);
   const [overlayConfig, setOverlayConfig] = useState<{
     show: boolean;
     title: string;
@@ -94,142 +107,74 @@ export function ArcadeGame() {
     buttons: { label: string; ghost?: boolean; onClick: () => void }[];
   }>({ show: false, title: '', buttons: [] });
 
-  const stateRef = useRef(state);
-  stateRef.current = state;
-
   const gameRef = useRef<Game | null>(null);
   const catalogRef = useRef<CatalogEntry[]>([]);
   const menuRef = useRef<ReturnType<typeof createMenu> | null>(null);
   const leaderboardRef = useRef<Game | null>(null);
+  const settingsAutoPaused = useRef(false);
 
-  const { sfx } = useSound(soundOn, state.key);
+  // Focus hosts
+  const headerRef = useRef<HTMLDivElement>(null);
+  const ovBtnsRef = useRef<HTMLDivElement>(null);
+  const settingsRef = useRef<HTMLDivElement>(null);
 
-  // Memoize handlers to avoid recreating them
+  const { sfx, playConfirmation } = useSound(soundOn, view.key);
+  const {
+    focusIn,
+    clearFocus,
+    moveFocus,
+    activateFocus,
+    focusActive,
+    isHost,
+    indexOf,
+    paintFocus,
+  } = useFocus();
+
+  // Stable identity for sfx so getContext never changes and the games are
+  // created exactly once instead of being rebuilt on every sound/key change.
+  const sfxRef = useRef(sfx);
+  sfxRef.current = sfx;
+
+  // Late-bound handlers, referenced from callbacks defined above them.
   const handleGameOverRef = useRef<(reason: string) => void>(() => {});
   const handleLevelUpRef = useRef<(reason: string) => void>(() => {});
+  const startGameRef = useRef<(key: string) => void>(() => {});
+  const openMenuRef = useRef<() => void>(() => {});
+  const handleResumeRef = useRef<() => void>(() => {});
 
-  // Create game context getter
+  const hideOverlay = useCallback(() => {
+    setOverlayConfig({ show: false, title: '', buttons: [] });
+  }, []);
+
+  // Push sRef into React state, but only when a rendered value actually
+  // changed — the frame loop calls this 60x/second.
+  const lastSig = useRef('');
+  const syncView = useCallback(() => {
+    const s = sRef.current;
+    const sig = [
+      s.screen, s.key, s.paused, s.over,
+      s.coins, s.score, Math.floor(s.time), s.level, s.lives, s.livesApply,
+    ].join('|');
+    if (sig === lastSig.current) return;
+    lastSig.current = sig;
+    setView({ ...s });
+  }, []);
+
   const getContext = useCallback((): GameContext => {
-    const ctx = ctxRef.current;
     const { CELL, W, H } = canvasDims.current;
     return {
-      ctx: ctx!,
+      ctx: ctxRef.current!,
       CELL,
       W,
       H,
       COL: colorsRef.current,
       held: heldRef.current,
-      S: {
-        screen: stateRef.current.screen,
-        key: stateRef.current.key,
-        paused: stateRef.current.paused,
-        over: stateRef.current.over,
-        coins: stateRef.current.coins,
-        score: stateRef.current.score,
-        time: stateRef.current.time,
-        level: stateRef.current.level,
-        lives: stateRef.current.lives,
-        livesApply: stateRef.current.livesApply,
-      },
-      sfx,
+      S: sRef.current, // shared by reference — mutations stick
+      sfx: (name: string) => sfxRef.current(name),
       gameOver: (reason: string) => handleGameOverRef.current(reason),
       levelUp: (reason: string) => handleLevelUpRef.current(reason),
     };
-  }, [sfx]);
-
-  // Initialize games
-  useEffect(() => {
-    const canvas = boardRef.current?.canvas;
-    if (!canvas) return;
-
-    const ctx = canvas.getContext('2d');
-    if (!ctx) return;
-    ctxRef.current = ctx;
-
-    // Get colors from CSS
-    const css = getComputedStyle(document.documentElement);
-    colorsRef.current = getColors(css);
-
-    // Create all games
-    const breakout = createBreakout(getContext);
-    const brickShooter = createBrickShooter(getContext);
-    const pacman = createPacMan(getContext);
-    const snake = createSnake(getContext);
-    const tetris = createTetris(getContext);
-    const frogger = createFrogger(getContext);
-
-    catalogRef.current = [
-      { key: 'breakout', game: breakout, short: 'BREAKOUT' },
-      { key: 'snake', game: snake, short: 'SNAKE & BALL' },
-      { key: 'brickshooter', game: brickShooter, short: 'BRICK SHOOTER' },
-      { key: 'pacman', game: pacman, short: 'PAC MAN' },
-      { key: 'tetris', game: tetris, short: 'TETRIS' },
-      { key: 'frogger', game: frogger, short: 'FROGGER' },
-    ];
-
-    menuRef.current = createMenu(getContext, catalogRef.current, (key: string) => startGame(key));
-    leaderboardRef.current = createLeaderboard(getContext, () => openMenu());
-
-    // Load preferences
-    const savedHand = getSavedHand();
-    const savedSound = getSavedSound();
-    setState(prev => ({ ...prev, hand: savedHand }));
-    setSoundOn(savedSound);
-
-    // Fit canvas
-    handleResize();
-    window.addEventListener('resize', handleResize);
-
-    return () => {
-      window.removeEventListener('resize', handleResize);
-      cancelAnimationFrame(animRef.current);
-    };
-  }, [getContext]);
-
-  // Start game loop
-  useEffect(() => {
-    if (state.screen === 'splash') return;
-
-    const frame = (t: number) => {
-      const dt = Math.min((t - lastRef.current) / 1000, 0.05);
-      lastRef.current = t;
-
-      const currentState = stateRef.current;
-      const game = gameRef.current;
-
-      if (currentState.screen === 'play' && !currentState.paused && !currentState.over && game) {
-        setState(prev => ({ ...prev, time: prev.time + dt }));
-        const result = game.update(dt);
-        if (result === 'over') {
-          handleGameOver('');
-        }
-      }
-
-      // Draw
-      const ctx = ctxRef.current;
-      const { W, H, CELL } = canvasDims.current;
-      const COL = colorsRef.current;
-
-      if (ctx && W && H) {
-        clearBoard(ctx, W, H, COL.board || '#0F172A');
-        if (currentState.screen === 'play' || currentState.screen === 'menu') {
-          drawGrid(ctx, W, H, CELL, COL.grid || '#2E4E82');
-        }
-        if (game && game.draw) {
-          game.draw();
-        }
-      }
-
-      animRef.current = requestAnimationFrame(frame);
-    };
-
-    animRef.current = requestAnimationFrame((t) => {
-      lastRef.current = t;
-      frame(t);
-    });
-
-    return () => cancelAnimationFrame(animRef.current);
-  }, [state.screen]);
+  }, []);
 
   const handleResize = useCallback(() => {
     const canvas = boardRef.current?.canvas;
@@ -246,202 +191,331 @@ export function ArcadeGame() {
     }
   }, []);
 
+  // Initialize games — runs once.
+  useEffect(() => {
+    const canvas = boardRef.current?.canvas;
+    if (!canvas) return;
+
+    const ctx = canvas.getContext('2d');
+    if (!ctx) return;
+    ctxRef.current = ctx;
+
+    const css = getComputedStyle(document.documentElement);
+    colorsRef.current = getColors(css);
+
+    catalogRef.current = [
+      { key: 'breakout', game: createBreakout(getContext), short: 'BREAKOUT' },
+      { key: 'snake', game: createSnake(getContext), short: 'SNAKE & BALL' },
+      { key: 'brickshooter', game: createBrickShooter(getContext), short: 'BRICK SHOOTER' },
+      { key: 'pacman', game: createPacMan(getContext), short: 'PAC MAN' },
+      { key: 'tetris', game: createTetris(getContext), short: 'TETRIS' },
+      { key: 'frogger', game: createFrogger(getContext), short: 'FROGGER' },
+    ];
+
+    menuRef.current = createMenu(getContext, catalogRef.current, (key: string) =>
+      startGameRef.current(key)
+    );
+    leaderboardRef.current = createLeaderboard(getContext, () => openMenuRef.current());
+
+    setHand(getSavedHand());
+    setSoundOn(getSavedSound());
+
+    handleResize();
+    window.addEventListener('resize', handleResize);
+
+    return () => {
+      window.removeEventListener('resize', handleResize);
+      cancelAnimationFrame(animRef.current);
+    };
+  }, [getContext, handleResize]);
+
   const openMenu = useCallback(() => {
-    setState(prev => ({
-      ...prev,
-      screen: 'menu',
-      paused: false,
-      over: false,
-      coins: 0,
-      score: 0,
-      time: 0,
-      level: 1,
-      livesApply: true,
-      lives: MAX_LIVES,
-    }));
+    const s = sRef.current;
+    s.screen = 'menu';
+    s.paused = false;
+    s.over = false;
+    s.coins = 0;
+    s.score = 0;
+    s.time = 0;
+    s.level = 1;
+    s.livesApply = true; // decorative on the menu, per the mock
+    s.lives = MAX_LIVES;
+
     gameRef.current = menuRef.current;
     menuRef.current?.init();
-    setOverlayConfig({ show: false, title: '', buttons: [] });
-  }, []);
+    hideOverlay();
+    syncView();
+  }, [hideOverlay, syncView]);
+  openMenuRef.current = openMenu;
 
-  const startGame = useCallback((key: string) => {
-    const entry = catalogRef.current.find(g => g.key === key);
-    if (!entry) return;
+  const startGame = useCallback(
+    (key: string) => {
+      const entry = catalogRef.current.find((g) => g.key === key);
+      if (!entry) return;
 
-    gameRef.current = entry.game;
-    setState(prev => ({
-      ...prev,
-      screen: 'play',
-      key,
-      paused: false,
-      over: false,
-      coins: 0,
-      score: 0,
-      time: 0,
-      level: 1,
-      livesApply: !!LIVES_GAMES[key],
-      lives: LIVES_GAMES[key] ? MAX_LIVES : 0,
-    }));
+      const s = sRef.current;
+      s.screen = 'play';
+      s.key = key;
+      s.paused = false;
+      s.over = false;
+      s.coins = 0;
+      s.score = 0;
+      s.time = 0;
+      s.level = 1;
+      s.livesApply = !!LIVES_GAMES[key];
+      s.lives = s.livesApply ? MAX_LIVES : 0;
+
+      gameRef.current = entry.game;
+      handleResize();
+      entry.game.init(); // reads the freshly-reset level, not a stale snapshot
+      hideOverlay();
+      syncView();
+    },
+    [handleResize, hideOverlay, syncView]
+  );
+  startGameRef.current = startGame;
+
+  const openLeaderboard = useCallback(() => {
+    const s = sRef.current;
+    s.screen = 'board';
+    s.paused = false;
+    s.over = false;
+    s.livesApply = true; // ditto on the scores screen
+    s.lives = MAX_LIVES;
+
+    gameRef.current = leaderboardRef.current;
     handleResize();
-    entry.game.init();
-    setOverlayConfig({ show: false, title: '', buttons: [] });
-  }, [handleResize]);
+    leaderboardRef.current?.init();
+    hideOverlay();
+    syncView();
+  }, [handleResize, hideOverlay, syncView]);
 
-  const handleGameOver = useCallback((reason: string) => {
-    const currentState = stateRef.current;
-    if (currentState.over) return;
+  const handleGameOver = useCallback(
+    (reason: string) => {
+      const s = sRef.current;
+      if (s.over) return;
 
-    if (currentState.livesApply && currentState.lives > 1) {
-      setState(prev => ({ ...prev, lives: prev.lives - 1, paused: true }));
-      sfx('life');
-      const newLives = currentState.lives - 1;
+      // In the games that use lives, a death costs a heart and drops you back
+      // into the same level with your score intact.
+      if (s.livesApply && s.lives > 1) {
+        s.lives -= 1;
+        s.paused = true;
+        sfxRef.current('life');
+        const left = s.lives;
+        setOverlayConfig({
+          show: true,
+          title: 'LIFE LOST',
+          sub: `${reason}<br><br>${left} ${left === 1 ? 'LIFE' : 'LIVES'} LEFT`,
+          buttons: [
+            {
+              label: 'CONTINUE',
+              onClick: () => {
+                const game = gameRef.current;
+                if (game?.respawn) game.respawn();
+                else if (game?.initLevel) game.initLevel();
+                else game?.init();
+                sRef.current.paused = false;
+                hideOverlay();
+                syncView();
+              },
+            },
+          ],
+        });
+        syncView();
+        return;
+      }
+
+      if (s.livesApply) s.lives = 0;
+      s.over = true;
+      sfxRef.current('over');
+
+      const key = s.key;
+      const rank = key ? submitScore(key, s.score) : null;
+
       setOverlayConfig({
         show: true,
-        title: 'LIFE LOST',
-        sub: `${reason}<br><br>${newLives} ${newLives === 1 ? 'LIFE' : 'LIVES'} LEFT`,
+        title: 'GAME OVER',
+        sub:
+          `${reason}<br><br>LEVEL ${s.level}<br>SCORE ${s.score}<br>COINS ${s.coins}` +
+          `<br>TIME ${fmtTime(s.time)}${rank ? `<br><br>NEW BEST — RANK ${rank}` : ''}`,
+        buttons: [
+          { label: 'PLAY AGAIN', onClick: () => key && startGame(key) },
+          { label: 'SCORES', ghost: true, onClick: () => openLeaderboard() },
+          { label: 'MENU', ghost: true, onClick: openMenu },
+        ],
+      });
+      syncView();
+    },
+    [startGame, openMenu, openLeaderboard, hideOverlay, syncView]
+  );
+
+  const handleLevelUp = useCallback(
+    (reason: string) => {
+      const s = sRef.current;
+      if (s.over) return;
+
+      s.paused = true;
+      sfxRef.current('level');
+      setOverlayConfig({
+        show: true,
+        title: `LEVEL ${s.level}`,
+        sub: reason,
         buttons: [
           {
             label: 'CONTINUE',
             onClick: () => {
-              const game = gameRef.current;
-              if (game?.respawn) game.respawn();
-              else game?.init();
-              setState(prev => ({ ...prev, paused: false }));
-              setOverlayConfig({ show: false, title: '', buttons: [] });
+              sRef.current.paused = false;
+              hideOverlay();
+              syncView();
             },
           },
         ],
       });
-      return;
-    }
+      syncView();
+    },
+    [hideOverlay, syncView]
+  );
 
-    if (currentState.livesApply) {
-      setState(prev => ({ ...prev, lives: 0 }));
-    }
-    setState(prev => ({ ...prev, over: true }));
-    sfx('over');
+  handleGameOverRef.current = handleGameOver;
+  handleLevelUpRef.current = handleLevelUp;
 
-    const key = currentState.key;
-    const rank = key ? submitScore(key, currentState.score) : null;
-
-    setOverlayConfig({
-      show: true,
-      title: 'GAME OVER',
-      sub: `${reason}<br><br>LEVEL ${currentState.level}<br>SCORE ${currentState.score}<br>COINS ${currentState.coins}<br>TIME ${fmtTime(currentState.time)}${rank ? `<br><br>NEW BEST — RANK ${rank}` : ''}`,
-      buttons: [
-        { label: 'PLAY AGAIN', onClick: () => key && startGame(key) },
-        { label: 'SCORES', ghost: true, onClick: () => openLeaderboard() },
-        { label: 'MENU', ghost: true, onClick: openMenu },
-      ],
-    });
-  }, [sfx, startGame, openMenu]);
-
-  const handleLevelUp = useCallback((reason: string) => {
-    const currentState = stateRef.current;
-    if (currentState.over) return;
-
-    setState(prev => ({ ...prev, paused: true }));
-    sfx('level');
-    setOverlayConfig({
-      show: true,
-      title: `LEVEL ${currentState.level}`,
-      sub: reason,
-      buttons: [
-        {
-          label: 'CONTINUE',
-          onClick: () => {
-            setState(prev => ({ ...prev, paused: false }));
-            setOverlayConfig({ show: false, title: '', buttons: [] });
-          },
-        },
-      ],
-    });
-  }, [sfx]);
-
-  // Update refs after defining callbacks
+  // Game loop
   useEffect(() => {
-    handleGameOverRef.current = handleGameOver;
-    handleLevelUpRef.current = handleLevelUp;
-  }, [handleGameOver, handleLevelUp]);
+    if (view.screen === 'splash') return;
 
-  const openLeaderboard = useCallback(() => {
-    gameRef.current = leaderboardRef.current;
-    setState(prev => ({
-      ...prev,
-      screen: 'board',
-      paused: false,
-      over: false,
-    }));
-    leaderboardRef.current?.init();
-  }, []);
+    const frame = () => {
+      const t = performance.now();
+      const dt = Math.min((t - lastRef.current) / 1000, 0.05);
+      lastRef.current = t;
+
+      const s = sRef.current;
+      const game = gameRef.current;
+
+      if (s.screen === 'play' && !s.paused && !s.over && game) {
+        s.time += dt;
+        if (game.update(dt) === 'over') handleGameOverRef.current('');
+      }
+
+      const ctx = ctxRef.current;
+      const { W, H, CELL } = canvasDims.current;
+      const COL = colorsRef.current;
+
+      if (ctx && W && H) {
+        clearBoard(ctx, W, H, COL.board || '#0F172A');
+        if (s.screen === 'play' || s.screen === 'menu') {
+          drawGrid(ctx, W, H, CELL, COL.grid || '#2E4E82');
+        }
+        game?.draw?.(); // the leaderboard clears + grids itself
+      }
+
+      if (s.screen === 'menu') {
+        const sel = menuRef.current?.sel ?? 0;
+        if (sel !== menuSelRef.current) {
+          menuSelRef.current = sel;
+          setMenuSel(sel);
+        }
+      }
+
+      syncView();
+      animRef.current = requestAnimationFrame(frame);
+    };
+
+    lastRef.current = performance.now();
+    animRef.current = requestAnimationFrame(frame);
+
+    return () => cancelAnimationFrame(animRef.current);
+  }, [view.screen, syncView]);
 
   const handlePause = useCallback(() => {
-    const currentState = stateRef.current;
-    if (currentState.screen !== 'play' || currentState.over) return;
+    const s = sRef.current;
+    if (s.screen !== 'play' || s.over) return;
 
-    setState(prev => ({ ...prev, paused: true }));
+    s.paused = true;
     setOverlayConfig({
       show: true,
       title: 'PAUSED',
-      sub: `LEVEL ${currentState.level}`,
+      sub: `LEVEL ${s.level}`,
       buttons: [
-        { label: 'RESUME', onClick: handleResume },
-        { label: 'RESTART', ghost: true, onClick: () => currentState.key && startGame(currentState.key) },
+        { label: 'RESUME', onClick: () => handleResumeRef.current() },
+        { label: 'RESTART', ghost: true, onClick: () => s.key && startGame(s.key) },
         { label: 'MENU', ghost: true, onClick: openMenu },
       ],
     });
-  }, [startGame, openMenu]);
+    syncView();
+  }, [startGame, openMenu, syncView]);
 
   const handleResume = useCallback(() => {
-    const currentState = stateRef.current;
-    if (currentState.screen !== 'play' || currentState.over) return;
-    setState(prev => ({ ...prev, paused: false }));
-    setOverlayConfig({ show: false, title: '', buttons: [] });
-  }, []);
+    const s = sRef.current;
+    if (s.screen !== 'play' || s.over) return;
+    s.paused = false;
+    hideOverlay();
+    syncView();
+  }, [hideOverlay, syncView]);
+  handleResumeRef.current = handleResume;
 
   const handleContinue = useCallback(() => {
-    const currentState = stateRef.current;
-    if (currentState.screen === 'menu') {
-      const sel = menuRef.current?.sel ?? 0;
-      const entry = catalogRef.current[sel];
+    // CONTINUE: starts the selected game on the menu, resumes in play.
+    // On the Scores screen it's neither, so — deviating from the original,
+    // where this was a dead click — it takes you back to the menu instead.
+    const screen = sRef.current.screen;
+    if (screen === 'menu') {
+      const entry = catalogRef.current[menuRef.current?.sel ?? 0];
       if (entry) startGame(entry.key);
+    } else if (screen === 'board') {
+      openMenu();
     } else {
       handleResume();
     }
-  }, [startGame, handleResume]);
+  }, [startGame, openMenu, handleResume]);
 
-  const handlePress = useCallback((dir: Direction) => {
-    if (dir === 'left' || dir === 'right' || dir === 'up' || dir === 'down') {
-      heldRef.current[dir] = true;
-    }
+  const finishSplash = useCallback(() => {
+    if (sRef.current.screen !== 'splash') return;
+    openMenu();
+  }, [openMenu]);
 
-    const currentState = stateRef.current;
+  const handlePress = useCallback(
+    (dir: Direction) => {
+      if (dir === 'left' || dir === 'right' || dir === 'up' || dir === 'down') {
+        heldRef.current[dir] = true;
+      }
 
-    // Splash: any button skips it
-    if (currentState.screen === 'splash') {
-      if (dir === 'action') finishSplash();
-      return;
-    }
+      const s = sRef.current;
 
-    // Handle overlay focus navigation
-    if (overlayConfig.show || showSettings) {
-      // Let overlay/settings handle navigation
-      return;
-    }
-
-    // Menu navigation
-    if (currentState.screen === 'menu') {
-      if (dir === 'down') {
-        openLeaderboard();
+      // splash: the centre button skips it
+      if (s.screen === 'splash') {
+        if (dir === 'action') finishSplash();
         return;
       }
-    }
 
-    if (currentState.paused || currentState.over) return;
+      // a panel is open (pause / game over / level up / settings): the
+      // controls drive that panel instead of the game
+      if (focusActive()) {
+        // in the header row left/right walk the buttons and up/down drops
+        // back to the board; everywhere else it's a plain vertical list
+        if (isHost(headerRef.current)) {
+          if (dir === 'right') return moveFocus(1);
+          if (dir === 'left') return moveFocus(-1);
+          if (dir === 'down' || dir === 'up') return clearFocus();
+          if (dir === 'action') return activateFocus();
+          return;
+        }
+        if (dir === 'down' || dir === 'right') return moveFocus(1);
+        if (dir === 'up' || dir === 'left') return moveFocus(-1);
+        if (dir === 'action') return activateFocus();
+        return;
+      }
 
-    const game = gameRef.current;
-    if (game?.press) game.press(dir);
-  }, [overlayConfig.show, showSettings, openLeaderboard]);
+      // on the carousel the up/down axis is free (the carousel only uses
+      // left/right): up reaches the header row, down opens the scores
+      if (s.screen === 'menu' && dir === 'up') return focusIn(headerRef.current, 0);
+      if (s.screen === 'menu' && dir === 'down') return openLeaderboard();
+
+      if (s.paused || s.over) return;
+
+      gameRef.current?.press?.(dir);
+    },
+    [finishSplash, focusActive, isHost, moveFocus, clearFocus, activateFocus, focusIn, openLeaderboard]
+  );
 
   const handleRelease = useCallback((dir: Direction) => {
     if (dir === 'left' || dir === 'right' || dir === 'up' || dir === 'down') {
@@ -449,38 +523,73 @@ export function ArcadeGame() {
     }
   }, []);
 
-  const finishSplash = useCallback(() => {
-    if (stateRef.current.screen !== 'splash') return;
-    openMenu();
-  }, [openMenu]);
-
-  const handleHandChange = useCallback((hand: string) => {
-    setState(prev => ({ ...prev, hand }));
-    saveHand(hand);
+  const handleHandChange = useCallback((h: string) => {
+    setHand(h);
+    saveHand(h);
   }, []);
 
+  // Confirmation chirp fires only when sound is switched ON, and only from a
+  // user toggle — never from the value restored out of localStorage.
+  const pendingChirp = useRef(false);
   const handleSoundToggle = useCallback(() => {
-    setSoundOn(prev => {
-      const newVal = !prev;
-      saveSound(newVal);
-      return newVal;
+    setSoundOn((prev) => {
+      const next = !prev;
+      saveSound(next);
+      pendingChirp.current = next;
+      return next;
     });
   }, []);
 
+  useEffect(() => {
+    if (soundOn && pendingChirp.current) {
+      pendingChirp.current = false;
+      playConfirmation();
+    }
+  }, [soundOn, playConfirmation]);
+
   const handleOpenSettings = useCallback(() => {
-    const currentState = stateRef.current;
-    if (currentState.screen === 'play' && !currentState.paused && !currentState.over) {
-      setState(prev => ({ ...prev, paused: true }));
+    const s = sRef.current;
+    if (s.screen === 'play' && !s.paused && !s.over) {
+      s.paused = true;
+      settingsAutoPaused.current = true;
+      syncView();
     }
     setShowSettings(true);
-  }, []);
+  }, [syncView]);
 
   const handleCloseSettings = useCallback(() => {
     setShowSettings(false);
-  }, []);
+    // only resume if opening settings is what paused us
+    if (settingsAutoPaused.current) {
+      sRef.current.paused = false;
+      settingsAutoPaused.current = false;
+      syncView();
+    }
+  }, [syncView]);
+
+  // Overlay owns the controls while it is up; on close the focus is released,
+  // and closing settings over a still-open overlay hands them back to it.
+  useEffect(() => {
+    if (showSettings) return;
+    if (overlayConfig.show) focusIn(ovBtnsRef.current, 0);
+    else clearFocus();
+  }, [overlayConfig, showSettings, focusIn, clearFocus]);
+
+  // Settings opens on the currently-selected hand style.
+  useEffect(() => {
+    if (!showSettings) return;
+    const at = indexOf(settingsRef.current, (b) => b.dataset.hand === handRef.current);
+    focusIn(settingsRef.current, at < 0 ? 0 : at);
+  }, [showSettings, focusIn, indexOf]);
+
+  // Selecting a style or toggling sound re-renders those pills, which wipes
+  // the imperative highlight — put it back.
+  useEffect(() => {
+    if (showSettings) paintFocus();
+  }, [hand, soundOn, showSettings, paintFocus]);
 
   const handleCanvasClick = useCallback((x: number, y: number) => {
-    if (stateRef.current.screen !== 'menu') return;
+    if (sRef.current.screen !== 'menu') return;
     menuRef.current?.hit?.(x, y);
   }, []);
 
@@ -499,7 +608,7 @@ export function ArcadeGame() {
       Enter: 'action',
     };
 
-    const handleKeyDown = (e: KeyboardEvent) => {
+    const onKeyDown = (e: KeyboardEvent) => {
       const d = KEYS[e.key];
       if (d) {
         e.preventDefault();
@@ -507,69 +616,74 @@ export function ArcadeGame() {
       }
     };
 
-    const handleKeyUp = (e: KeyboardEvent) => {
+    const onKeyUp = (e: KeyboardEvent) => {
       const d = KEYS[e.key];
       if (d) handleRelease(d);
     };
 
-    window.addEventListener('keydown', handleKeyDown);
-    window.addEventListener('keyup', handleKeyUp);
+    window.addEventListener('keydown', onKeyDown);
+    window.addEventListener('keyup', onKeyUp);
 
     return () => {
-      window.removeEventListener('keydown', handleKeyDown);
-      window.removeEventListener('keyup', handleKeyUp);
+      window.removeEventListener('keydown', onKeyDown);
+      window.removeEventListener('keyup', onKeyUp);
     };
   }, [handlePress, handleRelease]);
 
-  const gameTitle = state.screen === 'menu' ? 'BASE ARCADE' : (gameRef.current?.title ?? 'BASE ARCADE');
-  const gameLabel = state.screen === 'menu' ? (catalogRef.current[menuRef.current?.sel ?? 0]?.short ?? '') : '';
+  const gameTitle =
+    view.screen === 'menu' ? 'BASE ARCADE' : gameRef.current?.title ?? 'BASE ARCADE';
+  const gameLabel = view.screen === 'menu' ? catalogRef.current[menuSel]?.short ?? '' : '';
 
   return (
     <div className="arcadeWrap">
-      <Splash show={state.screen === 'splash'} onFinish={finishSplash} />
+      <Splash show={view.screen === 'splash'} onFinish={finishSplash} />
 
       <Header title={gameTitle} onTitleClick={openMenu} />
 
       <HUD
-        coins={state.coins}
-        score={state.score}
-        time={state.time}
-        lives={state.lives}
-        livesApply={state.livesApply}
+        coins={view.coins}
+        score={view.score}
+        time={view.time}
+        lives={view.lives}
+        livesApply={view.livesApply}
       />
 
       <Controls
+        ref={headerRef}
         onPause={handlePause}
         onContinue={handleContinue}
         onSettings={handleOpenSettings}
-        pauseDisabled={state.screen !== 'play'}
+        pauseDisabled={view.screen !== 'play'}
         continueDisabled={false}
       />
 
       <GameBoard
         ref={boardRef}
         gameLabel={gameLabel}
-        showLabel={state.screen === 'menu'}
+        showLabel={view.screen === 'menu'}
         onCanvasClick={handleCanvasClick}
-      />
+      >
+        <Overlay
+          ref={ovBtnsRef}
+          show={overlayConfig.show}
+          title={overlayConfig.title}
+          sub={overlayConfig.sub}
+          buttons={overlayConfig.buttons}
+          onHoverButton={(i) => focusIn(ovBtnsRef.current, i)}
+        />
+      </GameBoard>
 
       <DPadContainer
-        hand={state.hand}
+        hand={hand}
         onPress={handlePress}
         onRelease={handleRelease}
         onSelectPress={() => handlePress('action')}
       />
 
-      <Overlay
-        show={overlayConfig.show}
-        title={overlayConfig.title}
-        sub={overlayConfig.sub}
-        buttons={overlayConfig.buttons}
-      />
-
       <SettingsPanel
+        ref={settingsRef}
         show={showSettings}
-        hand={state.hand}
+        hand={hand}
         soundOn={soundOn}
         onClose={handleCloseSettings}
         onHandChange={handleHandChange}

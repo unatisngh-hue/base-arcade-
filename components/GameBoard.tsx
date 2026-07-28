@@ -1,11 +1,17 @@
 'use client';
 
+import type { ReactNode } from 'react';
 import { useRef, useEffect, forwardRef, useImperativeHandle } from 'react';
 
 interface GameBoardProps {
   gameLabel?: string;
   showLabel: boolean;
   onCanvasClick?: (x: number, y: number) => void;
+  /** Rendered inside the board wrapper, after the label — matches the
+      original's `#boardWrap > #overlay`, so the pause/game-over overlay's
+      `position:absolute; inset:0` is scoped to the board only and never
+      covers the header row's PAUSE/CONTINUE/gear buttons. */
+  children?: ReactNode;
 }
 
 export interface GameBoardRef {
@@ -15,7 +21,7 @@ export interface GameBoardRef {
 }
 
 export const GameBoard = forwardRef<GameBoardRef, GameBoardProps>(
-  ({ gameLabel, showLabel, onCanvasClick }, ref) => {
+  ({ gameLabel, showLabel, onCanvasClick, children }, ref) => {
     const canvasRef = useRef<HTMLCanvasElement>(null);
     const wrapRef = useRef<HTMLDivElement>(null);
     const pixFrameRef = useRef<SVGSVGElement>(null);
@@ -53,6 +59,7 @@ export const GameBoard = forwardRef<GameBoardRef, GameBoardProps>(
         >
           {gameLabel}
         </div>
+        {children}
       </div>
     );
   }
