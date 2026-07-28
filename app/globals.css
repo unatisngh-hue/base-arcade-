@@ -159,7 +159,7 @@ body {
   background: transparent;
   padding: 0;
   cursor: pointer;
-  width: 132px;
+  width: clamp(84px, 34vw, 132px);
   height: 29px;
   flex: none;
 }

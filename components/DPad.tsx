@@ -123,7 +123,7 @@ export function DPadContainer({ hand, onPress, onRelease, onSelectPress }: DPadC
   };
 
   return (
-    <div className={`mt-[31px] w-full flex items-center flex-none px-[30px] min-h-[158px] ${getContainerClass()}`}>
+    <div className={`mt-[31px] w-full flex items-center flex-none px-[clamp(12px,8vw,30px)] min-h-[158px] ${getContainerClass()}`}>
       {hand === 'left' && (
         <button
           className="selectBtn"
