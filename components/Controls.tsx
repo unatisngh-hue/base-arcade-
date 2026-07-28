@@ -18,7 +18,10 @@ export const Controls = forwardRef<HTMLDivElement, ControlsProps>(function Contr
   ref
 ) {
   return (
-    <div ref={ref} className="flex items-center w-full px-[19px] pr-[25px] mt-[22px] gap-0">
+    <div
+      ref={ref}
+      className="flex items-center justify-between w-full px-[clamp(12px,5vw,19px)] mt-[22px] gap-[clamp(8px,3vw,16px)]"
+    >
       <button
         className="pill"
         onClick={onPause}
@@ -26,14 +29,14 @@ export const Controls = forwardRef<HTMLDivElement, ControlsProps>(function Contr
         dangerouslySetInnerHTML={{ __html: pillSVG(132, 29) + '<span>PAUSE</span>' }}
       />
       <button
-        className="pill ml-[27px]"
+        className="pill"
         onClick={onContinue}
         disabled={continueDisabled}
         dangerouslySetInnerHTML={{ __html: pillSVG(132, 29) + '<span>CONTINUE</span>' }}
       />
       <button
         onClick={onSettings}
-        className="gearBtn ml-[16px]"
+        className="gearBtn"
         aria-label="Settings"
       >
         <svg viewBox="0 0 16 18" xmlns="http://www.w3.org/2000/svg" shapeRendering="crispEdges">
